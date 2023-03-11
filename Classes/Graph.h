@@ -2,6 +2,7 @@
 #define DA_PROJ1_GRAPH_H
 
 #include <vector>
+#include <string>
 
 #include "VertexEdge.h"
 
@@ -10,27 +11,29 @@ public:
     /*
     * Auxiliary function to find a vertex with a given ID.
     */
-    Vertex *findVertex(const int &id) const;
+    Station* findVertex(const std::string& name) const;
     /*
      *  Adds a vertex with a given content or info (in) to a graph (this).
      *  Returns true if successful, and false if a vertex with that content already exists.
      */
-    bool addVertex(const int &id);
+    bool addVertex(Station* station);
 
     /*
      * Adds an edge to a graph (this), given the contents of the source and
      * destination vertices and the edge weight (w).
      * Returns true if successful, and false if the source or destination vertex does not exist.
      */
-    bool addEdge(const int &sourc, const int &dest, double w, bool alfa);
-    bool addBidirectionalEdge(const int &sourc, const int &dest, double w, bool alfa);
+    bool addEdge(Station* sourc, Station* dest, double w, bool alfa);
+    bool addBidirectionalEdge(Station* sourc, Station* dest, double w, bool alfa);
+
+    std::vector<Station*> getVertexSet() const;
 private:
-    std::vector<Vertex *> vertexSet;    // vertex set
+    std::vector<Station *> vertexSet;    // vertex set
 
     /*
      * Finds the index of the vertex with a given content.
      */
-    int findVertexIdx(const int &id) const;
+    int findVertexIdx(const std::string& name) const;
 };
 
 

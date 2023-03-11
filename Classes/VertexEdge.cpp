@@ -1,52 +1,84 @@
 #include "VertexEdge.h"
 
-Vertex::Vertex(int id): id(id) {}
+Station::Station(const std::string &name, District *district, Municipality *municipality, const std::string &township,
+                 const std::string &line) {
+    this->name = name;
+    this->district = district;
+    this->municipality = municipality;
+    this->township = township;
+    this->line = line;
+}
 
-Edge * Vertex::addEdge(Vertex *d, double w, bool alfa) {
+std::string Station::getName() const {
+    return name;
+}
+
+void Station::setName(const std::string &name) {
+    Station::name = name;
+}
+
+std::string Station::getTownship() const {
+    return township;
+}
+
+void Station::setTownship(const std::string &township) {
+    Station::township = township;
+}
+
+District *Station::getDistrict() const {
+    return district;
+}
+
+void Station::setDistrict(District *district) {
+    Station::district = district;
+}
+
+Municipality *Station::getMunicipality() const {
+    return municipality;
+}
+
+void Station::setMunicipality(Municipality *municipality) {
+    Station::municipality = municipality;
+}
+
+std::string Station::getLine() const {
+    return line;
+}
+
+void Station::setLine(const std::string &line) {
+    Station::line = line;
+}
+
+Edge * Station::addEdge(Station *d, double w, bool alfa) {
     auto newEdge = new Edge(this, d, w, alfa);
     adj.push_back(newEdge);
     return newEdge;
 }
 
-int Vertex::getId() const {
-    return this->id;
-}
-
-std::vector<Edge*> Vertex::getAdj() const {
+std::vector<Edge*> Station::getAdj() const {
     return this->adj;
 }
 
-bool Vertex::isVisited() const {
+bool Station::isVisited() const {
     return this->visited;
 }
 
-void Vertex::setId(int id) {
-    this->id = id;
-}
 
-void Vertex::setVisited(bool visited) {
+void Station::setVisited(bool visited) {
     this->visited = visited;
 }
 
-Station* Vertex::getStation() const {
-    return station;
-}
+Edge::Edge(Station *orig, Station *dest, double w, bool alfa): orig(orig), dest(dest), weight(w), alfa(alfa) {}
 
-void Vertex::setStation(Station *station) {
-    this->station = station;
-}
-
-Edge::Edge(Vertex *orig, Vertex *dest, double w, bool alfa): orig(orig), dest(dest), weight(w), alfa(alfa) {}
-
-Vertex * Edge::getDest() const {
+Station * Edge::getDest() const {
     return this->dest;
 }
 
-double Edge::getWeight() const {
+int Edge::getWeight() const {
     return this->weight;
 }
 
-Vertex * Edge::getOrig() const {
+Station * Edge::getOrig() const {
     return this->orig;
 }
 
@@ -54,7 +86,7 @@ Edge *Edge::getReverse() const {
     return this->reverse;
 }
 
-double Edge::getFlow() const {
+int Edge::getFlow() const {
     return flow;
 }
 
@@ -62,7 +94,7 @@ void Edge::setReverse(Edge *reverse) {
     this->reverse = reverse;
 }
 
-void Edge::setFlow(double flow) {
+void Edge::setFlow(int flow) {
     this->flow = flow;
 }
 

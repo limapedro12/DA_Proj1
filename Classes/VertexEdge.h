@@ -1,62 +1,73 @@
-#ifndef DA_PROJ1_VERTEXEDGE_H
-#define DA_PROJ1_VERTEXEDGE_H
+#ifndef DA_PROJ1_StationEDGE_H
+#define DA_PROJ1_StationEDGE_H
 
 #include <vector>
+#include <string>
 
-#include "Station.h"
+#include "Municipality.h"
+#include "District.h"
 
 class Edge;
 
-class Vertex {
-public:
-    Vertex(int id);
+class Municipality;
+class District;
 
-    int getId() const;
+class Station {
+public:
+    Station(const std::string& name, District* district, Municipality* municipality, const std::string& township, const std::string& line);
+    District *getDistrict() const;
+    void setDistrict(District *district);
+    Municipality *getMunicipality() const;
+    void setMunicipality(Municipality *municipality);
+    std::string getLine() const;
+    void setLine(const std::string &line);
+    std::string getTownship() const;
+    void setTownship(const std::string &township);
+    std::string getName() const;
+    void setName(const std::string &name);
+    
     std::vector<Edge *> getAdj() const;
     bool isVisited() const;
-
-    void setId(int info);
     void setVisited(bool visited);
-
-    Edge * addEdge(Vertex *dest, double w, bool alfa);
-
-    Station* getStation() const;
-    void setStation(Station* station);
+    Edge * addEdge(Station *dest, double w, bool alfa);
 private:
-    int id;
+    std::string name;
+    District* district;
+    Municipality* municipality;
+    std::string township;
+    std::string line;
+    
     std::vector<Edge *> adj;
     bool visited = false;
-
-    Station* station;
 };
 
 class Edge {
 public:
-    Edge(Vertex *orig, Vertex *dest, double w, bool isAlfa);
+    Edge(Station *orig, Station *dest, double w, bool isAlfa);
 
-    Vertex * getDest() const;
-    double getWeight() const;
-    Vertex * getOrig() const;
+    Station * getDest() const;
+    int getWeight() const;
+    Station * getOrig() const;
     Edge *getReverse() const;
-    double getFlow() const;
+    int getFlow() const;
 
     void setReverse(Edge *reverse);
-    void setFlow(double flow);
+    void setFlow(int flow);
     bool isAlfa() const;
     void setAlfa(bool alfa);
 private:
-    Vertex * dest;
-    double weight;
+    Station * dest;
+    int weight;
 
     bool selected = false;
 
-    Vertex *orig;
+    Station *orig;
     Edge *reverse = nullptr;
 
-    double flow;
+    int flow;
 
     bool alfa; // false if service is STANDARD, true if ALFA PENDULAR
 };
 
 
-#endif //DA_PROJ1_VERTEXEDGE_H
+#endif //DA_PROJ1_StationEDGE_H

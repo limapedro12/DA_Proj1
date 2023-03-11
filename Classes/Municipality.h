@@ -4,12 +4,16 @@
 #include <string>
 #include <vector>
 
-#include "Station.h"
+#include "VertexEdge.h"
+
+class Station;
 
 class Municipality {
 public:
     Municipality(const std::string& name);
     void addStation(Station* station);
+    bool operator<(const Municipality& other) const;
+    std::string getName() const;
 private:
     std::string name;
     std::vector<Station*> stations;
