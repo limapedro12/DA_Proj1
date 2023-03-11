@@ -1,8 +1,15 @@
 #ifndef DA_PROJ1_GRAPH_H
 #define DA_PROJ1_GRAPH_H
 
+#include <string>
 #include <vector>
 #include <string>
+#include <limits>
+#include <list>
+#include <queue>
+#include <unordered_map>
+#include <iostream>
+#include <algorithm>
 
 #include "VertexEdge.h"
 
@@ -27,6 +34,12 @@ public:
     bool addBidirectionalEdge(Station* sourc, Station* dest, double w, bool alfa);
 
     std::vector<Station*> getVertexSet() const;
+
+//    void createResidualGraph(const Graph& g);
+    std::vector<Edge*> path(const std::string& source, const std::string& dest) const;
+    double findBottleneck(std::vector<Edge*> path);
+    void edmondsKarp(const std::string& source, const std::string& target);
+
 private:
     std::vector<Station *> vertexSet;    // vertex set
 

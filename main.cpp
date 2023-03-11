@@ -3,8 +3,8 @@
 
 int main() {
     Graph graph;
-    readStations("Project1Data/stations.csv", graph);
-    readNetwork("Project1Data/network.csv", graph);
+    readStations("Project1Data/stations_alt.csv", graph);
+    readNetwork("Project1Data/network_alt.csv", graph);
 
 //    for(auto d : all_districts)
 //        std::cout << d -> getName() << std::endl;
@@ -18,6 +18,8 @@ int main() {
         for(auto e : v->getAdj())
             std::cout << "----- " << e->getDest()->getName() << ", " << e->getWeight() << ", " << e->isAlfa() << std::endl;
     }
+
+    graph.edmondsKarp("s", "t");
 
     return 0;
 }

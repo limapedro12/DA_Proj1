@@ -1,0 +1,11 @@
+Station_A,Station_B,Capacity,Service
+s,2,6,
+s,3,6,
+s,4,4,
+2,5,8,
+3,4,2,
+3,t,4,
+4,2,2,
+4,t,4,
+5,4,2,
+5,t,2,
