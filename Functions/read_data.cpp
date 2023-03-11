@@ -5,7 +5,7 @@ std::set<District*> all_districts;
 std::set<Municipality*> all_municipalities;
 
 void readStations(const std::string& filename, Graph& graph){
-    std::ifstream file("../" + filename);
+    std::ifstream file(filename);
     std::string doc_line;
     std::getline(file, doc_line);
 
@@ -43,7 +43,7 @@ void readStations(const std::string& filename, Graph& graph){
 }
 
 void readNetwork(const std::string& filename, Graph& graph){
-    std::ifstream file("../" + filename);
+    std::ifstream file(filename);
     std::string doc_line;
     std::getline(file, doc_line);
 

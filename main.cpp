@@ -1,8 +1,8 @@
 #include <iostream>
-#include "Functions/read_data.h"
+#include "Interface/Menu.h"
 
 int main() {
-    Graph graph;
+    /*Graph graph;
     readStations("Project1Data/stations.csv", graph);
     readNetwork("Project1Data/network.csv", graph);
 
@@ -20,7 +20,10 @@ int main() {
 //    }
 
 
-    graph.edmondsKarp("Porto Campanhã", "Lisboa Oriente");
+    graph.edmondsKarp("Porto Campanhã", "Lisboa Oriente");*/
+
+    Menu menu;
+    menu.mainMenu();
 
     return 0;
 }
