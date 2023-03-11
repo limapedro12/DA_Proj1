@@ -127,6 +127,8 @@ vector<Edge*> Graph::path(const string& source, const string& dest) const {
                     break;
                 }
             }
+        if(found)
+            break;
         q.pop();
     }
     if(!found)
@@ -156,6 +158,10 @@ void Graph::edmondsKarp(const string& source, const string& target) {
 
     vector<Edge*> p = residual.path(source, target);
 
+    for(Station* v: residual.getVertexSet())
+        for(Edge* e: v->getAdj())
+            e->setFlow(0);
+
 //    for(auto i : p)
 //        cout << i->getOrig()->getId() << ", "; cout << p.back()->getDest()->getId() << endl;
 
@@ -170,6 +176,6 @@ void Graph::edmondsKarp(const string& source, const string& target) {
 
     for(Station* v: residual.getVertexSet())
         for(Edge* e: v->getAdj())
-            if(e->getFlow() >= 0)
+            if(e->getFlow() > 0)
                 cout << e->getOrig()->getName() << " -" << e->getFlow() << "-> " << e->getDest()->getName() << endl;
 }
