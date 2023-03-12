@@ -3,9 +3,9 @@
 void Menu::mainMenu() {
     while (true) {
         std::cout << "\nEscolha uma opção, escrevendo o número correspondente e pressionando ENTER\n" <<
-                  "1 - Carregar uma rede ferroviária (leitura e parsing dos dados).\n";
+                  "1 - Carregar uma rede ferroviária (leitura e parsing dos dados)\n";
         if (dataReady) {
-            std::cout << "2 - ..." << std::endl;
+            std::cout << "2 - Informações básicas sobre a rede\n" << std::endl;
         } else std::cout << "\nAs restantes opções apenas ficarão disponíveis quando carregar uma das redes disponíveis.\n\n";
 
         std::cout << "0 - Sair do programa" << std::endl;
@@ -17,11 +17,12 @@ void Menu::mainMenu() {
             std::getline(std::cin, input);
             option = std::stoi(input);
             std::cout << "\n";
-            if (option >= 0 && option <= 1) break;
+            if (option >= 0 && option <= 2) break;
             else std::cout << "Opção inválida. Por favor tente novamente.\n\n";
         }
 
         if (option == 1) readData();
+        else if (option == 2) basicMetrics();
         else if (option == 0) {
             std::cout << "Obrigado por usar o nosso programa!\n\nFrancisco Alves, Pedro Lima e Pedro Januário\n";
             return;
@@ -59,6 +60,25 @@ void Menu::readData() {
 
 void Menu::basicMetrics() {
     while (true) {
+        std::cout << "Escolha uma opção, escrevendo o número correspondente e pressionando ENTER.\n" <<
+        "1 - Número máximo de comboios que podem viajar entre duas estações específicas\n" <<
+        "2 - Par(es) de estações que requer(em) o maior número de comboios, ao tirar total partido de toda a rede\n" <<
+        "3 - Top-k de municípios ou distritos com maiores necessidades.\n" <<
+        "4 - Número máximo de comboios que podem chegar simultaneamente a uma dada estação, tendo em conta toda a rede.\n" <<
+        "0 - Menu anterior\n\n";
 
+        std::string input;
+        int option;
+
+        while (true) {
+            std::getline(std::cin, input);
+            option = std::stoi(input);
+            std::cout << "\n";
+            if (option >= 0 && option <= 4) break;
+            else std::cout << "Opção inválida. Por favor tente novamente.\n\n";
+        }
+
+        if (option == 1);
+        else if (option == 0) return;
     }
 }
