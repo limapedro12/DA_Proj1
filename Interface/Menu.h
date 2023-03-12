@@ -16,6 +16,8 @@ private:
 
     void readData();
     void basicMetrics();
+    void costOptimization();
+    void networkReliability();
 };
 
 #endif //DA_PROJ1_MENU_H
