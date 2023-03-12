@@ -38,6 +38,7 @@ void Menu::readData() {
     while (true) {
         std::cout << "\nEscolha uma opção, escrevendo o número correspondente e pressionando ENTER\n" <<
         "1 - Rede completa\n" <<
+        "2 - Rede completa (sem caracteres não-ASCII)\n" <<
         "0 - Menu anterior\n\n";
 
         std::string input;
@@ -47,7 +48,7 @@ void Menu::readData() {
             std::getline(std::cin, input);
             option = std::stoi(input);
             std::cout << "\n";
-            if (option >= 0 && option <= 1) break;
+            if (option >= 0 && option <= 2) break;
             else std::cout << "Opção inválida. Por favor tente novamente.\n\n";
         }
 
@@ -56,6 +57,13 @@ void Menu::readData() {
             this->graph = g;
             readStations("../Project1Data/stations.csv", graph);
             readNetwork("../Project1Data/network.csv", graph);
+            dataReady = true;
+            return;
+        } else if (option == 2) {
+            Graph g;
+            this->graph = g;
+            readStations("../Project1Data/stations_ascii.csv", graph);
+            readNetwork("../Project1Data/network_ascii.csv", graph);
             dataReady = true;
             return;
         } else if (option == 0) return;
@@ -67,7 +75,7 @@ void Menu::basicMetrics() {
         std::cout << "Escolha uma opção, escrevendo o número correspondente e pressionando ENTER.\n" <<
         "1 - Número máximo de comboios que podem viajar entre duas estações específicas\n" <<
         "2 - Par(es) de estações que requer(em) o maior número de comboios, ao tirar total partido de toda a rede\n" <<
-        "3 - Top-k de municípios ou distritos com maiores necessidades.\n" <<
+        "3 - Top-k de municípios e distritos com maiores necessidades.\n" <<
         "4 - Número máximo de comboios que podem chegar simultaneamente a uma dada estação, tendo em conta toda a rede\n" <<
         "0 - Menu anterior\n\n";
 
@@ -82,17 +90,41 @@ void Menu::basicMetrics() {
             else std::cout << "Opção inválida. Por favor tente novamente.\n\n";
         }
 
-        if (option == 1);
-        else if (option == 2);
-        else if (option == 3);
-        else if (option == 4);
+        if (option == 1) basicMetrics1();
+        else if (option == 2) basicMetrics2();
+        else if (option == 3) basicMetrics3();
+        else if (option == 4) basicMetrics4();
         else if (option == 0) return;
     }
 }
 
 void Menu::costOptimization() {
+    Station* source;
+    while (true) {
+        std::cout << "Introduza o nome da estação de origem:\n";
+
+        std::string input;
+        std::getline(std::cin, input);
+
+        source = graph.findVertex(input);
+        if (source != nullptr) break;
+        std::cout << "\nEstação não encontrada. Por favor tente novamente.\n\n";
+    }
+
+    Station* dest;
+    while (true) {
+        std::cout << "Introduza o nome da estação de destino:\n";
+
+        std::string input;
+        std::getline(std::cin, input);
+
+        dest = graph.findVertex(input);
+        if (dest != nullptr) break;
+        std::cout << "\nEstação não encontrada. Por favor tente novamente.\n\n";
+    }
+
     /*
-     * call necessary graph method(s)
+     * chamar funções do grafo
      */
 }
 
@@ -119,3 +151,60 @@ void Menu::networkReliability() {
          else if (option == 0) return;
      }
 }
+
+void Menu::basicMetrics1() {
+    Station* source;
+    while (true) {
+        std::cout << "Introduza o nome da estação de origem:\n";
+
+        std::string input;
+        std::getline(std::cin, input);
+
+        source = graph.findVertex(input);
+        if (source != nullptr) break;
+        std::cout << "\nEstação não encontrada. Por favor tente novamente.\n\n";
+    }
+
+    Station* dest;
+    while (true) {
+        std::cout << "Introduza o nome da estação de destino:\n";
+
+        std::string input;
+        std::getline(std::cin, input);
+
+        dest = graph.findVertex(input);
+        if (dest != nullptr) break;
+        std::cout << "\nEstação não encontrada. Por favor tente novamente.\n\n";
+    }
+}
+
+void Menu::basicMetrics2() {
+    /*
+     * chamar método grafo
+     */
+}
+
+void Menu::basicMetrics3() {
+    while (true) {
+        std::cout << "Qual o tamanho do top (k do top-k)?\n";
+
+        std::string input;
+        std::getline(std::cin, input);
+
+        int k = stoi(input);
+
+        if (k > 0) break;
+        std::cout << "Número inválido. Por favor introduza um inteiro positivo.\n\n";
+    }
+
+    /*
+     * chamar método grafo
+     */
+}
+
+void Menu::basicMetrics4() {
+    /*
+     * chamar método grafo
+     */
+}
+

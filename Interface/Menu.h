@@ -18,6 +18,14 @@ private:
     void basicMetrics();
     void costOptimization();
     void networkReliability();
+
+    void basicMetrics1();
+    void basicMetrics2();
+    void basicMetrics3();
+    void basicMetrics4();
+
+    void networkReliability1();
+    void networkReliability2();
 };
 
 #endif //DA_PROJ1_MENU_H
