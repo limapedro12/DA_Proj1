@@ -19,8 +19,10 @@ void Menu::mainMenu() {
             std::getline(std::cin, input);
             option = std::stoi(input);
             std::cout << "\n";
-            if (option >= 0 && option <= 4) break;
-            else std::cout << "Opção inválida. Por favor tente novamente.\n\n";
+            if (dataReady) {
+                if (option >= 0 && option <= 4) break;
+            } else if (option == 1) break;
+            std::cout << "Opção inválida. Por favor tente novamente.\n\n";
         }
 
         if (option == 1) readData();
@@ -146,8 +148,8 @@ void Menu::networkReliability() {
              else std::cout << "Opção inválida. Por favor tente novamente.\n\n";
          }
 
-         if (option == 1);
-         else if (option == 2);
+         if (option == 1) networkReliability1();
+         else if (option == 2) networkReliability2();
          else if (option == 0) return;
      }
 }
@@ -186,7 +188,7 @@ void Menu::basicMetrics2() {
 
 void Menu::basicMetrics3() {
     while (true) {
-        std::cout << "Qual o tamanho do top (k do top-k)?\n";
+        std::cout << "Qual o tamanho k do top (top-k)?\n";
 
         std::string input;
         std::getline(std::cin, input);
@@ -203,8 +205,67 @@ void Menu::basicMetrics3() {
 }
 
 void Menu::basicMetrics4() {
+    Station* s;
+    while (true) {
+        std::cout << "Introduza o nome da estação:\n";
+
+        std::string input;
+        std::getline(std::cin, input);
+
+        s = graph.findVertex(input);
+        if (s != nullptr) break;
+        std::cout << "\nEstação não encontrada. Por favor tente novamente.\n\n";
+    }
+
     /*
      * chamar método grafo
      */
 }
 
+void Menu::networkReliability1() {
+    Station* source;
+    while (true) {
+        std::cout << "Introduza o nome da estação de origem:\n";
+
+        std::string input;
+        std::getline(std::cin, input);
+
+        source = graph.findVertex(input);
+        if (source != nullptr) break;
+        std::cout << "\nEstação não encontrada. Por favor tente novamente.\n\n";
+    }
+
+    Station* dest;
+    while (true) {
+        std::cout << "Introduza o nome da estação de destino:\n";
+
+        std::string input;
+        std::getline(std::cin, input);
+
+        dest = graph.findVertex(input);
+        if (dest != nullptr) break;
+        std::cout << "\nEstação não encontrada. Por favor tente novamente.\n\n";
+    }
+
+    /*
+     * chamar método grafo
+     */
+}
+
+void Menu::networkReliability2() {
+    while (true) {
+        std::cout << "Qual o tamanho k do top (top-k)?\n";
+
+        std::string input;
+        std::getline(std::cin, input);
+
+        int k = stoi(input);
+
+        if (k > 0) break;
+        std::cout << "Número inválido. Por favor introduza um inteiro positivo.\n\n";
+    }
+
+    /*
+     * chamar método grafo
+     */
+}
