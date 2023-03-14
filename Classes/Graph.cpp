@@ -117,19 +117,23 @@ vector<Edge*> Graph::path(const string& source, const string& dest) const {
     v -> setVisited(true);
     while(!q.empty()){
         auto x = q.front();
+//        cout << x->getName() << endl;
+        x->setVisited(true);
+        q.pop();
         for(Edge* e: x->getAdj())
             if(!(e->getDest()->isVisited()) && 2 * e->getWeight() > e->getFlow()){
+//                cout << e->getDest()->getName() << endl;
                 e->getDest() -> setVisited(true);
                 q.push(e->getDest());
                 before[e->getDest()] = e;
                 if(e->getDest() == dest_v) {
+//                    cout << "found" << endl;
                     found = true;
                     break;
                 }
             }
         if(found)
             break;
-        q.pop();
     }
     if(!found)
         return res;
@@ -154,13 +158,13 @@ double Graph::findBottleneck(vector<Edge*> path){
 }
 
 void Graph::edmondsKarp(const string& source, const string& target) {
+    for(Station* v: vertexSet)
+        for(Edge* e: v->getAdj())
+            e->setFlow(0);
+
     Graph residual = *this;
 
     vector<Edge*> p = residual.path(source, target);
-
-    for(Station* v: residual.getVertexSet())
-        for(Edge* e: v->getAdj())
-            e->setFlow(0);
 
 //    for(auto i : p)
 //        cout << i->getOrig()->getId() << ", "; cout << p.back()->getDest()->getId() << endl;
