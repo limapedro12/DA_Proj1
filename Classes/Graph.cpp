@@ -60,46 +60,7 @@ std::vector<Station*> Graph::getVertexSet() const {
     return vertexSet;
 }
 
-
-
 using namespace std;
-
-//void Graph::createResidualGraph(const Graph& g) {
-//    for(Station* v: g.getVertexSet())
-//        addVertex(v->getId());
-//
-//    for(Station* v: g.getVertexSet())
-//        for(Edge* e_or: v->getAdj()) {
-//            bool found = false;
-//            for (Edge *er_or: e_or->getDest()->getAdj())
-//                if (er_or->getDest() == e_or->getOrig()) {
-//                    found = true;
-//                    addEdge(e_or->getOrig()->getId(), e_or->getDest()->getId(), e_or->getWeight()+er_or->getWeight());
-//                    Edge* e = findVertex(e_or->getOrig()->getId())->getAdj().back();
-//                    addEdge(e_or->getDest()->getId(), e_or->getOrig()->getId(), e_or->getWeight()+er_or->getWeight());
-//                    Edge* er = findVertex(e_or->getDest()->getId())->getAdj().back();
-//                    e->setFlow(er_or->getWeight());
-//                    er->setFlow(e_or->getWeight());
-//                    e->setReverse(er_or);
-//                    er->setReverse(e_or);
-//                    originalEdges.insert({e, e_or});
-//                    originalEdges.insert({er, er_or});
-//                    break;
-//                }
-//            if(!found){
-//                addEdge(e_or->getOrig()->getId(), e_or->getDest()->getId(), e_or->getWeight());
-//                if(vertexSet.empty()) cout << "empty" << endl;
-//                Edge* e = findVertex(e_or->getOrig()->getId())->getAdj().back();
-//                addEdge(e_or->getDest()->getId(), e_or->getOrig()->getId(), e_or->getWeight());
-//                Edge *er = findVertex(e_or->getDest()->getId())->getAdj().back();
-//                e->setFlow(0);
-//                er ->setFlow(e_or->getWeight());
-//                e->setReverse(er);
-//                er->setReverse(e);
-//                originalEdges.insert({e, e_or});
-//            }
-//        }
-//}
 
 vector<Edge*> Graph::path(const string& source, const string& dest) const {
     std::vector<Edge*> res;
@@ -117,17 +78,14 @@ vector<Edge*> Graph::path(const string& source, const string& dest) const {
     v -> setVisited(true);
     while(!q.empty()){
         auto x = q.front();
-//        cout << x->getName() << endl;
         x->setVisited(true);
         q.pop();
         for(Edge* e: x->getAdj())
-            if(!(e->getDest()->isVisited()) && 2 * e->getWeight() > e->getFlow()){
-//                cout << e->getDest()->getName() << endl;
+            if(!(e->getDest()->isVisited()) && 2 * e->getWeight() > e->getFlow() + e->getReverse()->getFlow()){
                 e->getDest() -> setVisited(true);
                 q.push(e->getDest());
                 before[e->getDest()] = e;
                 if(e->getDest() == dest_v) {
-//                    cout << "found" << endl;
                     found = true;
                     break;
                 }
@@ -166,10 +124,10 @@ Graph Graph::edmondsKarp(const string& source, const string& target) {
 
     vector<Edge*> p = residual.path(source, target);
 
-//    for(auto i : p)
-//        cout << i->getOrig()->getId() << ", "; cout << p.back()->getDest()->getId() << endl;
+    bool found = false;
 
     while(!p.empty()){
+        found = true;
         double b = findBottleneck(p);
         for(Edge* e: p){
             e->setFlow(e->getFlow() + b);
@@ -178,10 +136,29 @@ Graph Graph::edmondsKarp(const string& source, const string& target) {
         p = residual.path(source, target);
     }
 
-    for(Station* v: residual.getVertexSet())
-        for(Edge* e: v->getAdj())
-            if(e->getFlow() > 0)
-                cout << e->getOrig()->getName() << " -" << e->getFlow() << "-> " << e->getDest()->getName() << endl;
+//    for(Station* v: residual.getVertexSet())
+//        for(Edge* e: v->getAdj())
+//            if(e->getFlow() > 0)
+//                cout << e->getOrig()->getName() << " -" << e->getFlow() << "-> " << e->getDest()->getName() << endl;
+
+    if(!found)
+        cout << "No path found!" << endl;
+
+    if(!found)
+        return NullGraph;
 
     return residual;
+}
+
+int Graph::maxFlow(const std::string& source, const std::string& target){
+    Graph residual = edmondsKarp(source, target);
+
+    if(residual.vertexSet.empty())
+        return -1;
+
+    int flow = 0;
+    for(Edge* e: residual.findVertex(source)->getAdj())
+        flow += e->getFlow();
+
+    return flow;
 }

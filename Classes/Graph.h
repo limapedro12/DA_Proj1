@@ -39,6 +39,9 @@ public:
     std::vector<Edge*> path(const std::string& source, const std::string& dest) const;
     double findBottleneck(std::vector<Edge*> path);
     Graph edmondsKarp(const std::string& source, const std::string& target);
+    int maxFlow(const std::string& source, const std::string& target);
+
+    static Graph NullGraph;
 
 private:
     std::vector<Station *> vertexSet;    // vertex set
@@ -48,6 +51,5 @@ private:
      */
     int findVertexIdx(const std::string& name) const;
 };
-
 
 #endif //DA_PROJ1_GRAPH_H

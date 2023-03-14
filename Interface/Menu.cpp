@@ -163,6 +163,7 @@ void Menu::basicMetrics1() {
         std::getline(std::cin, input);
 
         source = graph.findVertex(input);
+
         if (source != nullptr) break;
         std::cout << "\nEstação não encontrada. Por favor tente novamente.\n\n";
     }
@@ -178,6 +179,9 @@ void Menu::basicMetrics1() {
         if (dest != nullptr) break;
         std::cout << "\nEstação não encontrada. Por favor tente novamente.\n\n";
     }
+
+    int m = graph.maxFlow(source -> getName(), dest -> getName());
+    std::cout << "Número máximo de comboios que podem viajar entre " << source->getName() << " e " << dest->getName() << " numa rede de conectividade reduzida: " << m << std::endl;
 }
 
 void Menu::basicMetrics2() {
@@ -246,7 +250,6 @@ void Menu::networkReliability1() {
         if (dest != nullptr) break;
         std::cout << "\nEstação não encontrada. Por favor tente novamente.\n\n";
     }
-
     /*
      * chamar método grafo
      */
