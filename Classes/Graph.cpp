@@ -157,8 +157,43 @@ int Graph::maxFlow(const std::string& source, const std::string& target){
         return -1;
 
     int flow = 0;
-    for(Edge* e: residual.findVertex(source)->getAdj())
+    for(Edge* e: residual.findVertex(source)->getAdj()) {
         flow += e->getFlow();
+    }
 
     return flow;
+}
+
+int Graph::maxTrainsAtStation(Station* t){
+
+    Graph temp = *this;
+    int max = 0;
+    Station s("temp", nullptr, nullptr, "", "");
+    temp.addVertex(&s);
+    for(Station* v: vertexSet)
+        if(v != t)
+            temp.addBidirectionalEdge(&s, v, 1000000000, false);
+
+    auto f = temp.path(s.getName(), t->getName());
+    if(f.empty())
+        cout << "\n\n\nempty\n\n\n" << endl;
+
+    int ret = temp.maxFlow(s.getName(), t->getName());
+    if(ret == -1)
+        return 0;
+    return ret;
+
+//    vector<Station*> stations;
+//    int max = 0;
+//    for(Station* v: vertexSet)
+//        if(v != s){
+//            int flow = maxFlow(v->getName(), s->getName());
+//            if(flow > max) {
+//                max = flow;
+//                stations.clear();
+//                stations.push_back(v);
+//            } else if(flow == max)
+//                stations.push_back(v);
+//        }
+//    return {max, stations};
 }

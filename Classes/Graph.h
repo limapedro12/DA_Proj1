@@ -40,6 +40,7 @@ public:
     double findBottleneck(std::vector<Edge*> path);
     Graph edmondsKarp(const std::string& source, const std::string& target);
     int maxFlow(const std::string& source, const std::string& target);
+    int maxTrainsAtStation(Station* station);
 
 private:
     std::vector<Station *> vertexSet;    // vertex set

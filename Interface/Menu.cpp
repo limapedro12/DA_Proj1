@@ -235,6 +235,11 @@ void Menu::basicMetrics4() {
     /*
      * chamar método grafo
      */
+
+    int m = graph.maxTrainsAtStation(s);
+    std::cout << "Número máximo de comboios que podem chegar simultaneamente a " << s->getName() << " é " << m << std::endl;
+    wait();
+    clear();
 }
 
 void Menu::networkReliability1() {

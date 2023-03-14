@@ -55,6 +55,11 @@ void readNetwork(const std::string& filename, Graph& graph){
         std::getline(iss, weight, ',');
         std::getline(iss, alfa);
 
+        if(stoi(weight) == 0)
+            continue;
+        else if(stoi(weight)/2 >= 1000000000)
+            throw(std::invalid_argument("Weight can't be larger than 2000000000"));
+
         graph.addBidirectionalEdge(graph.findVertex(source), graph.findVertex(dest), std::stoi(weight)/2, alfa == "ALFA PENDULAR");
     }
 }
