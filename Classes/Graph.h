@@ -41,8 +41,6 @@ public:
     Graph edmondsKarp(const std::string& source, const std::string& target);
     int maxFlow(const std::string& source, const std::string& target);
 
-    static Graph NullGraph;
-
 private:
     std::vector<Station *> vertexSet;    // vertex set
 

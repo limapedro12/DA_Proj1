@@ -1,5 +1,8 @@
 #include "Menu.h"
 
+void clear() {for (int i = 0; i < 50; i++) std::cout << std::endl;}
+void wait() {std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n'); std::cin.get();}
+
 void Menu::mainMenu() {
     while (true) {
         std::cout << "\nEscolha uma opção, escrevendo o número correspondente e pressionando ENTER\n" <<
@@ -180,8 +183,16 @@ void Menu::basicMetrics1() {
         std::cout << "\nEstação não encontrada. Por favor tente novamente.\n\n";
     }
 
+    clear();
     int m = graph.maxFlow(source -> getName(), dest -> getName());
-    std::cout << "Número máximo de comboios que podem viajar entre " << source->getName() << " e " << dest->getName() << " numa rede de conectividade reduzida: " << m << std::endl;
+    if(m != -1)
+        std::cout << "Número máximo de comboios que podem viajar entre " << source->getName() << " e " << dest->getName() << " é " << m << std::endl;
+    else
+        std::cout << "Não existe caminho entre " << source->getName() << " e " << dest->getName() << std::endl;
+
+    int i = 1;
+    wait();
+    clear();
 }
 
 void Menu::basicMetrics2() {

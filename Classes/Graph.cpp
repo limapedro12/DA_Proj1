@@ -81,7 +81,7 @@ vector<Edge*> Graph::path(const string& source, const string& dest) const {
         x->setVisited(true);
         q.pop();
         for(Edge* e: x->getAdj())
-            if(!(e->getDest()->isVisited()) && 2 * e->getWeight() > e->getFlow() + e->getReverse()->getFlow()){
+            if(!(e->getDest()->isVisited()) && 2 * e->getWeight() > e->getFlow()){
                 e->getDest() -> setVisited(true);
                 q.push(e->getDest());
                 before[e->getDest()] = e;
@@ -136,16 +136,16 @@ Graph Graph::edmondsKarp(const string& source, const string& target) {
         p = residual.path(source, target);
     }
 
-//    for(Station* v: residual.getVertexSet())
-//        for(Edge* e: v->getAdj())
-//            if(e->getFlow() > 0)
-//                cout << e->getOrig()->getName() << " -" << e->getFlow() << "-> " << e->getDest()->getName() << endl;
+//------------------------------DELETE LATER----------------------------------
+    for(Station* v: residual.getVertexSet())
+        for(Edge* e: v->getAdj())
+            if(e->getFlow() > 0)
+                cout << e->getOrig()->getName() << " -" << e->getFlow() << "-> " << e->getDest()->getName() << endl;
+    cout << endl;
+//----------------------------------------------------------------------------
 
     if(!found)
-        cout << "No path found!" << endl;
-
-    if(!found)
-        return NullGraph;
+        return Graph();
 
     return residual;
 }
