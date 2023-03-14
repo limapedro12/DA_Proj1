@@ -38,7 +38,7 @@ public:
 //    void createResidualGraph(const Graph& g);
     std::vector<Edge*> path(const std::string& source, const std::string& dest) const;
     double findBottleneck(std::vector<Edge*> path);
-    void edmondsKarp(const std::string& source, const std::string& target);
+    Graph edmondsKarp(const std::string& source, const std::string& target);
 
 private:
     std::vector<Station *> vertexSet;    // vertex set

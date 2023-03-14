@@ -157,7 +157,7 @@ double Graph::findBottleneck(vector<Edge*> path){
     return capacity;
 }
 
-void Graph::edmondsKarp(const string& source, const string& target) {
+Graph Graph::edmondsKarp(const string& source, const string& target) {
     for(Station* v: vertexSet)
         for(Edge* e: v->getAdj())
             e->setFlow(0);
@@ -182,4 +182,6 @@ void Graph::edmondsKarp(const string& source, const string& target) {
         for(Edge* e: v->getAdj())
             if(e->getFlow() > 0)
                 cout << e->getOrig()->getName() << " -" << e->getFlow() << "-> " << e->getDest()->getName() << endl;
+
+    return residual;
 }
