@@ -16,15 +16,15 @@ void Menu::mainMenu() {
         std::cout << "0 - Sair do programa" << std::endl;
 
         std::string input;
-        int option;
+        int option = -1;
 
         while (true) {
             std::getline(std::cin, input);
-            option = std::stoi(input);
+            if (!input.empty() && std::all_of(input.begin(), input.end(), ::isdigit)) option = std::stoi(input);
             std::cout << "\n";
             if (dataReady) {
                 if (option >= 0 && option <= 4) break;
-            } else if (option == 1) break;
+            } else if (option == 0 || option == 1) break;
             std::cout << "Opção inválida. Por favor tente novamente.\n\n";
         }
 
@@ -47,11 +47,11 @@ void Menu::readData() {
         "0 - Menu anterior\n\n";
 
         std::string input;
-        int option;
+        int option = -1;
 
         while (true) {
             std::getline(std::cin, input);
-            option = std::stoi(input);
+            if (!input.empty() && std::all_of(input.begin(), input.end(), ::isdigit)) option = std::stoi(input);
             std::cout << "\n";
             if (option >= 0 && option <= 2) break;
             else std::cout << "Opção inválida. Por favor tente novamente.\n\n";
@@ -85,11 +85,11 @@ void Menu::basicMetrics() {
         "0 - Menu anterior\n\n";
 
         std::string input;
-        int option;
+        int option = -1;
 
         while (true) {
             std::getline(std::cin, input);
-            option = std::stoi(input);
+            if (!input.empty() && std::all_of(input.begin(), input.end(), ::isdigit)) option = std::stoi(input);
             std::cout << "\n";
             if (option >= 0 && option <= 4) break;
             else std::cout << "Opção inválida. Por favor tente novamente.\n\n";
@@ -106,10 +106,12 @@ void Menu::basicMetrics() {
 void Menu::costOptimization() {
     Station* source;
     while (true) {
-        std::cout << "Introduza o nome da estação de origem:\n";
+        std::cout << "Introduza o nome da estação de origem: (Prima ENTER sem escrever nada para voltar atrás)\n";
 
         std::string input;
         std::getline(std::cin, input);
+
+        if (input.empty()) return;
 
         source = graph.findVertex(input);
         if (source != nullptr) break;
@@ -118,10 +120,12 @@ void Menu::costOptimization() {
 
     Station* dest;
     while (true) {
-        std::cout << "Introduza o nome da estação de destino:\n";
+        std::cout << "Introduza o nome da estação de destino: (Prima ENTER sem escrever nada para voltar atrás)\n";
 
         std::string input;
         std::getline(std::cin, input);
+
+        if (input.empty()) return;
 
         dest = graph.findVertex(input);
         if (dest != nullptr) break;
@@ -141,11 +145,11 @@ void Menu::networkReliability() {
          "0 - Menu anterior\n\n";
 
          std::string input;
-         int option;
+         int option = -1;
 
          while (true) {
              std::getline(std::cin, input);
-             option = std::stoi(input);
+             if (!input.empty() && std::all_of(input.begin(), input.end(), ::isdigit)) option = std::stoi(input);
              std::cout << "\n";
              if (option >= 0 && option <= 2) break;
              else std::cout << "Opção inválida. Por favor tente novamente.\n\n";
@@ -160,10 +164,12 @@ void Menu::networkReliability() {
 void Menu::basicMetrics1() {
     Station* source;
     while (true) {
-        std::cout << "Introduza o nome da estação de origem:\n";
+        std::cout << "Introduza o nome da estação de origem: (Prima ENTER sem escrever nada para voltar atrás)\n";
 
         std::string input;
         std::getline(std::cin, input);
+
+        if (input.empty()) return;
 
         source = graph.findVertex(input);
 
@@ -173,10 +179,12 @@ void Menu::basicMetrics1() {
 
     Station* dest;
     while (true) {
-        std::cout << "Introduza o nome da estação de destino:\n";
+        std::cout << "Introduza o nome da estação de destino: (Prima ENTER sem escrever nada para voltar atrás)\n";
 
         std::string input;
         std::getline(std::cin, input);
+
+        if (input.empty()) return;
 
         dest = graph.findVertex(input);
         if (dest != nullptr) break;
@@ -185,12 +193,12 @@ void Menu::basicMetrics1() {
 
     clear();
     int m = graph.maxFlow(source -> getName(), dest -> getName());
-    if(m != -1)
+    if (m != -1)
         std::cout << "Número máximo de comboios que podem viajar entre " << source->getName() << " e " << dest->getName() << " é " << m << std::endl;
     else
         std::cout << "Não existe caminho entre " << source->getName() << " e " << dest->getName() << std::endl;
 
-    int i = 1;
+    //int i = 1;
     wait();
     clear();
 }
@@ -203,12 +211,16 @@ void Menu::basicMetrics2() {
 
 void Menu::basicMetrics3() {
     while (true) {
-        std::cout << "Qual o tamanho k do top (top-k)?\n";
+        std::cout << "Qual o tamanho k do top (top-k)? (Prima ENTER sem escrever nada para voltar atrás)\n";
 
         std::string input;
+        int k = -1;
+
         std::getline(std::cin, input);
 
-        int k = stoi(input);
+        if (input.empty()) return;
+
+        if(std::all_of(input.begin(), input.end(), ::isdigit)) k = stoi(input);
 
         if (k > 0) break;
         std::cout << "Número inválido. Por favor introduza um inteiro positivo.\n\n";
@@ -222,10 +234,12 @@ void Menu::basicMetrics3() {
 void Menu::basicMetrics4() {
     Station* s;
     while (true) {
-        std::cout << "Introduza o nome da estação:\n";
+        std::cout << "Introduza o nome da estação: (Prima ENTER sem escrever nada para voltar atrás)\n";
 
         std::string input;
         std::getline(std::cin, input);
+
+        if (input.empty()) return;
 
         s = graph.findVertex(input);
         if (s != nullptr) break;
@@ -245,10 +259,12 @@ void Menu::basicMetrics4() {
 void Menu::networkReliability1() {
     Station* source;
     while (true) {
-        std::cout << "Introduza o nome da estação de origem:\n";
+        std::cout << "Introduza o nome da estação de origem: (Prima ENTER sem escrever nada para voltar atrás)\n";
 
         std::string input;
         std::getline(std::cin, input);
+
+        if (input.empty()) return;
 
         source = graph.findVertex(input);
         if (source != nullptr) break;
@@ -257,10 +273,12 @@ void Menu::networkReliability1() {
 
     Station* dest;
     while (true) {
-        std::cout << "Introduza o nome da estação de destino:\n";
+        std::cout << "Introduza o nome da estação de destino: (Prima ENTER sem escrever nada para voltar atrás)\n";
 
         std::string input;
         std::getline(std::cin, input);
+
+        if (input.empty()) return;
 
         dest = graph.findVertex(input);
         if (dest != nullptr) break;
@@ -276,9 +294,13 @@ void Menu::networkReliability2() {
         std::cout << "Qual o tamanho k do top (top-k)?\n";
 
         std::string input;
+        int k = -1;
+
         std::getline(std::cin, input);
 
-        int k = stoi(input);
+        if (input.empty()) return;
+
+        if(std::all_of(input.begin(), input.end(), ::isdigit)) k = stoi(input);
 
         if (k > 0) break;
         std::cout << "Número inválido. Por favor introduza um inteiro positivo.\n\n";
