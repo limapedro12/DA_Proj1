@@ -1,8 +1,13 @@
 #include <iostream>
+#include <map>
 #include "read_data.h"
 
 std::set<District*> all_districts;
 std::set<Municipality*> all_municipalities;
+
+std::map<District*, int> districtflow;
+std::map<Municipality*, int> municipalityflow;
+
 
 void readStations(const std::string& filename, Graph& graph){
     std::ifstream file(filename);
@@ -20,16 +25,20 @@ void readStations(const std::string& filename, Graph& graph){
 
         District* d = new District(district);
         auto f = all_districts.find(d);
-        if(f == all_districts.end())
+        if(f == all_districts.end()) {
             all_districts.insert(d);
+            districtflow[d] = 0;
+        }
         else {
             d = *f;
         }
 
         Municipality* m = new Municipality(municipality);
         auto f2 = all_municipalities.find(m);
-        if(f2 == all_municipalities.end())
+        if(f2 == all_municipalities.end()) {
             all_municipalities.insert(m);
+            municipalityflow[m] = 0;
+        }
         else {
             m = *f2;
         }

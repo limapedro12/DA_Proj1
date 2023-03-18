@@ -1,4 +1,5 @@
 #include "Graph.h"
+#include <list>
 
 /*
  * Auxiliary function to find a vertex with a given content.
@@ -196,4 +197,44 @@ int Graph::maxTrainsAtStation(Station* t){
 //                stations.push_back(v);
 //        }
 //    return {max, stations};
+}
+
+std::list<std::pair<Station*, Station*>> Graph::mostTrainsPair(Graph* g) {
+
+    int maxflow=-10;
+    std::list<std::pair<Station*, Station*>> maxflowstations;
+
+    for (Station* stationPtr1 : vertexSet) {
+        for (Station* stationPtr2 : vertexSet) {
+            if (stationPtr1->getName()==stationPtr2->getName()) {
+                continue;
+            }
+            else {
+                int flow = maxFlow(stationPtr1->getName(), stationPtr2->getName());
+                if(flow>maxflow) {
+                    maxflow=flow;
+                    maxflowstations.clear(); //apagar tudo da lista dupla de estações
+
+                    maxflowstations.push_back(std::make_pair(stationPtr1, stationPtr2)); //adicionar par de estações à lista de estações com maxflow maior;
+                    districtflow[stationPtr1->getDistrict()] = maxflow;
+                    municipalityflow[stationPtr1->getMunicipality()] = maxflow;
+                    districtflow[stationPtr2->getDistrict()] = maxflow;
+                    municipalityflow[stationPtr2->getMunicipality()] = maxflow;//adicionar valor maxflow ao valor dos mapas districtflow e municipalityflow nas respetivas variáveis
+                }
+
+                else if(maxFlow(stationPtr1->getName(), stationPtr2->getName())==maxflow) {
+                    maxflowstations.push_back(std::make_pair(stationPtr1, stationPtr2)); //adicionar par à lista de estações com maxflow maior;
+
+                    districtflow[stationPtr1->getDistrict()] = maxflow;
+                    municipalityflow[stationPtr1->getMunicipality()] = maxflow;
+                    districtflow[stationPtr2->getDistrict()] = maxflow;
+                    municipalityflow[stationPtr2->getMunicipality()] = maxflow; //adicionar valor maxflow ao valor dos mapas districtflow e municipalityflow nas respetivas variáveis
+                }
+            }
+        }
+    }
+
+
+
+    return maxflowstations;
 }
