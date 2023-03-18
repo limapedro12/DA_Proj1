@@ -24,6 +24,7 @@ public:
      *  Returns true if successful, and false if a vertex with that content already exists.
      */
     bool addVertex(Station* station);
+    bool removeEdge(Station* orig, Station* dest, bool alfa);
 
     /*
      * Adds an edge to a graph (this), given the contents of the source and

@@ -55,6 +55,17 @@ Edge * Station::addEdge(Station *d, double w, bool alfa) {
     return newEdge;
 }
 
+bool Station::removeEdge(Station *dest, bool alfa) {
+    for (size_t i = 0; i < adj.size(); i++) {
+        Edge* e = adj[i];
+        if (e->getDest() == dest && e->isAlfa() == alfa) {
+            adj.erase(adj.begin() + i);
+            return true;
+        }
+    }
+    return false;
+}
+
 std::vector<Edge*> Station::getAdj() const {
     return this->adj;
 }
@@ -63,9 +74,18 @@ bool Station::isVisited() const {
     return this->visited;
 }
 
-
 void Station::setVisited(bool visited) {
     this->visited = visited;
+}
+
+void Station::print() const {
+    std::cout << name << std::endl;
+    for (Edge* e : adj) {
+        std::cout << e->getDest()->name << ',';
+        if (e->isAlfa()) std::cout << "ALFA PENDULAR\n";
+        else std::cout << "STANDARD\n";
+    }
+    std::cout << std::endl;
 }
 
 Edge::Edge(Station *orig, Station *dest, double w, bool alfa): orig(orig), dest(dest), weight(w), alfa(alfa) {}

@@ -1,6 +1,7 @@
 #ifndef DA_PROJ1_StationEDGE_H
 #define DA_PROJ1_StationEDGE_H
 
+#include <iostream>
 #include <vector>
 #include <string>
 
@@ -30,6 +31,8 @@ public:
     bool isVisited() const;
     void setVisited(bool visited);
     Edge * addEdge(Station *dest, double w, bool alfa);
+    bool removeEdge(Station* dest, bool alfa);
+    void print() const;
 private:
     std::string name;
     District* district;
@@ -55,6 +58,7 @@ public:
     void setFlow(int flow);
     bool isAlfa() const;
     void setAlfa(bool alfa);
+    std::string getName() const;
 private:
     Station * dest;
     int weight;

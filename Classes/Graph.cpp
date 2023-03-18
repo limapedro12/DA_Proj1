@@ -30,6 +30,11 @@ bool Graph::addVertex(Station* station) {
     return true;
 }
 
+bool Graph::removeEdge(Station *orig, Station *dest, bool alfa) {
+    if (!(orig->removeEdge(dest, alfa))) return false;
+    return dest->removeEdge(orig, alfa);
+}
+
 /*
  * Adds an edge to a graph (this), given the contents of the source and
  * destination vertices and the edge weight (w).
