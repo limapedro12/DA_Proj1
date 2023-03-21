@@ -24,6 +24,9 @@ private:
     void basicMetrics3();
     void basicMetrics4();
 
+    void costOptimization1();
+    void costOptimization2();
+
     void networkReliability1();
     void networkReliability2();
 };

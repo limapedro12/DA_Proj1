@@ -90,6 +90,10 @@ int Edge::getFlow() const {
     return flow;
 }
 
+void Edge::setWeight(int weight) {
+    this->weight = weight;
+}
+
 void Edge::setReverse(Edge *reverse) {
     this->reverse = reverse;
 }

@@ -140,7 +140,8 @@ Graph Graph::edmondsKarp(const string& source, const string& target) {
     for(Station* v: residual.getVertexSet())
         for(Edge* e: v->getAdj())
             if(e->getFlow() > 0)
-                cout << e->getOrig()->getName() << " -" << e->getFlow() << "-> " << e->getDest()->getName() << endl;
+                cout << e->getOrig()->getName() << " -" << e->getFlow() << "-> " << e->getDest()->getName()
+                     << (e->isAlfa() ? " (ALFA) ":" (STANDARD) ") << endl;
     cout << endl;
 //----------------------------------------------------------------------------
 
@@ -175,25 +176,52 @@ int Graph::maxTrainsAtStation(Station* t){
             temp.addBidirectionalEdge(&s, v, 1000000000, false);
 
     auto f = temp.path(s.getName(), t->getName());
-    if(f.empty())
-        cout << "\n\n\nempty\n\n\n" << endl;
 
     int ret = temp.maxFlow(s.getName(), t->getName());
     if(ret == -1)
         return 0;
     return ret;
-
-//    vector<Station*> stations;
-//    int max = 0;
-//    for(Station* v: vertexSet)
-//        if(v != s){
-//            int flow = maxFlow(v->getName(), s->getName());
-//            if(flow > max) {
-//                max = flow;
-//                stations.clear();
-//                stations.push_back(v);
-//            } else if(flow == max)
-//                stations.push_back(v);
-//        }
-//    return {max, stations};
 }
+
+int Graph::costBFS(const std::string& source){
+    int cost = 0;
+    Station* v = findVertex(source);
+    if(v == nullptr)
+        return 0;
+    for(Station* b: vertexSet)
+        b->setVisited(false);
+    std::queue<Station*> q;
+    q.push(v);
+    v -> setVisited(true);
+    while(!q.empty()){
+        auto x = q.front();
+        for(Edge* e: x->getAdj()) {
+            if(e->getFlow() > 0)
+                cost += e->getFlow() * (e->isAlfa() ? 4 : 2);
+//                cout << "Cost: " << cost << " <- " << e->getFlow() << " * " << (e->isAlfa() ? 4 : 2)
+//                     << " - " << e->getOrig()->getName() << " -> " << e->getDest()->getName() << endl;
+            if (!(e->getDest()->isVisited())) {
+                e->getDest()->setVisited(true);
+                q.push(e->getDest());
+            }
+        }
+        q.pop();
+    }
+    return cost;
+}
+
+int Graph::cost(const std::string& source, const std::string& target){
+    if(target == source)
+        return 0;
+
+    Graph residual = edmondsKarp(source, target);
+    if(residual.vertexSet.empty())
+        return -1;
+
+    int cost = residual.costBFS(source);
+    if(cost == 0)
+        return -1;
+
+    return cost;
+}
+

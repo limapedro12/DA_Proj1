@@ -51,6 +51,7 @@ public:
     Edge *getReverse() const;
     int getFlow() const;
 
+    void setWeight(int weight);
     void setReverse(Edge *reverse);
     void setFlow(int flow);
     bool isAlfa() const;

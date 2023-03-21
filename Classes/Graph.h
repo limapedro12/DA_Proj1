@@ -41,6 +41,7 @@ public:
     Graph edmondsKarp(const std::string& source, const std::string& target);
     int maxFlow(const std::string& source, const std::string& target);
     int maxTrainsAtStation(Station* station);
+    int cost(const std::string& source, const std::string& target);
 
 private:
     std::vector<Station *> vertexSet;    // vertex set
@@ -49,6 +50,7 @@ private:
      * Finds the index of the vertex with a given content.
      */
     int findVertexIdx(const std::string& name) const;
+    int costBFS(const std::string& source);
 };
 
 #endif //DA_PROJ1_GRAPH_H
