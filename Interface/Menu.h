@@ -26,6 +26,7 @@ private:
 
     void costOptimization1();
     void costOptimization2();
+    void costOptimization3();
 
     void networkReliability1();
     void networkReliability2();

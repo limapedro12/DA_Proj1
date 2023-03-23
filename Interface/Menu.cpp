@@ -120,7 +120,8 @@ void Menu::costOptimization() {
     while (true) {
         std::cout << "Escolha uma opção, escrevendo o número correspondente e pressionando ENTER.\n" <<
                      "1 - Custo de operar todos os comboios entre duas estações, estando a rede na sua capacidade máxima.\n" <<
-                     "2 - Numero maximo de comboios que posso operar entre duas estações, dando o custo.\n" <<
+                     "2 - Caminho com menor custo entre duas estações.\n" <<
+                     "3 - Numero maximo de comboios que posso operar entre duas estações, dando o custo.\n\n" <<
                      "0 - Menu anterior\n\n";
         std::string input;
         int option;
@@ -133,12 +134,13 @@ void Menu::costOptimization() {
                 option = -1;
             }
             std::cout << "\n";
-            if (option >= 0 && option <= 2) break;
+            if (option >= 0 && option <= 3) break;
             else std::cout << "Opção inválida. Por favor tente novamente.\n\n";
         }
 
         if (option == 1) costOptimization1();
         if (option == 2) costOptimization2();
+        if (option == 3) costOptimization3();
         else if (option == 0) return;
     }
 }
@@ -332,15 +334,58 @@ void Menu::costOptimization2() {
         std::cout << "\nEstação não encontrada. Por favor tente novamente.\n\n";
     }
 
+    clear();
+
+    auto cost = graph.minCost(source -> getName(), dest -> getName());
+
+    if(cost.first == -1)
+        std::cout << "Não existe caminho entre " << source->getName() << " e " << dest->getName() << std::endl;
+    else {
+        std::cout << "O caminho com menor custo é: " << std::endl;
+        std::cout << "    " << cost.second.front()->getOrig()->getName();
+        for(auto e : cost.second)
+            std::cout << " -> " << std::endl << " -> " << e->getDest()->getName();
+        std::cout << std::endl << "O custo total é " << cost.first << " euros." << std::endl;
+    }
+    wait();
+    clear();
+}
+
+void Menu::costOptimization3() {
+    Station* source;
+    while (true) {
+        std::cout << "Introduza o nome da estação de origem:\n";
+
+        std::string input;
+        std::getline(std::cin, input);
+
+        source = graph.findVertex(input);
+
+        if (source != nullptr) break;
+        std::cout << "\nEstação não encontrada. Por favor tente novamente.\n\n";
+    }
+
+    Station* dest;
+    while (true) {
+        std::cout << "Introduza o nome da estação de destino:\n";
+
+        std::string input;
+        std::getline(std::cin, input);
+
+        dest = graph.findVertex(input);
+        if (dest != nullptr) break;
+        std::cout << "\nEstação não encontrada. Por favor tente novamente.\n\n";
+    }
+
+    double cost;
     while (true) {
         std::cout << "Introduza o custo pretendido:\n";
 
         std::string input;
         std::getline(std::cin, input);
 
-        int cost;
         try {
-            cost = stoi(input);
+            cost = stod(input);
         } catch (std::invalid_argument) {
             cost = -1;
         }
@@ -350,20 +395,20 @@ void Menu::costOptimization2() {
 
     clear();
 
-    std::cout << "Querias nao querias, mas ainda nao ha nada aqui para veres. :) \n";
+    if(source == dest)
+        std::cout << "O destino e a origem são a mesma estação.\n";
 
-//    int cost = graph.cost(source -> getName(), dest -> getName());
-//    int flow = graph.maxFlow(source -> getName(), dest -> getName());
-//    if(cost == 0)
-//        std::cout << "O destino e a origem são a mesma estação.\n";
-//    else if(cost == -1)
-//        std::cout << "Não existe caminho entre " << source->getName() << " e " << dest->getName() << std::endl;
-//    else {
-//        std::cout << "O custo de operar o caminho entre " << source->getName() << " e " << dest->getName()
-//                  << ", estando a rede na sua capacidade máxima, é " << cost << " euros" << std::endl;
-//        std::cout << "Logo o custo medio por comboio é " << cost / flow << " euros, tendo em conta que o fluxo máximo é "
-//                  << flow << std::endl;
-//    }
+    else {
+        std::pair<int, double> ret = graph.maxTrainsMinCost(source->getName(), dest->getName(), cost);
+
+        if (ret.first == -1 || ret.second == -1)
+            std::cout << "Não existe caminho entre " << source->getName() << " e " << dest->getName() << std::endl;
+        else {
+            std::cout << "Podemos enviar " << ret.first << " comboios, com um custo total de " << ret.second
+                      << " euros, entre " << source->getName() << " e " << dest->getName() << std::endl;
+        }
+    }
+
     wait();
     clear();
 }

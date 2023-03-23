@@ -68,6 +68,14 @@ void Station::setVisited(bool visited) {
     this->visited = visited;
 }
 
+double Station::getCost() const {
+    return cost;
+}
+
+void Station::setCost(double cost) {
+    Station::cost = cost;
+}
+
 Edge::Edge(Station *orig, Station *dest, double w, bool alfa): orig(orig), dest(dest), weight(w), alfa(alfa) {}
 
 Station * Edge::getDest() const {
@@ -108,4 +116,11 @@ bool Edge::isAlfa() const {
 
 void Edge::setAlfa(bool alfa) {
     this->alfa = alfa;
+}
+
+int Edge::getCost() const{
+    if(alfa)
+        return 4;
+    else
+        return 2;
 }

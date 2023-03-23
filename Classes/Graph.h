@@ -2,6 +2,7 @@
 #define DA_PROJ1_GRAPH_H
 
 #include <string>
+#include <set>
 #include <vector>
 #include <string>
 #include <limits>
@@ -12,6 +13,8 @@
 #include <algorithm>
 
 #include "VertexEdge.h"
+
+struct minCostReturn;
 
 class Graph {
 public:
@@ -30,7 +33,7 @@ public:
      * destination vertices and the edge weight (w).
      * Returns true if successful, and false if the source or destination vertex does not exist.
      */
-    bool addEdge(Station* sourc, Station* dest, double w, bool alfa);
+    Edge* addEdge(Station* sourc, Station* dest, double w, bool alfa);
     bool addBidirectionalEdge(Station* sourc, Station* dest, double w, bool alfa);
 
     std::vector<Station*> getVertexSet() const;
@@ -43,6 +46,14 @@ public:
     int maxTrainsAtStation(Station* station);
     int cost(const std::string& source, const std::string& target);
 
+    std::vector<Edge*> pathDijkstra(const std::string& source, const std::string& dest) const;
+    std::pair<int, std::vector<Edge*>> minCost(const std::string& source, const std::string& target);
+    std::pair<double, Graph>  edmondsKarpMinCost(const std::string& source, const std::string& target, double costLimit);
+    std::pair<int, double> maxTrainsMinCost(const std::string& source, const std::string& target, double costLimit);
+
+//    Graph copyGraph();
+//    minCostReturn copyGraphHashSet();
+
 private:
     std::vector<Station *> vertexSet;    // vertex set
 
@@ -52,5 +63,11 @@ private:
     int findVertexIdx(const std::string& name) const;
     int costBFS(const std::string& source);
 };
+
+//struct minCostReturn {
+//    Graph copy;
+//    std::unordered_map<Edge*, Edge*> edgeMapNewToOld;
+//    std::unordered_map<Edge*, Edge*> edgeMapOldToNew;
+//};
 
 #endif //DA_PROJ1_GRAPH_H

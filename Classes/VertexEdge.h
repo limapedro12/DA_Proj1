@@ -25,11 +25,16 @@ public:
     void setTownship(const std::string &township);
     std::string getName() const;
     void setName(const std::string &name);
+
+    double getCost() const;
+    void setCost(double cost);
     
     std::vector<Edge *> getAdj() const;
     bool isVisited() const;
     void setVisited(bool visited);
     Edge * addEdge(Station *dest, double w, bool alfa);
+
+//    bool operator<(const Station &rhs) const;
 private:
     std::string name;
     District* district;
@@ -39,6 +44,8 @@ private:
     
     std::vector<Edge *> adj;
     bool visited = false;
+
+    double cost;
 };
 
 class Edge {
@@ -56,6 +63,8 @@ public:
     void setFlow(int flow);
     bool isAlfa() const;
     void setAlfa(bool alfa);
+
+    int getCost() const;
 private:
     Station * dest;
     int weight;

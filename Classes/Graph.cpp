@@ -35,13 +35,13 @@ bool Graph::addVertex(Station* station) {
  * destination vertices and the edge weight (w).
  * Returns true if successful, and false if the source or destination vertex does not exist.
  */
-bool Graph::addEdge(Station* sourc, Station* dest, double w, bool alfa){
+Edge* Graph::addEdge(Station* sourc, Station* dest, double w, bool alfa){
     auto v1 = findVertex(sourc->getName());
     auto v2 = findVertex(dest->getName());
     if (v1 == nullptr || v2 == nullptr)
-        return false;
-    v1->addEdge(v2, w, alfa);
-    return true;
+        return nullptr;
+    Edge* e = v1->addEdge(v2, w, alfa);
+    return e;
 }
 
 bool Graph::addBidirectionalEdge(Station* sourc, Station* dest, double w, bool alfa) {
@@ -225,3 +225,171 @@ int Graph::cost(const std::string& source, const std::string& target){
     return cost;
 }
 
+struct compCost{
+    bool operator()(const Station *a, const Station *b) const {
+        return a->getCost() < b->getCost() || (a->getCost() == b->getCost() && a->getName() < b->getName());
+    }
+};
+
+//returns the path from source to target with the minimum cost using the Dijkstra algorithm, but instead of a priority queue, it uses a set
+vector<Edge*> Graph::pathDijkstra(const string& source, const string& dest) const {
+    std::vector<Edge*> res;
+    unordered_map<Station*, Edge*> before;
+    bool found = false;
+    Station* v = findVertex(source);
+    Station* dest_v = findVertex(dest);
+    if(v == nullptr)
+        return res;
+    for(Station* b: vertexSet) {
+        b->setCost(numeric_limits<double>::max());
+        b->setVisited(false);
+    }
+
+    std::set<Station*, compCost> q;
+    v->setCost(0);
+
+    for(Station* b: vertexSet)
+        q.insert(b);
+
+    before[v] = nullptr;
+    v -> setVisited(true);
+    while(!q.empty()){
+        auto x = *q.begin();
+        q.erase(q.begin());
+        if(x->getName() == dest) {
+            found = true; break;
+        }
+        x->setVisited(true);
+        for(Edge* e: x->getAdj()) {
+            if(2 * e->getWeight() <= e->getFlow())
+                continue;
+            if(e->getDest()->getCost() > e->getOrig()->getCost() + e->getCost()){
+                q.erase(e->getDest());
+                e->getDest()->setCost(e->getOrig()->getCost() + e->getCost());
+                q.insert(e->getDest());
+                before[e->getDest()] = e;
+            }
+        }
+    }
+    if(!found)
+        return res;
+
+    list<Edge*> temp;
+    Edge* curr = before[dest_v];
+    while(curr != nullptr){
+        temp.push_front(curr);
+        curr = before[curr->getOrig()];
+    }
+
+    res.resize(temp.size());
+    copy(temp.begin(), temp.end(), res.begin());
+    return res;
+}
+
+pair<int, vector<Edge*>> Graph::minCost(const std::string& source, const std::string& target){
+    for(Station* v: vertexSet)
+        for(Edge* e: v->getAdj())
+            e->setFlow(0);
+
+    vector<Edge*> p = pathDijkstra(source, target);
+    if(p.empty())
+        return make_pair(-1, p);
+
+    int cost = 0;
+    for(Edge* e: p)
+        cost += e->getCost();
+
+    return make_pair(cost, p);
+}
+
+pair<double, Graph> Graph::edmondsKarpMinCost(const std::string& source, const std::string& target, double costLimit){
+    for(Station* v: vertexSet)
+        for(Edge* e: v->getAdj())
+            e->setFlow(0);
+
+    Graph residual = *this;
+
+    vector<Edge*> p = residual.pathDijkstra(source, target);
+
+    bool found = false;
+    bool ended = false;
+    int pathCost = 0;
+
+    while(!p.empty()) {
+        found = true;
+        double b = findBottleneck(p);
+        for(Edge* e: p)
+            pathCost += e->getCost();
+        if (pathCost * b > costLimit){
+            b = (int) costLimit / pathCost;
+            ended = true;
+        }
+        costLimit -= pathCost * b;
+        for(Edge* e: p){
+            e->setFlow(e->getFlow() + b);
+            e->getReverse()->setFlow(e->getReverse()->getFlow() - b);
+        }
+        if(ended)
+            break;
+        p = residual.path(source, target);
+        pathCost = 0;
+    }
+
+    if(!found)
+        return make_pair(-1, Graph());
+
+    return make_pair(costLimit, residual);
+}
+
+pair<int, double> Graph::maxTrainsMinCost(const std::string& source, const std::string& target, double costLimit){
+    auto tt = edmondsKarpMinCost(source, target, costLimit);
+    Graph residual = tt.second;
+    double cost = costLimit - tt.first;
+
+    if(residual.vertexSet.empty())
+        return make_pair(-1, -1);
+
+    int flow = 0;
+    for(Edge* e: residual.findVertex(source)->getAdj()) {
+        flow += e->getFlow();
+    }
+
+    return make_pair(flow, cost);
+}
+
+//Graph Graph::copyGraph(){
+//    Graph g;
+//    unordered_map<Station*, Station*> vertexMap;
+//    for(Station* v: vertexSet){
+//        Station* newV = new Station(v->getName(), v->getDistrict(), v->getMunicipality(), v->getTownship(), v->getLine());
+//        vertexMap[v] = newV;
+//        g.addVertex(newV);
+//    }
+//
+//    for(Station* v: vertexSet)
+//        for(Edge* e: v->getAdj())
+//            g.addEdge(vertexMap[e->getOrig()], vertexMap[e->getDest()], e->getWeight(), e->isAlfa());
+//
+//    return g;
+//}
+//
+//minCostReturn Graph::copyGraphHashSet(){
+//    Graph g;
+//    unordered_map<Edge*, Edge*> edgeMapOldToNew;
+//    unordered_map<Edge*, Edge*> edgeMapNewToOld;
+//    unordered_map<Station*, Station*> vertexMap;
+//    for(Station* v: vertexSet){
+//        Station* newV = new Station(v->getName(), v->getDistrict(), v->getMunicipality(), v->getTownship(), v->getLine());
+//        g.addVertex(newV);
+//        vertexMap.insert(make_pair(v, newV));
+//    }
+//
+//    for(Station* v: vertexSet)
+//        for(Edge* e: v->getAdj()) {
+//            Edge* newE = g.addEdge(vertexMap[e->getOrig()], vertexMap[e->getDest()], e->getWeight(), e->isAlfa());
+//            edgeMapOldToNew.insert(make_pair(e, newE));
+//            edgeMapNewToOld.insert(make_pair(e, newE));
+//        }
+//
+//    return {g, edgeMapNewToOld, edgeMapOldToNew};
+//}
