@@ -301,7 +301,7 @@ void Menu::costOptimization1() {
     else {
         std::cout << "O custo de operar o caminho entre " << source->getName() << " e " << dest->getName()
                   << ", estando a rede na sua capacidade máxima, é " << cost << " euros" << std::endl;
-        std::cout << "Logo o custo medio por comboio é " << cost / flow << " euros, tendo em conta que o fluxo máximo é "
+        std::cout << "Logo o custo medio por comboio é " << (double)((double) cost / (double) flow) << " euros, tendo em conta que o fluxo máximo é "
                   << flow << std::endl;
     }
     wait();
