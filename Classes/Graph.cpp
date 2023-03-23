@@ -198,8 +198,6 @@ int Graph::costBFS(const std::string& source){
         for(Edge* e: x->getAdj()) {
             if(e->getFlow() > 0)
                 cost += e->getFlow() * (e->isAlfa() ? 4 : 2);
-//                cout << "Cost: " << cost << " <- " << e->getFlow() << " * " << (e->isAlfa() ? 4 : 2)
-//                     << " - " << e->getOrig()->getName() << " -> " << e->getDest()->getName() << endl;
             if (!(e->getDest()->isVisited())) {
                 e->getDest()->setVisited(true);
                 q.push(e->getDest());
@@ -357,39 +355,3 @@ pair<int, double> Graph::maxTrainsMinCost(const std::string& source, const std::
     return make_pair(flow, cost);
 }
 
-//Graph Graph::copyGraph(){
-//    Graph g;
-//    unordered_map<Station*, Station*> vertexMap;
-//    for(Station* v: vertexSet){
-//        Station* newV = new Station(v->getName(), v->getDistrict(), v->getMunicipality(), v->getTownship(), v->getLine());
-//        vertexMap[v] = newV;
-//        g.addVertex(newV);
-//    }
-//
-//    for(Station* v: vertexSet)
-//        for(Edge* e: v->getAdj())
-//            g.addEdge(vertexMap[e->getOrig()], vertexMap[e->getDest()], e->getWeight(), e->isAlfa());
-//
-//    return g;
-//}
-//
-//minCostReturn Graph::copyGraphHashSet(){
-//    Graph g;
-//    unordered_map<Edge*, Edge*> edgeMapOldToNew;
-//    unordered_map<Edge*, Edge*> edgeMapNewToOld;
-//    unordered_map<Station*, Station*> vertexMap;
-//    for(Station* v: vertexSet){
-//        Station* newV = new Station(v->getName(), v->getDistrict(), v->getMunicipality(), v->getTownship(), v->getLine());
-//        g.addVertex(newV);
-//        vertexMap.insert(make_pair(v, newV));
-//    }
-//
-//    for(Station* v: vertexSet)
-//        for(Edge* e: v->getAdj()) {
-//            Edge* newE = g.addEdge(vertexMap[e->getOrig()], vertexMap[e->getDest()], e->getWeight(), e->isAlfa());
-//            edgeMapOldToNew.insert(make_pair(e, newE));
-//            edgeMapNewToOld.insert(make_pair(e, newE));
-//        }
-//
-//    return {g, edgeMapNewToOld, edgeMapOldToNew};
-//}

@@ -51,9 +51,6 @@ public:
     std::pair<double, Graph>  edmondsKarpMinCost(const std::string& source, const std::string& target, double costLimit);
     std::pair<int, double> maxTrainsMinCost(const std::string& source, const std::string& target, double costLimit);
 
-//    Graph copyGraph();
-//    minCostReturn copyGraphHashSet();
-
 private:
     std::vector<Station *> vertexSet;    // vertex set
 
@@ -63,11 +60,5 @@ private:
     int findVertexIdx(const std::string& name) const;
     int costBFS(const std::string& source);
 };
-
-//struct minCostReturn {
-//    Graph copy;
-//    std::unordered_map<Edge*, Edge*> edgeMapNewToOld;
-//    std::unordered_map<Edge*, Edge*> edgeMapOldToNew;
-//};
 
 #endif //DA_PROJ1_GRAPH_H
