@@ -1,5 +1,6 @@
 #include "Graph.h"
 #include <list>
+#include <map>
 
 /*
  * Auxiliary function to find a vertex with a given content.
@@ -199,7 +200,7 @@ int Graph::maxTrainsAtStation(Station* t){
 //    return {max, stations};
 }
 
-std::list<std::pair<Station*, Station*>> Graph::mostTrainsPair(Graph* g) {
+std::list<std::pair<Station*, Station*>> Graph::mostTrainsPair(Graph* g, std::map<District*, int>& districtflow, std::map<Municipality*, int>& municipalityflow) {
 
     int maxflow=-10;
     std::list<std::pair<Station*, Station*>> maxflowstations;
@@ -216,20 +217,20 @@ std::list<std::pair<Station*, Station*>> Graph::mostTrainsPair(Graph* g) {
                     maxflowstations.clear(); //apagar tudo da lista dupla de estações
 
                     maxflowstations.push_back(std::make_pair(stationPtr1, stationPtr2)); //adicionar par de estações à lista de estações com maxflow maior;
-                    districtflow[stationPtr1->getDistrict()] = maxflow;
-                    municipalityflow[stationPtr1->getMunicipality()] = maxflow;
-                    districtflow[stationPtr2->getDistrict()] = maxflow;
-                    municipalityflow[stationPtr2->getMunicipality()] = maxflow;//adicionar valor maxflow ao valor dos mapas districtflow e municipalityflow nas respetivas variáveis
+
+
                 }
 
                 else if(maxFlow(stationPtr1->getName(), stationPtr2->getName())==maxflow) {
+
                     maxflowstations.push_back(std::make_pair(stationPtr1, stationPtr2)); //adicionar par à lista de estações com maxflow maior;
 
-                    districtflow[stationPtr1->getDistrict()] = maxflow;
-                    municipalityflow[stationPtr1->getMunicipality()] = maxflow;
-                    districtflow[stationPtr2->getDistrict()] = maxflow;
-                    municipalityflow[stationPtr2->getMunicipality()] = maxflow; //adicionar valor maxflow ao valor dos mapas districtflow e municipalityflow nas respetivas variáveis
                 }
+
+                districtflow[stationPtr1->getDistrict()] = districtflow[stationPtr1->getDistrict()] + flow;
+                municipalityflow[stationPtr1->getMunicipality()] = municipalityflow[stationPtr1->getMunicipality()] + flow;
+                districtflow[stationPtr2->getDistrict()] = districtflow[stationPtr2->getDistrict()] + flow;
+                municipalityflow[stationPtr2->getMunicipality()] = municipalityflow[stationPtr2->getMunicipality()] + flow;//adicionar valor flow ao valor dos mapas districtflow e municipalityflow nas respetivas variáveis
             }
         }
     }
@@ -237,4 +238,33 @@ std::list<std::pair<Station*, Station*>> Graph::mostTrainsPair(Graph* g) {
 
 
     return maxflowstations;
+}
+
+
+template <typename K, typename V>
+bool cmp(const pair<K, V>& a, const pair<K, V>& b) {
+    return a.second > b.second;
+}
+
+void sortMapsByDescendingValue(std::map<District*, int>& districtflow, std::map<Municipality*, int>& municipalityflow) {
+    // Sort districtflow by descending order of values
+    vector<pair<District*, int>> districtVec(districtflow.begin(), districtflow.end());
+    sort(districtVec.begin(), districtVec.end(), cmp<District*, int>);
+
+    // Sort municipalityflow by descending order of values
+    vector<pair<Municipality*, int>> municipalityVec(municipalityflow.begin(), municipalityflow.end());
+    sort(municipalityVec.begin(), municipalityVec.end(), cmp<Municipality*, int>);
+
+    // Clear original maps
+    districtflow.clear();
+    municipalityflow.clear();
+
+    // Re-populate maps with sorted values
+    for (const auto& [key, value] : districtVec) {
+        districtflow[key] = value;
+    }
+
+    for (const auto& [key, value] : municipalityVec) {
+        municipalityflow[key] = value;
+    }
 }

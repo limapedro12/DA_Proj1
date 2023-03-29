@@ -10,6 +10,7 @@
 #include <unordered_map>
 #include <iostream>
 #include <algorithm>
+#include <map>
 
 #include "VertexEdge.h"
 
@@ -41,7 +42,7 @@ public:
     Graph edmondsKarp(const std::string& source, const std::string& target);
     int maxFlow(const std::string& source, const std::string& target);
     int maxTrainsAtStation(Station* station);
-    std::list<std::pair<Station *, Station *>> mostTrainsPair(Graph *g);
+    std::list<std::pair<Station*, Station*>> mostTrainsPair(Graph* g, std::map<District*, int>& districtflow, std::map<Municipality*, int>& municipalityflow);
 
 private:
     std::vector<Station *> vertexSet;    // vertex set

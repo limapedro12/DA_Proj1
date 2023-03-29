@@ -5,8 +5,8 @@
 std::set<District*> all_districts;
 std::set<Municipality*> all_municipalities;
 
-std::map<District*, int> districtflow;
-std::map<Municipality*, int> municipalityflow;
+std::map<District*, int> districtFlow;
+std::map<Municipality*, int> municipalityFlow;
 
 
 void readStations(const std::string& filename, Graph& graph){
@@ -27,7 +27,7 @@ void readStations(const std::string& filename, Graph& graph){
         auto f = all_districts.find(d);
         if(f == all_districts.end()) {
             all_districts.insert(d);
-            districtflow[d] = 0;
+            districtFlow[d] = 0;
         }
         else {
             d = *f;
@@ -37,7 +37,7 @@ void readStations(const std::string& filename, Graph& graph){
         auto f2 = all_municipalities.find(m);
         if(f2 == all_municipalities.end()) {
             all_municipalities.insert(m);
-            municipalityflow[m] = 0;
+            municipalityFlow[m] = 0;
         }
         else {
             m = *f2;
