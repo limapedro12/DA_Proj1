@@ -7,6 +7,8 @@
 #include "../Classes/Graph.h"
 #include "../Functions/read_data.h"
 
+#include <string>
+
 class Menu {
 public:
     void mainMenu();
@@ -30,6 +32,9 @@ private:
 
     void networkReliability1();
     void networkReliability2();
+
+    std::string stationsFile;
+    std::string networkFile;
 };
 
 #endif //DA_PROJ1_MENU_H

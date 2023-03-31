@@ -1,6 +1,7 @@
 #ifndef DA_PROJ1_StationEDGE_H
 #define DA_PROJ1_StationEDGE_H
 
+#include <iostream>
 #include <vector>
 #include <string>
 
@@ -35,6 +36,8 @@ public:
     Edge * addEdge(Station *dest, double w, bool alfa);
 
 //    bool operator<(const Station &rhs) const;
+    bool removeEdge(Station* dest, bool alfa);
+    void print() const;
 private:
     std::string name;
     District* district;
@@ -65,6 +68,7 @@ public:
     void setAlfa(bool alfa);
 
     int getCost() const;
+    std::string getName() const;
 private:
     Station * dest;
     int weight;

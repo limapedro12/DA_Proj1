@@ -17,7 +17,7 @@ void Menu::mainMenu() {
         std::cout << "0 - Sair do programa" << std::endl;
 
         std::string input;
-        int option;
+        int option = -1;
 
         while (true) {
             std::getline(std::cin, input);
@@ -52,7 +52,7 @@ void Menu::readData() {
         "0 - Menu anterior\n\n";
 
         std::string input;
-        int option;
+        int option = -1;
 
         while (true) {
             std::getline(std::cin, input);
@@ -71,6 +71,8 @@ void Menu::readData() {
             this->graph = g;
             readStations("../Project1Data/stations.csv", graph);
             readNetwork("../Project1Data/network.csv", graph);
+            stationsFile = "../Project1Data/stations.csv";
+            networkFile = "../Project1Data/network.csv";
             dataReady = true;
             return;
         } else if (option == 2) {
@@ -78,6 +80,8 @@ void Menu::readData() {
             this->graph = g;
             readStations("../Project1Data/stations_ascii.csv", graph);
             readNetwork("../Project1Data/network_ascii.csv", graph);
+            stationsFile = "../Project1Data/stations_ascii.csv";
+            networkFile = "../Project1Data/network_ascii.csv";
             dataReady = true;
             return;
         } else if (option == 0) return;
@@ -94,7 +98,7 @@ void Menu::basicMetrics() {
         "0 - Menu anterior\n\n";
 
         std::string input;
-        int option;
+        int option = -1;
 
         while (true) {
             std::getline(std::cin, input);
@@ -123,6 +127,7 @@ void Menu::costOptimization() {
                      "2 - Caminho com menor custo entre duas estações.\n" <<
                      "3 - Numero maximo de comboios que posso operar entre duas estações, dando o custo.\n\n" <<
                      "0 - Menu anterior\n\n";
+
         std::string input;
         int option;
 
@@ -153,7 +158,7 @@ void Menu::networkReliability() {
          "0 - Menu anterior\n\n";
 
          std::string input;
-         int option;
+         int option = -1;
 
          while (true) {
              std::getline(std::cin, input);
@@ -176,10 +181,12 @@ void Menu::networkReliability() {
 void Menu::basicMetrics1() {
     Station* source;
     while (true) {
-        std::cout << "Introduza o nome da estação de origem:\n";
+        std::cout << "Introduza o nome da estação de origem: (Prima ENTER sem escrever nada para voltar atrás)\n";
 
         std::string input;
         std::getline(std::cin, input);
+
+        if (input.empty()) return;
 
         source = graph.findVertex(input);
 
@@ -189,10 +196,12 @@ void Menu::basicMetrics1() {
 
     Station* dest;
     while (true) {
-        std::cout << "Introduza o nome da estação de destino:\n";
+        std::cout << "Introduza o nome da estação de destino: (Prima ENTER sem escrever nada para voltar atrás)\n";
 
         std::string input;
         std::getline(std::cin, input);
+
+        if (input.empty()) return;
 
         dest = graph.findVertex(input);
         if (dest != nullptr) break;
@@ -201,12 +210,12 @@ void Menu::basicMetrics1() {
 
     clear();
     int m = graph.maxFlow(source -> getName(), dest -> getName());
-    if(m != -1)
-        std::cout << "Número máximo de comboios que podem viajar entre " << source->getName() << " e " << dest->getName() << " é " << m << std::endl;
+    if (m != -1)
+        std::cout << "Número máximo de comboios que podem viajar entre " << source->getName() << " e " << dest->getName() << " é " << m << "\n\n";
     else
-        std::cout << "Não existe caminho entre " << source->getName() << " e " << dest->getName() << std::endl;
+        std::cout << "Não existe caminho entre " << source->getName() << " e " << dest->getName() << "\n\n";
 
-    int i = 1;
+    //int i = 1;
     wait();
     clear();
 }
@@ -219,12 +228,13 @@ void Menu::basicMetrics2() {
 
 void Menu::basicMetrics3() {
     while (true) {
-        std::cout << "Qual o tamanho k do top (top-k)?\n";
+        std::cout << "Qual o tamanho k do top (top-k)? (Prima ENTER sem escrever nada para voltar atrás)\n";
 
         std::string input;
+        int k = -1;
+
         std::getline(std::cin, input);
 
-        int k;
         try {
             k = stoi(input);
         } catch (std::invalid_argument) {
@@ -243,10 +253,12 @@ void Menu::basicMetrics3() {
 void Menu::basicMetrics4() {
     Station* s;
     while (true) {
-        std::cout << "Introduza o nome da estação:\n";
+        std::cout << "Introduza o nome da estação: (Prima ENTER sem escrever nada para voltar atrás)\n";
 
         std::string input;
         std::getline(std::cin, input);
+
+        if (input.empty()) return;
 
         s = graph.findVertex(input);
         if (s != nullptr) break;
@@ -259,7 +271,7 @@ void Menu::basicMetrics4() {
 
     clear();
     int m = graph.maxTrainsAtStation(s);
-    std::cout << "Número máximo de comboios que podem chegar simultaneamente a " << s->getName() << " é " << m << std::endl;
+    std::cout << "Número máximo de comboios que podem chegar simultaneamente a " << s->getName() << " é " << m << "\n\n";
     wait();
     clear();
 }
@@ -416,10 +428,12 @@ void Menu::costOptimization3() {
 void Menu::networkReliability1() {
     Station* source;
     while (true) {
-        std::cout << "Introduza o nome da estação de origem:\n";
+        std::cout << "Introduza o nome da estação de origem: (Prima ENTER sem escrever nada para voltar atrás)\n";
 
         std::string input;
         std::getline(std::cin, input);
+
+        if (input.empty()) return;
 
         source = graph.findVertex(input);
         if (source != nullptr) break;
@@ -428,18 +442,97 @@ void Menu::networkReliability1() {
 
     Station* dest;
     while (true) {
-        std::cout << "Introduza o nome da estação de destino:\n";
+        std::cout << "Introduza o nome da estação de destino: (Prima ENTER sem escrever nada para voltar atrás)\n";
 
         std::string input;
         std::getline(std::cin, input);
+
+        if (input.empty()) return;
 
         dest = graph.findVertex(input);
         if (dest != nullptr) break;
         std::cout << "\nEstação não encontrada. Por favor tente novamente.\n\n";
     }
-    /*
-     * chamar método grafo
-     */
+
+    Graph reduced;
+    readStations(stationsFile, reduced);
+    readNetwork(networkFile, reduced);
+
+    std::cout << "\nVamos agora escolher os segmentos da rede a retirar.\n"
+    << "Prima ENTER sem ter escrito nada para voltar ao menu anterior.\n";
+
+    while (true) {
+        while (true) {
+            Station *a;
+            while (true) {
+                std::cout << "Introduza o nome da estação de origem do segmento.\n";
+
+                std::string(input);
+                std::getline(std::cin, input);
+
+                if (input.empty()) return;
+
+                a = reduced.findVertex(input);
+                if (a != nullptr) break;
+                std::cout << "\nEstação não encontrada. Por favor tente novamente.\n\n";
+            }
+            Station *b;
+            while (true) {
+                std::cout << "Introduza o nome da estação de destino do segmento.\n";
+
+                std::string input;
+                std::getline(std::cin, input);
+
+                if (input.empty()) return;
+
+                b = reduced.findVertex(input);
+                if (b != nullptr) break;
+                std::cout << "\nEstação não encontrada. Por favor tente novamente.\n\n";
+            }
+            bool alfa;
+            while (true) {
+                std::cout << "O segmento a remover é STANDARD(s) ou ALFA PENDULAR(a)?\n";
+
+                std::string input;
+                std::getline(std::cin, input);
+
+                if (input.empty()) return;
+
+                if (input == "s") {
+                    alfa = false;
+                    break;
+                } else if (input == "a") {
+                    alfa = true;
+                    break;
+                }
+                std::cout << "\nOpção não reconhecida. Por favor tente novamente.\n\n";
+            }
+            //a->print();
+            //b->print();
+            if (reduced.removeEdge(a, b, alfa)) {
+                //a->print();
+                //b->print();
+                break;
+            }
+            std::cout << "\nSegmento não encontrado. Por favor tente novamente.\n\n";
+        }
+        std::cout << "Deseja remover mais segmentos? (s/n)\n\n";
+
+        std::string input;
+        std::getline(std::cin, input);
+
+        if (input.empty()) return;
+
+        if (input == "s") continue;
+        else if (input == "n") break;
+        else std::cout << "\nOpção não reconhecida. Por favor tente novamente.\n\n";
+    }
+
+    clear();
+    int m = reduced.maxFlow(source -> getName(), dest -> getName());
+    if (m != -1)
+        std::cout << "Número máximo de comboios que podem viajar entre " << source->getName() << " e " << dest->getName() << " é " << m << "\n\n";
+    else std::cout << "Não existe caminho entre " << source->getName() << " e " << dest->getName() << "\n\n";
 }
 
 void Menu::networkReliability2() {
@@ -447,9 +540,10 @@ void Menu::networkReliability2() {
         std::cout << "Qual o tamanho k do top (top-k)?\n";
 
         std::string input;
+        int k = -1;
+
         std::getline(std::cin, input);
 
-        int k;
         try {
             k = stoi(input);
         } catch (std::invalid_argument) {
