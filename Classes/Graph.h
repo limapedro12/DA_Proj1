@@ -11,6 +11,7 @@
 #include <unordered_map>
 #include <iostream>
 #include <algorithm>
+#include <map>
 
 #include "VertexEdge.h"
 
@@ -51,6 +52,7 @@ public:
     std::pair<int, std::vector<Edge*>> minCost(const std::string& source, const std::string& target);
     std::pair<double, Graph>  edmondsKarpMinCost(const std::string& source, const std::string& target, double costLimit);
     std::pair<int, double> maxTrainsMinCost(const std::string& source, const std::string& target, double costLimit);
+    std::list<std::pair<Station*, Station*>> mostTrainsPair(Graph* g, std::map<District*, int>& districtflow, std::map<Municipality*, int>& municipalityflow);
 
 private:
     std::vector<Station *> vertexSet;    // vertex set
