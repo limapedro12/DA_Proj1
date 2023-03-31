@@ -41,18 +41,18 @@ public:
     std::vector<Station*> getVertexSet() const;
 
 //    void createResidualGraph(const Graph& g);
-    std::vector<Edge*> path(const std::string& source, const std::string& dest) const;
+    std::vector<Edge*> path(Station* source, Station* dest) const;
     double findBottleneck(std::vector<Edge*> path);
-    Graph edmondsKarp(const std::string& source, const std::string& target);
-    int maxFlow(const std::string& source, const std::string& target);
+    Graph edmondsKarp(Station* source, Station* target);
+    int maxFlow(Station* source, Station* target);
     int maxTrainsAtStation(Station* station);
-    int cost(const std::string& source, const std::string& target);
+    int cost(Station* source, Station* target);
 
-    std::vector<Edge*> pathDijkstra(const std::string& source, const std::string& dest) const;
-    std::pair<int, std::vector<Edge*>> minCost(const std::string& source, const std::string& target);
-    std::pair<double, Graph>  edmondsKarpMinCost(const std::string& source, const std::string& target, double costLimit);
-    std::pair<int, double> maxTrainsMinCost(const std::string& source, const std::string& target, double costLimit);
-    std::list<std::pair<Station*, Station*>> mostTrainsPair(Graph* g, std::map<District*, int>& districtflow, std::map<Municipality*, int>& municipalityflow);
+    std::vector<Edge*> pathDijkstra(Station* source, Station* dest) const;
+    std::pair<int, std::vector<Edge*>> minCost(Station* source, Station* target);
+    std::pair<double, Graph>  edmondsKarpMinCost(Station* source, Station* target, double costLimit);
+    std::pair<int, double> maxTrainsMinCost(Station* source, Station* target, double costLimit);
+    std::list<std::pair<Station*, Station*>> mostTrainsPair(std::map<District*, int>& districtflow, std::map<Municipality*, int>& municipalityflow);
 
 private:
     std::vector<Station *> vertexSet;    // vertex set
@@ -61,8 +61,7 @@ private:
      * Finds the index of the vertex with a given content.
      */
     int findVertexIdx(const std::string& name) const;
-    int costBFS(const std::string& source);
+    int costBFS(Station* source);
 };
 
 #endif //DA_PROJ1_GRAPH_H
-

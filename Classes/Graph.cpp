@@ -69,12 +69,12 @@ std::vector<Station*> Graph::getVertexSet() const {
 
 using namespace std;
 
-vector<Edge*> Graph::path(const string& source, const string& dest) const {
+vector<Edge*> Graph::path(Station* source, Station* dest) const {
     std::vector<Edge*> res;
     unordered_map<Station*, Edge*> before;
     bool found = false;
-    Station* v = findVertex(source);
-    Station* dest_v = findVertex(dest);
+    Station* v = source;
+    Station* dest_v = dest;
     if(v == nullptr)
         return res;
     for(Station* b: vertexSet)
@@ -122,7 +122,7 @@ double Graph::findBottleneck(vector<Edge*> path){
     return capacity;
 }
 
-Graph Graph::edmondsKarp(const string& source, const string& target) {
+Graph Graph::edmondsKarp(Station* source, Station* target) {
     for(Station* v: vertexSet)
         for(Edge* e: v->getAdj())
             e->setFlow(0);
@@ -158,14 +158,14 @@ Graph Graph::edmondsKarp(const string& source, const string& target) {
     return residual;
 }
 
-int Graph::maxFlow(const std::string& source, const std::string& target){
+int Graph::maxFlow(Station* source, Station* target){
     Graph residual = edmondsKarp(source, target);
 
     if(residual.vertexSet.empty())
         return -1;
 
     int flow = 0;
-    for(Edge* e: residual.findVertex(source)->getAdj()) {
+    for(Edge* e: residual.findVertex(source->getName())->getAdj()) {
         flow += e->getFlow();
     }
 
@@ -182,18 +182,17 @@ int Graph::maxTrainsAtStation(Station* t){
         if(v != t)
             temp.addBidirectionalEdge(&s, v, 1000000000, false);
 
-    auto f = temp.path(s.getName(), t->getName());
+    auto f = temp.path(&s, t);
 
-    int ret = temp.maxFlow(s.getName(), t->getName());
+    int ret = temp.maxFlow(&s, t);
     if(ret == -1)
         return 0;
     return ret;
 }
 
-<<<<<<< HEAD
-int Graph::costBFS(const std::string& source){
+int Graph::costBFS(Station* source){
     int cost = 0;
-    Station* v = findVertex(source);
+    Station* v = source;
     if(v == nullptr)
         return 0;
     for(Station* b: vertexSet)
@@ -216,7 +215,7 @@ int Graph::costBFS(const std::string& source){
     return cost;
 }
 
-int Graph::cost(const std::string& source, const std::string& target){
+int Graph::cost(Station* source, Station* target){
     if(target == source)
         return 0;
 
@@ -238,12 +237,12 @@ struct compCost{
 };
 
 //returns the path from source to target with the minimum cost using the Dijkstra algorithm, but instead of a priority queue, it uses a set
-vector<Edge*> Graph::pathDijkstra(const string& source, const string& dest) const {
+vector<Edge*> Graph::pathDijkstra(Station* source, Station* dest) const {
     std::vector<Edge*> res;
     unordered_map<Station*, Edge*> before;
     bool found = false;
-    Station* v = findVertex(source);
-    Station* dest_v = findVertex(dest);
+    Station* v = source;
+    Station* dest_v = dest;
     if(v == nullptr)
         return res;
     for(Station* b: vertexSet) {
@@ -262,7 +261,7 @@ vector<Edge*> Graph::pathDijkstra(const string& source, const string& dest) cons
     while(!q.empty()){
         auto x = *q.begin();
         q.erase(q.begin());
-        if(x->getName() == dest) {
+        if(x->getName() == dest->getName()) {
             found = true; break;
         }
         x->setVisited(true);
@@ -292,7 +291,7 @@ vector<Edge*> Graph::pathDijkstra(const string& source, const string& dest) cons
     return res;
 }
 
-pair<int, vector<Edge*>> Graph::minCost(const std::string& source, const std::string& target){
+pair<int, vector<Edge*>> Graph::minCost(Station* source, Station* target){
     for(Station* v: vertexSet)
         for(Edge* e: v->getAdj())
             e->setFlow(0);
@@ -308,7 +307,7 @@ pair<int, vector<Edge*>> Graph::minCost(const std::string& source, const std::st
     return make_pair(cost, p);
 }
 
-pair<double, Graph> Graph::edmondsKarpMinCost(const std::string& source, const std::string& target, double costLimit){
+pair<double, Graph> Graph::edmondsKarpMinCost(Station* source, Station* target, double costLimit){
     for(Station* v: vertexSet)
         for(Edge* e: v->getAdj())
             e->setFlow(0);
@@ -347,7 +346,7 @@ pair<double, Graph> Graph::edmondsKarpMinCost(const std::string& source, const s
     return make_pair(costLimit, residual);
 }
 
-pair<int, double> Graph::maxTrainsMinCost(const std::string& source, const std::string& target, double costLimit){
+pair<int, double> Graph::maxTrainsMinCost(Station* source, Station* target, double costLimit){
     auto tt = edmondsKarpMinCost(source, target, costLimit);
     Graph residual = tt.second;
     double cost = costLimit - tt.first;
@@ -356,7 +355,7 @@ pair<int, double> Graph::maxTrainsMinCost(const std::string& source, const std::
         return make_pair(-1, -1);
 
     int flow = 0;
-    for(Edge* e: residual.findVertex(source)->getAdj()) {
+    for(Edge* e: residual.findVertex(source->getName())->getAdj()) {
         flow += e->getFlow();
     }
 
@@ -376,8 +375,9 @@ pair<int, double> Graph::maxTrainsMinCost(const std::string& source, const std::
 //    return {max, stations};
 }
 
-std::list<std::pair<Station*, Station*>> Graph::mostTrainsPair(Graph* g, std::map<District*, int>& districtflow, std::map<Municipality*, int>& municipalityflow) {
+std::list<std::pair<Station*, Station*>> Graph::mostTrainsPair(std::map<District*, int>& districtflow, std::map<Municipality*, int>& municipalityflow) {
 
+    Graph* g = this;
     int maxflow=-10;
     std::list<std::pair<Station*, Station*>> maxflowstations;
 
@@ -387,7 +387,7 @@ std::list<std::pair<Station*, Station*>> Graph::mostTrainsPair(Graph* g, std::ma
                 continue;
             }
             else {
-                int flow = maxFlow(stationPtr1->getName(), stationPtr2->getName());
+                int flow = maxFlow(stationPtr1, stationPtr2);
                 if(flow>maxflow) {
                     maxflow=flow;
                     maxflowstations.clear(); //apagar tudo da lista dupla de estações
@@ -397,7 +397,7 @@ std::list<std::pair<Station*, Station*>> Graph::mostTrainsPair(Graph* g, std::ma
 
                 }
 
-                else if(maxFlow(stationPtr1->getName(), stationPtr2->getName())==maxflow) {
+                else if(flow==maxflow) {
 
                     maxflowstations.push_back(std::make_pair(stationPtr1, stationPtr2)); //adicionar par à lista de estações com maxflow maior;
 

@@ -209,7 +209,7 @@ void Menu::basicMetrics1() {
     }
 
     clear();
-    int m = graph.maxFlow(source -> getName(), dest -> getName());
+    int m = graph.maxFlow(source, dest);
     if (m != -1)
         std::cout << "Número máximo de comboios que podem viajar entre " << source->getName() << " e " << dest->getName() << " é " << m << "\n\n";
     else
@@ -221,9 +221,14 @@ void Menu::basicMetrics1() {
 }
 
 void Menu::basicMetrics2() {
-    /*
-     * chamar método grafo
-     */
+    extern std::map<District*, int> districtFlow;
+    extern std::map<Municipality*, int> municipalityFlow;
+
+    std::list<std::pair<Station*, Station*>> mostTrains = graph.mostTrainsPair(districtFlow, municipalityFlow);
+
+    for (auto itr = mostTrains.begin(); itr != mostTrains.end(); itr++) {
+        std::cout << "Par:" << itr->first->getName() << ", " << itr->second->getName() << std::endl;
+    }
 }
 
 void Menu::basicMetrics3() {
@@ -304,8 +309,8 @@ void Menu::costOptimization1() {
 
     clear();
 
-    int cost = graph.cost(source -> getName(), dest -> getName());
-    int flow = graph.maxFlow(source -> getName(), dest -> getName());
+    int cost = graph.cost(source, dest);
+    int flow = graph.maxFlow(source, dest);
     if(cost == 0)
         std::cout << "O destino e a origem são a mesma estação.\n";
     else if(cost == -1)
@@ -348,7 +353,7 @@ void Menu::costOptimization2() {
 
     clear();
 
-    auto cost = graph.minCost(source -> getName(), dest -> getName());
+    auto cost = graph.minCost(source, dest);
 
     if(cost.first == -1)
         std::cout << "Não existe caminho entre " << source->getName() << " e " << dest->getName() << std::endl;
@@ -411,7 +416,7 @@ void Menu::costOptimization3() {
         std::cout << "O destino e a origem são a mesma estação.\n";
 
     else {
-        std::pair<int, double> ret = graph.maxTrainsMinCost(source->getName(), dest->getName(), cost);
+        std::pair<int, double> ret = graph.maxTrainsMinCost(source, dest, cost);
 
         if (ret.first == -1 || ret.second == -1)
             std::cout << "Não existe caminho entre " << source->getName() << " e " << dest->getName() << std::endl;
@@ -529,7 +534,7 @@ void Menu::networkReliability1() {
     }
 
     clear();
-    int m = reduced.maxFlow(source -> getName(), dest -> getName());
+    int m = reduced.maxFlow(source, dest);
     if (m != -1)
         std::cout << "Número máximo de comboios que podem viajar entre " << source->getName() << " e " << dest->getName() << " é " << m << "\n\n";
     else std::cout << "Não existe caminho entre " << source->getName() << " e " << dest->getName() << "\n\n";
