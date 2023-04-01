@@ -307,7 +307,7 @@ pair<int, vector<Edge*>> Graph::minCost(Station* source, Station* target){
     return make_pair(cost, p);
 }
 
-pair<double, Graph> Graph::edmondsKarpMinCost(Station* source, Station* target, double costLimit){
+Graph Graph::edmondsKarpMinCost(Station* source, Station* target, double costLimit){
     for(Station* v: vertexSet)
         for(Edge* e: v->getAdj())
             e->setFlow(0);
@@ -341,15 +341,19 @@ pair<double, Graph> Graph::edmondsKarpMinCost(Station* source, Station* target, 
     }
 
     if(!found)
-        return make_pair(-1, Graph());
+        return Graph();
 
-    return make_pair(costLimit, residual);
+    return residual;
 }
 
 pair<int, double> Graph::maxTrainsMinCost(Station* source, Station* target, double costLimit){
-    auto tt = edmondsKarpMinCost(source, target, costLimit);
-    Graph residual = tt.second;
-    double cost = costLimit - tt.first;
+    Graph residual = edmondsKarpMinCost(source, target, costLimit);
+
+    int cost = 0;
+    for(Station* v: residual.vertexSet)
+        for(Edge* e: v->getAdj())
+            if(e->getFlow() > 0)
+                cost += e->getCost() * e->getFlow();
 
     if(residual.vertexSet.empty())
         return make_pair(-1, -1);
@@ -360,19 +364,6 @@ pair<int, double> Graph::maxTrainsMinCost(Station* source, Station* target, doub
     }
 
     return make_pair(flow, cost);
-//    vector<Station*> stations;
-//    int max = 0;
-//    for(Station* v: vertexSet)
-//        if(v != s){
-//            int flow = maxFlow(v->getName(), s->getName());
-//            if(flow > max) {
-//                max = flow;
-//                stations.clear();
-//                stations.push_back(v);
-//            } else if(flow == max)
-//                stations.push_back(v);
-//        }
-//    return {max, stations};
 }
 
 std::list<std::pair<Station*, Station*>> Graph::mostTrainsPair(std::map<District*, int>& districtflow, std::map<Municipality*, int>& municipalityflow) {

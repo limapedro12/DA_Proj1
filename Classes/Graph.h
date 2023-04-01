@@ -50,7 +50,7 @@ public:
 
     std::vector<Edge*> pathDijkstra(Station* source, Station* dest) const;
     std::pair<int, std::vector<Edge*>> minCost(Station* source, Station* target);
-    std::pair<double, Graph>  edmondsKarpMinCost(Station* source, Station* target, double costLimit);
+    Graph edmondsKarpMinCost(Station* source, Station* target, double costLimit);
     std::pair<int, double> maxTrainsMinCost(Station* source, Station* target, double costLimit);
     std::list<std::pair<Station*, Station*>> mostTrainsPair(std::map<District*, int>& districtflow, std::map<Municipality*, int>& municipalityflow);
 
