@@ -71,13 +71,611 @@ $(function() {
 </div><!-- top -->
 <div class="header">
   <div class="summary">
+<a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#pri-methods">Private Member Functions</a> &#124;
+<a href="#pri-attribs">Private Attributes</a> &#124;
 <a href="class_graph-members.html">List of all members</a>  </div>
   <div class="headertitle"><div class="title">Graph Class Reference</div></div>
 </div><!--header-->
 <div class="contents">
+
+<p><code>#include &lt;<a class="el" href="_graph_8h_source.html">Graph.h</a>&gt;</code></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
+Public Member Functions</h2></td></tr>
+<tr class="memitem:a1e8942f364b93d5159e3bd1e1f9419af"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_station.html">Station</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_graph.html#a1e8942f364b93d5159e3bd1e1f9419af">findVertex</a> (const std::string &amp;name) const</td></tr>
+<tr class="separator:a1e8942f364b93d5159e3bd1e1f9419af"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adc27ac68f38db42927a37000f331ac06"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_graph.html#adc27ac68f38db42927a37000f331ac06">addVertex</a> (<a class="el" href="class_station.html">Station</a> *station)</td></tr>
+<tr class="separator:adc27ac68f38db42927a37000f331ac06"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adaab59f1701276ce3848cfe8dd5fdff1"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_graph.html#adaab59f1701276ce3848cfe8dd5fdff1">removeEdge</a> (<a class="el" href="class_station.html">Station</a> *orig, <a class="el" href="class_station.html">Station</a> *dest, bool alfa)</td></tr>
+<tr class="separator:adaab59f1701276ce3848cfe8dd5fdff1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3e89bc15a96ae21124d98e50098cf008"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_edge.html">Edge</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_graph.html#a3e89bc15a96ae21124d98e50098cf008">addEdge</a> (<a class="el" href="class_station.html">Station</a> *sourc, <a class="el" href="class_station.html">Station</a> *dest, double w, bool alfa)</td></tr>
+<tr class="separator:a3e89bc15a96ae21124d98e50098cf008"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2c774c3c9f7a80767faf07a5bda37cb1"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_graph.html#a2c774c3c9f7a80767faf07a5bda37cb1">addBidirectionalEdge</a> (<a class="el" href="class_station.html">Station</a> *sourc, <a class="el" href="class_station.html">Station</a> *dest, double w, bool alfa)</td></tr>
+<tr class="separator:a2c774c3c9f7a80767faf07a5bda37cb1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a35fbd1e7697703ce92a11ff3dd1f2cf3"><td class="memItemLeft" align="right" valign="top">std::vector&lt; <a class="el" href="class_station.html">Station</a> * &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_graph.html#a35fbd1e7697703ce92a11ff3dd1f2cf3">getVertexSet</a> () const</td></tr>
+<tr class="separator:a35fbd1e7697703ce92a11ff3dd1f2cf3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a15fee14432bc7154a1e5899c1fce9303"><td class="memItemLeft" align="right" valign="top">std::vector&lt; <a class="el" href="class_edge.html">Edge</a> * &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_graph.html#a15fee14432bc7154a1e5899c1fce9303">path</a> (<a class="el" href="class_station.html">Station</a> *source, <a class="el" href="class_station.html">Station</a> *dest) const</td></tr>
+<tr class="separator:a15fee14432bc7154a1e5899c1fce9303"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a838661806d669f4e0d4190050d8b836e"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_graph.html#a838661806d669f4e0d4190050d8b836e">findBottleneck</a> (std::vector&lt; <a class="el" href="class_edge.html">Edge</a> * &gt; <a class="el" href="class_graph.html#a15fee14432bc7154a1e5899c1fce9303">path</a>)</td></tr>
+<tr class="separator:a838661806d669f4e0d4190050d8b836e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acc2eb148fb2d027ff956901af7401203"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_graph.html">Graph</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_graph.html#acc2eb148fb2d027ff956901af7401203">edmondsKarp</a> (<a class="el" href="class_station.html">Station</a> *source, <a class="el" href="class_station.html">Station</a> *target)</td></tr>
+<tr class="separator:acc2eb148fb2d027ff956901af7401203"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af640fa54e4996c5c1494bd208d906fbe"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_graph.html#af640fa54e4996c5c1494bd208d906fbe">maxFlow</a> (<a class="el" href="class_station.html">Station</a> *source, <a class="el" href="class_station.html">Station</a> *target)</td></tr>
+<tr class="separator:af640fa54e4996c5c1494bd208d906fbe"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acf4ac5905a548adadae1e43a5a87dcfd"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_graph.html#acf4ac5905a548adadae1e43a5a87dcfd">maxTrainsAtStation</a> (<a class="el" href="class_station.html">Station</a> *station)</td></tr>
+<tr class="separator:acf4ac5905a548adadae1e43a5a87dcfd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a07b983e5e54a643cfb680673a51982b2"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_graph.html#a07b983e5e54a643cfb680673a51982b2">cost</a> (<a class="el" href="class_station.html">Station</a> *source, <a class="el" href="class_station.html">Station</a> *target)</td></tr>
+<tr class="separator:a07b983e5e54a643cfb680673a51982b2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7742ac91471da9d4497811fe9cbcfe07"><td class="memItemLeft" align="right" valign="top">std::vector&lt; <a class="el" href="class_edge.html">Edge</a> * &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_graph.html#a7742ac91471da9d4497811fe9cbcfe07">pathDijkstra</a> (<a class="el" href="class_station.html">Station</a> *source, <a class="el" href="class_station.html">Station</a> *dest) const</td></tr>
+<tr class="separator:a7742ac91471da9d4497811fe9cbcfe07"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5b4649163c3c86589abedbdffb36dc7f"><td class="memItemLeft" align="right" valign="top">std::pair&lt; int, std::vector&lt; <a class="el" href="class_edge.html">Edge</a> * &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_graph.html#a5b4649163c3c86589abedbdffb36dc7f">minCost</a> (<a class="el" href="class_station.html">Station</a> *source, <a class="el" href="class_station.html">Station</a> *target)</td></tr>
+<tr class="separator:a5b4649163c3c86589abedbdffb36dc7f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae9610a4992e419580d6b8a460085d9d5"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_graph.html">Graph</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_graph.html#ae9610a4992e419580d6b8a460085d9d5">edmondsKarpMinCost</a> (<a class="el" href="class_station.html">Station</a> *source, <a class="el" href="class_station.html">Station</a> *target, double costLimit)</td></tr>
+<tr class="separator:ae9610a4992e419580d6b8a460085d9d5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8a494ff51916d3590379c9aaea48f85e"><td class="memItemLeft" align="right" valign="top">std::pair&lt; int, double &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_graph.html#a8a494ff51916d3590379c9aaea48f85e">maxTrainsMinCost</a> (<a class="el" href="class_station.html">Station</a> *source, <a class="el" href="class_station.html">Station</a> *target, double costLimit)</td></tr>
+<tr class="separator:a8a494ff51916d3590379c9aaea48f85e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae6c07f74204cc6aedcb7a37a03bf7826"><td class="memItemLeft" align="right" valign="top">std::list&lt; std::pair&lt; <a class="el" href="class_station.html">Station</a> *, <a class="el" href="class_station.html">Station</a> * &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_graph.html#ae6c07f74204cc6aedcb7a37a03bf7826">mostTrainsPair</a> (std::map&lt; <a class="el" href="class_district.html">District</a> *, int &gt; &amp;districtflow, std::map&lt; <a class="el" href="class_municipality.html">Municipality</a> *, int &gt; &amp;municipalityflow)</td></tr>
+<tr class="separator:ae6c07f74204cc6aedcb7a37a03bf7826"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-methods" name="pri-methods"></a>
+Private Member Functions</h2></td></tr>
+<tr class="memitem:a5f8acae4a42be696106111ec941d6ab8"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_graph.html#a5f8acae4a42be696106111ec941d6ab8">findVertexIdx</a> (const std::string &amp;name) const</td></tr>
+<tr class="separator:a5f8acae4a42be696106111ec941d6ab8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a53f59f1ad52b5ef4d39cca44e7d25d0c"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_graph.html#a53f59f1ad52b5ef4d39cca44e7d25d0c">costBFS</a> (<a class="el" href="class_station.html">Station</a> *source)</td></tr>
+<tr class="separator:a53f59f1ad52b5ef4d39cca44e7d25d0c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-attribs" name="pri-attribs"></a>
+Private Attributes</h2></td></tr>
+<tr class="memitem:ae3bd6f9b25e62a99a66639d72dda499b"><td class="memItemLeft" align="right" valign="top">std::vector&lt; <a class="el" href="class_station.html">Station</a> * &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_graph.html#ae3bd6f9b25e62a99a66639d72dda499b">vertexSet</a></td></tr>
+<tr class="separator:ae3bd6f9b25e62a99a66639d72dda499b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<h2 class="groupheader">Member Function Documentation</h2>
+<a id="a2c774c3c9f7a80767faf07a5bda37cb1" name="a2c774c3c9f7a80767faf07a5bda37cb1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2c774c3c9f7a80767faf07a5bda37cb1">&#9670;&#160;</a></span>addBidirectionalEdge()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool Graph::addBidirectionalEdge </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_station.html">Station</a> *&#160;</td>
+          <td class="paramname"><em>sourc</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="class_station.html">Station</a> *&#160;</td>
+          <td class="paramname"><em>dest</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>w</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>alfa</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a3e89bc15a96ae21124d98e50098cf008" name="a3e89bc15a96ae21124d98e50098cf008"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3e89bc15a96ae21124d98e50098cf008">&#9670;&#160;</a></span>addEdge()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_edge.html">Edge</a> * Graph::addEdge </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_station.html">Station</a> *&#160;</td>
+          <td class="paramname"><em>sourc</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="class_station.html">Station</a> *&#160;</td>
+          <td class="paramname"><em>dest</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>w</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>alfa</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="adc27ac68f38db42927a37000f331ac06" name="adc27ac68f38db42927a37000f331ac06"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#adc27ac68f38db42927a37000f331ac06">&#9670;&#160;</a></span>addVertex()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool Graph::addVertex </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_station.html">Station</a> *&#160;</td>
+          <td class="paramname"><em>station</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a07b983e5e54a643cfb680673a51982b2" name="a07b983e5e54a643cfb680673a51982b2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a07b983e5e54a643cfb680673a51982b2">&#9670;&#160;</a></span>cost()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int Graph::cost </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_station.html">Station</a> *&#160;</td>
+          <td class="paramname"><em>source</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="class_station.html">Station</a> *&#160;</td>
+          <td class="paramname"><em>target</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a53f59f1ad52b5ef4d39cca44e7d25d0c" name="a53f59f1ad52b5ef4d39cca44e7d25d0c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a53f59f1ad52b5ef4d39cca44e7d25d0c">&#9670;&#160;</a></span>costBFS()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int Graph::costBFS </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_station.html">Station</a> *&#160;</td>
+          <td class="paramname"><em>source</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="acc2eb148fb2d027ff956901af7401203" name="acc2eb148fb2d027ff956901af7401203"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acc2eb148fb2d027ff956901af7401203">&#9670;&#160;</a></span>edmondsKarp()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_graph.html">Graph</a> Graph::edmondsKarp </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_station.html">Station</a> *&#160;</td>
+          <td class="paramname"><em>source</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="class_station.html">Station</a> *&#160;</td>
+          <td class="paramname"><em>target</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ae9610a4992e419580d6b8a460085d9d5" name="ae9610a4992e419580d6b8a460085d9d5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae9610a4992e419580d6b8a460085d9d5">&#9670;&#160;</a></span>edmondsKarpMinCost()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_graph.html">Graph</a> Graph::edmondsKarpMinCost </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_station.html">Station</a> *&#160;</td>
+          <td class="paramname"><em>source</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="class_station.html">Station</a> *&#160;</td>
+          <td class="paramname"><em>target</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>costLimit</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a838661806d669f4e0d4190050d8b836e" name="a838661806d669f4e0d4190050d8b836e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a838661806d669f4e0d4190050d8b836e">&#9670;&#160;</a></span>findBottleneck()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">double Graph::findBottleneck </td>
+          <td>(</td>
+          <td class="paramtype">std::vector&lt; <a class="el" href="class_edge.html">Edge</a> * &gt;&#160;</td>
+          <td class="paramname"><em>path</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a1e8942f364b93d5159e3bd1e1f9419af" name="a1e8942f364b93d5159e3bd1e1f9419af"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1e8942f364b93d5159e3bd1e1f9419af">&#9670;&#160;</a></span>findVertex()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_station.html">Station</a> * Graph::findVertex </td>
+          <td>(</td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>name</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a5f8acae4a42be696106111ec941d6ab8" name="a5f8acae4a42be696106111ec941d6ab8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5f8acae4a42be696106111ec941d6ab8">&#9670;&#160;</a></span>findVertexIdx()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int Graph::findVertexIdx </td>
+          <td>(</td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>name</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a35fbd1e7697703ce92a11ff3dd1f2cf3" name="a35fbd1e7697703ce92a11ff3dd1f2cf3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a35fbd1e7697703ce92a11ff3dd1f2cf3">&#9670;&#160;</a></span>getVertexSet()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::vector&lt; <a class="el" href="class_station.html">Station</a> * &gt; Graph::getVertexSet </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="af640fa54e4996c5c1494bd208d906fbe" name="af640fa54e4996c5c1494bd208d906fbe"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af640fa54e4996c5c1494bd208d906fbe">&#9670;&#160;</a></span>maxFlow()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int Graph::maxFlow </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_station.html">Station</a> *&#160;</td>
+          <td class="paramname"><em>source</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="class_station.html">Station</a> *&#160;</td>
+          <td class="paramname"><em>target</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="acf4ac5905a548adadae1e43a5a87dcfd" name="acf4ac5905a548adadae1e43a5a87dcfd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acf4ac5905a548adadae1e43a5a87dcfd">&#9670;&#160;</a></span>maxTrainsAtStation()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int Graph::maxTrainsAtStation </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_station.html">Station</a> *&#160;</td>
+          <td class="paramname"><em>station</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a8a494ff51916d3590379c9aaea48f85e" name="a8a494ff51916d3590379c9aaea48f85e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8a494ff51916d3590379c9aaea48f85e">&#9670;&#160;</a></span>maxTrainsMinCost()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">pair&lt; int, double &gt; Graph::maxTrainsMinCost </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_station.html">Station</a> *&#160;</td>
+          <td class="paramname"><em>source</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="class_station.html">Station</a> *&#160;</td>
+          <td class="paramname"><em>target</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>costLimit</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a5b4649163c3c86589abedbdffb36dc7f" name="a5b4649163c3c86589abedbdffb36dc7f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5b4649163c3c86589abedbdffb36dc7f">&#9670;&#160;</a></span>minCost()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">pair&lt; int, vector&lt; <a class="el" href="class_edge.html">Edge</a> * &gt; &gt; Graph::minCost </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_station.html">Station</a> *&#160;</td>
+          <td class="paramname"><em>source</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="class_station.html">Station</a> *&#160;</td>
+          <td class="paramname"><em>target</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ae6c07f74204cc6aedcb7a37a03bf7826" name="ae6c07f74204cc6aedcb7a37a03bf7826"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae6c07f74204cc6aedcb7a37a03bf7826">&#9670;&#160;</a></span>mostTrainsPair()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::list&lt; std::pair&lt; <a class="el" href="class_station.html">Station</a> *, <a class="el" href="class_station.html">Station</a> * &gt; &gt; Graph::mostTrainsPair </td>
+          <td>(</td>
+          <td class="paramtype">std::map&lt; <a class="el" href="class_district.html">District</a> *, int &gt; &amp;&#160;</td>
+          <td class="paramname"><em>districtflow</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::map&lt; <a class="el" href="class_municipality.html">Municipality</a> *, int &gt; &amp;&#160;</td>
+          <td class="paramname"><em>municipalityflow</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a15fee14432bc7154a1e5899c1fce9303" name="a15fee14432bc7154a1e5899c1fce9303"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a15fee14432bc7154a1e5899c1fce9303">&#9670;&#160;</a></span>path()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">vector&lt; <a class="el" href="class_edge.html">Edge</a> * &gt; Graph::path </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_station.html">Station</a> *&#160;</td>
+          <td class="paramname"><em>source</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="class_station.html">Station</a> *&#160;</td>
+          <td class="paramname"><em>dest</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a7742ac91471da9d4497811fe9cbcfe07" name="a7742ac91471da9d4497811fe9cbcfe07"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7742ac91471da9d4497811fe9cbcfe07">&#9670;&#160;</a></span>pathDijkstra()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">vector&lt; <a class="el" href="class_edge.html">Edge</a> * &gt; Graph::pathDijkstra </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_station.html">Station</a> *&#160;</td>
+          <td class="paramname"><em>source</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="class_station.html">Station</a> *&#160;</td>
+          <td class="paramname"><em>dest</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="adaab59f1701276ce3848cfe8dd5fdff1" name="adaab59f1701276ce3848cfe8dd5fdff1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#adaab59f1701276ce3848cfe8dd5fdff1">&#9670;&#160;</a></span>removeEdge()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool Graph::removeEdge </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_station.html">Station</a> *&#160;</td>
+          <td class="paramname"><em>orig</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="class_station.html">Station</a> *&#160;</td>
+          <td class="paramname"><em>dest</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>alfa</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<h2 class="groupheader">Member Data Documentation</h2>
+<a id="ae3bd6f9b25e62a99a66639d72dda499b" name="ae3bd6f9b25e62a99a66639d72dda499b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae3bd6f9b25e62a99a66639d72dda499b">&#9670;&#160;</a></span>vertexSet</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::vector&lt;<a class="el" href="class_station.html">Station</a> *&gt; Graph::vertexSet</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <hr/>The documentation for this class was generated from the following files:<ul>
 <li>C:/Users/Pedro/CLionProjects/DA_Proj1/Classes/<a class="el" href="_graph_8h_source.html">Graph.h</a></li>
-<li>C:/Users/Pedro/CLionProjects/DA_Proj1/Classes/Graph.cpp</li>
+<li>C:/Users/Pedro/CLionProjects/DA_Proj1/Classes/<a class="el" href="_graph_8cpp.html">Graph.cpp</a></li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->
