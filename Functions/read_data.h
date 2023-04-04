@@ -14,8 +14,8 @@
 /**
  * Reads the stations in a given csv file and populates a given graph with those stations.
  *
- * @param filename
- * @param graph
+ * @param filename Path to the stations csv filename
+ * @param graph Reference to the Graph to populate
  */
 void readStations(const std::string& filename, Graph& graph);
 
@@ -23,8 +23,8 @@ void readStations(const std::string& filename, Graph& graph);
  * Reads the railway segments in a given csv file and populates a given graph with those stations.
  * Cannot be called before readStations().
  *
- * @param filename
- * @param graph
+ * @param filename Path to network csv filename
+ * @param graph Reference to the Graph to populate
  */
 void readNetwork(const std::string& filename, Graph& graph);
 

@@ -85,7 +85,7 @@ double Station::getCost() const {
 void Station::setCost(double cost) {
     Station::cost = cost;
 }
-
+/*
 void Station::print() const {
     std::cout << name << std::endl;
     for (Edge* e : adj) {
@@ -94,7 +94,7 @@ void Station::print() const {
         else std::cout << "STANDARD\n";
     }
     std::cout << std::endl;
-}
+}*/
 
 Edge::Edge(Station *orig, Station *dest, double w, bool alfa): orig(orig), dest(dest), weight(w), alfa(alfa) {}
 

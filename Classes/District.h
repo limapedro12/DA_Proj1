@@ -15,18 +15,18 @@ class Station;
 class District {
 public:
     /**
-     * Constructor. Receives a district name.
-     * @param name
+     * Constructor.
+     * @param name District name
      */
     District(const std::string& name);
     /**
      * Adds a given station pointer to the district's stations.
-     * @param station
+     * @param station Station Pointer
      */
     void addStation(Station* station);
     /**
      * Less than (District A < District B) comparison operator. Lexicographically compares the districts' names.
-     * @param other
+     * @param other Other District Pointer
      * @return True if A's name is lexicographically lower than B's name, false otherwise.
      */
     bool operator<(const District& other) const;

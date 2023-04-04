@@ -16,18 +16,18 @@ class Station;
 class Municipality {
 public:
     /**
-     * Constructor. Receives a municipality name.
-     * @param name
+     * Constructor.
+     * @param name Municipality name
      */
     Municipality(const std::string& name);
     /**
      * Adds a given station pointer to the municipality's stations.
-     * @param station
+     * @param station Station pointer
      */
     void addStation(Station* station);
     /**
      * Less than (Municipality A < Municipality B) comparison operator. Lexicographically compares the municipalities' names.
-     * @param other
+     * @param other Other Municipality Pointer
      * @return True if A's name is lexicographically lower than B's name, false otherwise.
      */
     bool operator<(const Municipality& other) const;
