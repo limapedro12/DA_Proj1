@@ -11,10 +11,9 @@ var searchData=
   ['menu_2eh_8',['Menu.h',['../_menu_8h.html',1,'']]],
   ['mincost_9',['minCost',['../class_graph.html#a5b4649163c3c86589abedbdffb36dc7f',1,'Graph']]],
   ['mosttrainspair_10',['mostTrainsPair',['../class_graph.html#ae6c07f74204cc6aedcb7a37a03bf7826',1,'Graph']]],
-  ['municipality_11',['Municipality',['../class_municipality.html',1,'']]],
+  ['municipality_11',['Municipality',['../class_municipality.html',1,'Municipality'],['../class_municipality.html#a72b3a96db90c0514bc0d17dd994ae6d2',1,'Municipality::Municipality()']]],
   ['municipality_12',['municipality',['../class_station.html#a1ff7788bb6b86f73bdd185f63ac058f2',1,'Station']]],
-  ['municipality_13',['Municipality',['../class_municipality.html#a72b3a96db90c0514bc0d17dd994ae6d2',1,'Municipality']]],
-  ['municipality_2ecpp_14',['Municipality.cpp',['../_municipality_8cpp.html',1,'']]],
-  ['municipality_2eh_15',['Municipality.h',['../_municipality_8h.html',1,'']]],
-  ['municipalityflow_16',['municipalityFlow',['../read__data_8cpp.html#a221b8697f66d36708d7ec63d8ec47338',1,'read_data.cpp']]]
+  ['municipality_2ecpp_13',['Municipality.cpp',['../_municipality_8cpp.html',1,'']]],
+  ['municipality_2eh_14',['Municipality.h',['../_municipality_8h.html',1,'']]],
+  ['municipalityflow_15',['municipalityFlow',['../read__data_8cpp.html#a221b8697f66d36708d7ec63d8ec47338',1,'read_data.cpp']]]
 ];

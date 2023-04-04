@@ -78,6 +78,9 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 
+<p>A class that represents a <a class="el" href="class_station.html" title="A class that represents a Station, being a node of the network graph.">Station</a>, being a node of the network graph.  
+ <a href="class_station.html#details">More...</a></p>
+
 <p><code>#include &lt;<a class="el" href="_vertex_edge_8h_source.html">VertexEdge.h</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
@@ -118,8 +121,6 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a20ef85aed6cabf36d5295e48c3748793"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a323cf194da81de63fd44152c58b5a73a"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_station.html#a323cf194da81de63fd44152c58b5a73a">removeEdge</a> (<a class="el" href="class_station.html">Station</a> *dest, bool alfa)</td></tr>
 <tr class="separator:a323cf194da81de63fd44152c58b5a73a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac7bd52b51c88ebb6911dd2de4f972fde"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_station.html#ac7bd52b51c88ebb6911dd2de4f972fde">print</a> () const</td></tr>
-<tr class="separator:ac7bd52b51c88ebb6911dd2de4f972fde"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-attribs" name="pri-attribs"></a>
 Private Attributes</h2></td></tr>
@@ -140,7 +141,11 @@ Private Attributes</h2></td></tr>
 <tr class="memitem:ae05150c4e28e7869959bd3405f53c245"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_station.html#ae05150c4e28e7869959bd3405f53c245">cost</a></td></tr>
 <tr class="separator:ae05150c4e28e7869959bd3405f53c245"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p >A class that represents a <a class="el" href="class_station.html" title="A class that represents a Station, being a node of the network graph.">Station</a>, being a node of the network graph. </p>
+<p >Given that we represent the railway network as a graph, the stations are the graph's nodes.<br  />
+A <a class="el" href="class_station.html" title="A class that represents a Station, being a node of the network graph.">Station</a> is represented by its name, pointers to its <a class="el" href="class_district.html" title="A class for a Portuguese district.">District</a> and its <a class="el" href="class_municipality.html" title="A class for a Portuguese Municipality.">Municipality</a>, its Township (Parish - Freguesia) and the line it belongs to (North Line, Minho Line...). Contains its adjacent railway segments. </p>
+</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a3f452187fea0b895e004221ca0fb938d" name="a3f452187fea0b895e004221ca0fb938d"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a3f452187fea0b895e004221ca0fb938d">&#9670;&#160;</a></span>Station()</h2>
 
@@ -184,6 +189,16 @@ Private Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">name</td><td>String with the <a class="el" href="class_station.html" title="A class that represents a Station, being a node of the network graph.">Station</a>'s name </td></tr>
+    <tr><td class="paramname">district</td><td>Pointer to the <a class="el" href="class_station.html" title="A class that represents a Station, being a node of the network graph.">Station</a>'s <a class="el" href="class_district.html" title="A class for a Portuguese district.">District</a> </td></tr>
+    <tr><td class="paramname">municipality</td><td>Pointer to the <a class="el" href="class_station.html" title="A class that represents a Station, being a node of the network graph.">Station</a>'s <a class="el" href="class_municipality.html" title="A class for a Portuguese Municipality.">Municipality</a> </td></tr>
+    <tr><td class="paramname">township</td><td>String with the <a class="el" href="class_station.html" title="A class that represents a Station, being a node of the network graph.">Station</a>'s Township name </td></tr>
+    <tr><td class="paramname">line</td><td>String with the <a class="el" href="class_station.html" title="A class that represents a Station, being a node of the network graph.">Station</a>'s line name </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -219,6 +234,15 @@ Private Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p >Adds a railway segment (an edge of the network graph) adjacent to the <a class="el" href="class_station.html" title="A class that represents a Station, being a node of the network graph.">Station</a>. </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">dest</td><td>Pointer to the destination <a class="el" href="class_station.html" title="A class that represents a Station, being a node of the network graph.">Station</a> of the <a class="el" href="class_edge.html" title="A class that represents a railway segment between two Stations, being an Edge of the network graph.">Edge</a> to add </td></tr>
+    <tr><td class="paramname">w</td><td><a class="el" href="class_edge.html" title="A class that represents a railway segment between two Stations, being an Edge of the network graph.">Edge</a>'s capacity in terms of the number of trains it cand handle simultaneously </td></tr>
+    <tr><td class="paramname">alfa</td><td>Whether the segment is STANDARD (false) or ALFA PENDULAR (true). </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>A pointer to the added graph <a class="el" href="class_edge.html" title="A class that represents a railway segment between two Stations, being an Edge of the network graph.">Edge</a> (object of class <a class="el" href="class_edge.html" title="A class that represents a railway segment between two Stations, being an Edge of the network graph.">Edge</a>). </dd></dl>
 
 </div>
 </div>
@@ -236,6 +260,7 @@ Private Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p >Adjacent railway segments getter. </p><dl class="section return"><dt>Returns</dt><dd>A vector of <a class="el" href="class_edge.html" title="A class that represents a railway segment between two Stations, being an Edge of the network graph.">Edge</a> pointers (graph element that represents the railway segments). </dd></dl>
 
 </div>
 </div>
@@ -253,6 +278,7 @@ Private Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p ><a class="el" href="class_station.html" title="A class that represents a Station, being a node of the network graph.">Station</a>'s cost (attribute used when calculating Cost Optimization information) getter. </p><dl class="section return"><dt>Returns</dt><dd>A double number that is the current cost. </dd></dl>
 
 </div>
 </div>
@@ -270,6 +296,7 @@ Private Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p ><a class="el" href="class_station.html" title="A class that represents a Station, being a node of the network graph.">Station</a>'s <a class="el" href="class_district.html" title="A class for a Portuguese district.">District</a> pointer getter. </p><dl class="section return"><dt>Returns</dt><dd>Pointer to the <a class="el" href="class_station.html" title="A class that represents a Station, being a node of the network graph.">Station</a>'s <a class="el" href="class_district.html" title="A class for a Portuguese district.">District</a>. </dd></dl>
 
 </div>
 </div>
@@ -287,6 +314,7 @@ Private Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p ><a class="el" href="class_station.html" title="A class that represents a Station, being a node of the network graph.">Station</a>'s line getter. </p><dl class="section return"><dt>Returns</dt><dd>The string that is the <a class="el" href="class_station.html" title="A class that represents a Station, being a node of the network graph.">Station</a>'s line name. </dd></dl>
 
 </div>
 </div>
@@ -304,6 +332,7 @@ Private Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p ><a class="el" href="class_station.html" title="A class that represents a Station, being a node of the network graph.">Station</a>'s <a class="el" href="class_municipality.html" title="A class for a Portuguese Municipality.">Municipality</a> getter. </p><dl class="section return"><dt>Returns</dt><dd>Pointer to the <a class="el" href="class_station.html" title="A class that represents a Station, being a node of the network graph.">Station</a>'s <a class="el" href="class_municipality.html" title="A class for a Portuguese Municipality.">Municipality</a>. </dd></dl>
 
 </div>
 </div>
@@ -321,6 +350,7 @@ Private Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p ><a class="el" href="class_station.html" title="A class that represents a Station, being a node of the network graph.">Station</a>'s name getter. </p><dl class="section return"><dt>Returns</dt><dd>The string that is the <a class="el" href="class_station.html" title="A class that represents a Station, being a node of the network graph.">Station</a>'s name. </dd></dl>
 
 </div>
 </div>
@@ -338,6 +368,7 @@ Private Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p ><a class="el" href="class_station.html" title="A class that represents a Station, being a node of the network graph.">Station</a>'s township getter. </p><dl class="section return"><dt>Returns</dt><dd>The string that is the <a class="el" href="class_station.html" title="A class that represents a Station, being a node of the network graph.">Station</a>'s township name. </dd></dl>
 
 </div>
 </div>
@@ -355,23 +386,7 @@ Private Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-
-</div>
-</div>
-<a id="ac7bd52b51c88ebb6911dd2de4f972fde" name="ac7bd52b51c88ebb6911dd2de4f972fde"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac7bd52b51c88ebb6911dd2de4f972fde">&#9670;&#160;</a></span>print()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void Station::print </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
+<p ><a class="el" href="class_station.html" title="A class that represents a Station, being a node of the network graph.">Station</a> visited (used in graph search) getter. </p><dl class="section return"><dt>Returns</dt><dd>Whether the <a class="el" href="class_station.html" title="A class that represents a Station, being a node of the network graph.">Station</a> has been visited in current graph search. </dd></dl>
 
 </div>
 </div>
@@ -400,6 +415,14 @@ Private Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p >Tries to remove a railway segment (an edge of the network graph) adjacent to the station. </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">dest</td><td>Pointer to the destination <a class="el" href="class_station.html" title="A class that represents a Station, being a node of the network graph.">Station</a> of the <a class="el" href="class_edge.html" title="A class that represents a railway segment between two Stations, being an Edge of the network graph.">Edge</a> to remove </td></tr>
+    <tr><td class="paramname">alfa</td><td>Whether the segment if STANDARD (false) or ALFA PENDULAR (true). </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>True if desired segment was found and removed, false otherwise. </dd></dl>
 
 </div>
 </div>
@@ -418,6 +441,12 @@ Private Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p ><a class="el" href="class_station.html" title="A class that represents a Station, being a node of the network graph.">Station</a>'s cost (attribute used when calculating Cost Optimization information) setter. </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">cost</td><td>Double with the cost to set </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -436,6 +465,12 @@ Private Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p ><a class="el" href="class_station.html" title="A class that represents a Station, being a node of the network graph.">Station</a>'s <a class="el" href="class_district.html" title="A class for a Portuguese district.">District</a> setter. </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">district</td><td><a class="el" href="class_district.html" title="A class for a Portuguese district.">District</a> pointer </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -454,6 +489,12 @@ Private Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p ><a class="el" href="class_station.html" title="A class that represents a Station, being a node of the network graph.">Station</a>'s line setter. </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">line</td><td>Line name string </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -472,6 +513,12 @@ Private Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p ><a class="el" href="class_station.html" title="A class that represents a Station, being a node of the network graph.">Station</a>'s <a class="el" href="class_municipality.html" title="A class for a Portuguese Municipality.">Municipality</a> setter. </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">municipality</td><td><a class="el" href="class_municipality.html" title="A class for a Portuguese Municipality.">Municipality</a> pointer </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -490,6 +537,12 @@ Private Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p ><a class="el" href="class_station.html" title="A class that represents a Station, being a node of the network graph.">Station</a>'s name setter. </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">name</td><td>Name string </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -508,6 +561,12 @@ Private Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p ><a class="el" href="class_station.html" title="A class that represents a Station, being a node of the network graph.">Station</a>'s township setter. </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">township</td><td>Township name string </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -526,6 +585,12 @@ Private Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p ><a class="el" href="class_station.html" title="A class that represents a Station, being a node of the network graph.">Station</a> visited (used in graph search) setter. </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">visited</td><td>Boolean indicating whether the station has been visited in current search. </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>

@@ -78,6 +78,9 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 
+<p>A class that represents a railway segment between two Stations, being an <a class="el" href="class_edge.html" title="A class that represents a railway segment between two Stations, being an Edge of the network graph.">Edge</a> of the network graph.  
+ <a href="class_edge.html#details">More...</a></p>
+
 <p><code>#include &lt;<a class="el" href="_vertex_edge_8h_source.html">VertexEdge.h</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
@@ -106,8 +109,6 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a85a6465242d253e49239b62a651e5c29"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a01e0830a75a8b8767a72751f3b283aee"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_edge.html#a01e0830a75a8b8767a72751f3b283aee">getCost</a> () const</td></tr>
 <tr class="separator:a01e0830a75a8b8767a72751f3b283aee"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:abbbf14aeac9e0d17f80eaa504736144e"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_edge.html#abbbf14aeac9e0d17f80eaa504736144e">getName</a> () const</td></tr>
-<tr class="separator:abbbf14aeac9e0d17f80eaa504736144e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-attribs" name="pri-attribs"></a>
 Private Attributes</h2></td></tr>
@@ -126,7 +127,11 @@ Private Attributes</h2></td></tr>
 <tr class="memitem:ab63d3dcf7e7d0222fb3f61c58c2770d4"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_edge.html#ab63d3dcf7e7d0222fb3f61c58c2770d4">alfa</a></td></tr>
 <tr class="separator:ab63d3dcf7e7d0222fb3f61c58c2770d4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p >A class that represents a railway segment between two Stations, being an <a class="el" href="class_edge.html" title="A class that represents a railway segment between two Stations, being an Edge of the network graph.">Edge</a> of the network graph. </p>
+<p >Given that we represent the railway network as a graph, the edges/segments are the graph's edges.<br  />
+An <a class="el" href="class_edge.html" title="A class that represents a railway segment between two Stations, being an Edge of the network graph.">Edge</a> is represented by its origin and destination Stations (note that the Edges are bidirectional) and its capacity in terms of the number of trains that can travel on it simultaneously (weight). </p>
+</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="af4e817e7bcc3885ef2513b24be502087" name="af4e817e7bcc3885ef2513b24be502087"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#af4e817e7bcc3885ef2513b24be502087">&#9670;&#160;</a></span>Edge()</h2>
 
@@ -164,6 +169,15 @@ Private Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">orig</td><td>Pointer to origin <a class="el" href="class_station.html" title="A class that represents a Station, being a node of the network graph.">Station</a> </td></tr>
+    <tr><td class="paramname">dest</td><td>Pointer to destination <a class="el" href="class_station.html" title="A class that represents a Station, being a node of the network graph.">Station</a> </td></tr>
+    <tr><td class="paramname">w</td><td>Capacity of the segment in terms of the number of trains it can handle simultaneously </td></tr>
+    <tr><td class="paramname">isAlfa</td><td>Whether the segment is STANDARD (false) or ALFA PENDULAR (true) </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -182,6 +196,7 @@ Private Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p >Cost (used in network operation cost optimization calculations) getter. </p><dl class="section return"><dt>Returns</dt><dd>Integer with the <a class="el" href="class_edge.html" title="A class that represents a railway segment between two Stations, being an Edge of the network graph.">Edge</a>'s cost </dd></dl>
 
 </div>
 </div>
@@ -199,6 +214,7 @@ Private Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p ><a class="el" href="class_edge.html" title="A class that represents a railway segment between two Stations, being an Edge of the network graph.">Edge</a>'s destination <a class="el" href="class_station.html" title="A class that represents a Station, being a node of the network graph.">Station</a> getter. </p><dl class="section return"><dt>Returns</dt><dd>Pointer to the destination <a class="el" href="class_station.html" title="A class that represents a Station, being a node of the network graph.">Station</a> </dd></dl>
 
 </div>
 </div>
@@ -216,23 +232,7 @@ Private Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-
-</div>
-</div>
-<a id="abbbf14aeac9e0d17f80eaa504736144e" name="abbbf14aeac9e0d17f80eaa504736144e"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#abbbf14aeac9e0d17f80eaa504736144e">&#9670;&#160;</a></span>getName()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">std::string Edge::getName </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
+<p >Flow getter (used in Max Flow algorithms). </p><dl class="section return"><dt>Returns</dt><dd>Integer with the current flow in a Max Flow algorithm </dd></dl>
 
 </div>
 </div>
@@ -250,6 +250,7 @@ Private Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p ><a class="el" href="class_edge.html" title="A class that represents a railway segment between two Stations, being an Edge of the network graph.">Edge</a>'s origin <a class="el" href="class_station.html" title="A class that represents a Station, being a node of the network graph.">Station</a> getter. </p><dl class="section return"><dt>Returns</dt><dd>Pointer to the origin <a class="el" href="class_station.html" title="A class that represents a Station, being a node of the network graph.">Station</a> </dd></dl>
 
 </div>
 </div>
@@ -267,6 +268,7 @@ Private Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p >Returns the reverse <a class="el" href="class_edge.html" title="A class that represents a railway segment between two Stations, being an Edge of the network graph.">Edge</a> (origin and destination Stations switched). </p><dl class="section return"><dt>Returns</dt><dd>Pointer to the reverse <a class="el" href="class_edge.html" title="A class that represents a railway segment between two Stations, being an Edge of the network graph.">Edge</a> </dd></dl>
 
 </div>
 </div>
@@ -284,6 +286,7 @@ Private Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p >Weight (capacity in terms of trains the <a class="el" href="class_edge.html" title="A class that represents a railway segment between two Stations, being an Edge of the network graph.">Edge</a> can handle simultaneously) getter. </p><dl class="section return"><dt>Returns</dt><dd>Integer with the weight </dd></dl>
 
 </div>
 </div>
@@ -301,6 +304,7 @@ Private Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p >Type of segment getter. </p><dl class="section return"><dt>Returns</dt><dd>True if ALFA PENDULAR, false if STANDARD. </dd></dl>
 
 </div>
 </div>
@@ -319,6 +323,12 @@ Private Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p >Type of segment setter. </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">alfa</td><td>Boolean true if ALFA PENDULAR, false if STANDARD </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -337,6 +347,12 @@ Private Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p >Flow (used in Max Flow algorithms) setter. </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">flow</td><td>Integer with the current flow </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -355,6 +371,12 @@ Private Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p >Reverse <a class="el" href="class_edge.html" title="A class that represents a railway segment between two Stations, being an Edge of the network graph.">Edge</a> (origin an destination switched) setter. </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">reverse</td><td>Pointer to the reverse <a class="el" href="class_edge.html" title="A class that represents a railway segment between two Stations, being an Edge of the network graph.">Edge</a> </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -373,6 +395,12 @@ Private Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p ><a class="el" href="class_edge.html" title="A class that represents a railway segment between two Stations, being an Edge of the network graph.">Edge</a> weight setter. </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">weight</td><td>Integer with the weight </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>

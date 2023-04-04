@@ -78,6 +78,9 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 
+<p>A class for a Portuguese district.  
+ <a href="class_district.html#details">More...</a></p>
+
 <p><code>#include &lt;<a class="el" href="_district_8h_source.html">District.h</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
@@ -98,7 +101,10 @@ Private Attributes</h2></td></tr>
 <tr class="memitem:a34b3aac7600c7c832d6e2012f370a3cc"><td class="memItemLeft" align="right" valign="top">std::vector&lt; <a class="el" href="class_station.html">Station</a> * &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_district.html#a34b3aac7600c7c832d6e2012f370a3cc">stations</a></td></tr>
 <tr class="separator:a34b3aac7600c7c832d6e2012f370a3cc"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p >A class for a Portuguese district. </p>
+<p >Represents a district of Portugal by its name and includes pointers to the stations on it. </p>
+</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a3d7298f1319e9692fd9d3f90be1153dd" name="a3d7298f1319e9692fd9d3f90be1153dd"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a3d7298f1319e9692fd9d3f90be1153dd">&#9670;&#160;</a></span>District()</h2>
 
@@ -114,6 +120,12 @@ Private Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p >Constructor. </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">name</td><td><a class="el" href="class_district.html" title="A class for a Portuguese district.">District</a> name </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -133,6 +145,12 @@ Private Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p >Adds a given station pointer to the district's stations. </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">station</td><td><a class="el" href="class_station.html" title="A class that represents a Station, being a node of the network graph.">Station</a> Pointer </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -150,6 +168,7 @@ Private Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p ><a class="el" href="class_district.html" title="A class for a Portuguese district.">District</a> name's getter. </p><dl class="section return"><dt>Returns</dt><dd>The string that is the <a class="el" href="class_district.html" title="A class for a Portuguese district.">District</a>'s name. </dd></dl>
 
 </div>
 </div>
@@ -168,6 +187,13 @@ Private Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p >Less than (<a class="el" href="class_district.html" title="A class for a Portuguese district.">District</a> A &lt; <a class="el" href="class_district.html" title="A class for a Portuguese district.">District</a> B) comparison operator. Lexicographically compares the districts' names. </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">other</td><td>Other <a class="el" href="class_district.html" title="A class for a Portuguese district.">District</a> Pointer </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>True if A's name is lexicographically lower than B's name, false otherwise. </dd></dl>
 
 </div>
 </div>

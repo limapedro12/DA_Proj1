@@ -7,7 +7,7 @@ var searchData=
   ['getflow_4',['getFlow',['../class_edge.html#a7d4ea1360d5d2dc593f4daa772283e8f',1,'Edge']]],
   ['getline_5',['getLine',['../class_station.html#a1125272e91aa13a40a01ec9a22b8f17e',1,'Station']]],
   ['getmunicipality_6',['getMunicipality',['../class_station.html#a3a2946692c46c6d3bceaacc6ec794db7',1,'Station']]],
-  ['getname_7',['getName',['../class_district.html#a07abc2ba26710a742f84b0f56110c270',1,'District::getName()'],['../class_municipality.html#aaee94aeeca4790eab3f57058fbd78fee',1,'Municipality::getName()'],['../class_station.html#a6dbbf88c819bc9fbb9354ff5a1c5d592',1,'Station::getName()'],['../class_edge.html#abbbf14aeac9e0d17f80eaa504736144e',1,'Edge::getName() const']]],
+  ['getname_7',['getName',['../class_district.html#a07abc2ba26710a742f84b0f56110c270',1,'District::getName()'],['../class_municipality.html#aaee94aeeca4790eab3f57058fbd78fee',1,'Municipality::getName()'],['../class_station.html#a6dbbf88c819bc9fbb9354ff5a1c5d592',1,'Station::getName()']]],
   ['getorig_8',['getOrig',['../class_edge.html#afb048e1863c05f52c17bfde312967ed5',1,'Edge']]],
   ['getreverse_9',['getReverse',['../class_edge.html#a756d2d246aa5445d0f396626c7d4fd56',1,'Edge']]],
   ['gettownship_10',['getTownship',['../class_station.html#a2b8e15544dfddc7ca72ea22a65a054e9',1,'Station']]],
