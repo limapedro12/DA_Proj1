@@ -219,7 +219,7 @@ int Graph::cost(Station* source, Station* target){
     if(target == source)
         return 0;
 
-    Graph residual = edmondsKarp(source, target);
+    Graph residual = edmondsKarpMinCost(source, target, numeric_limits<double>::max());
     if(residual.vertexSet.empty())
         return -1;
 
