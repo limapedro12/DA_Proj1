@@ -376,7 +376,7 @@ std::list<std::pair<Station*, Station*>> Graph::mostTrainsPair() {
     for (Station* stationPtr : vertexSet) {
         double weightSum = 0;
         for (Edge* edge : stationPtr->getAdj()) {
-            weightSum += edge->getWeight();
+            weightSum += 2*(edge->getWeight());
         }
         weightSumMap[stationPtr] = weightSum;
     }

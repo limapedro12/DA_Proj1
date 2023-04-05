@@ -223,10 +223,15 @@ void Menu::basicMetrics1() {
 void Menu::basicMetrics2() {
 
     std::list<std::pair<Station*, Station*>> mostTrains = graph.mostTrainsPair();
+    int maxFlow = graph.maxFlow(mostTrains.front().first, mostTrains.front().second);
 
     for (auto itr = mostTrains.begin(); itr != mostTrains.end(); itr++) {
         std::cout << "Par:" << itr->first->getName() << ", " << itr->second->getName() << std::endl;
     }
+
+    std::cout << "Maximum Flow: " << maxFlow << std::endl;
+    wait();
+    clear();
 }
 
 void Menu::basicMetrics3() {
