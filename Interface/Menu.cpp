@@ -49,6 +49,7 @@ void Menu::readData() {
         std::cout << "\nEscolha uma opção, escrevendo o número correspondente e pressionando ENTER\n" <<
         "1 - Rede completa\n" <<
         "2 - Rede completa (sem caracteres não-ASCII)\n" <<
+        "3 - Rede para a Apresentção\n" <<
         "0 - Menu anterior\n\n";
 
         std::string input;
@@ -62,7 +63,7 @@ void Menu::readData() {
                 option = -1;
             }
             std::cout << "\n";
-            if (option >= 0 && option <= 2) break;
+            if (option >= 0 && option <= 3) break;
             else std::cout << "Opção inválida. Por favor tente novamente.\n\n";
         }
 
@@ -82,6 +83,15 @@ void Menu::readData() {
             readNetwork("../Project1Data/network_ascii.csv", graph);
             stationsFile = "../Project1Data/stations_ascii.csv";
             networkFile = "../Project1Data/network_ascii.csv";
+            dataReady = true;
+            return;
+        } else if (option == 3) {
+            Graph g;
+            this->graph = g;
+            readStations("../Project1Data/contrived_stations.csv", graph);
+            readNetwork("../Project1Data/contrived_network.csv", graph);
+            stationsFile = "../Project1Data/contrived_stations.csv";
+            networkFile = "../Project1Data/contrived_network.csv";
             dataReady = true;
             return;
         } else if (option == 0) return;

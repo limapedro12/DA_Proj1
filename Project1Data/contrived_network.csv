@@ -1,0 +1,7 @@
+Station_A,Station_B,Capacity,Service
+Faro,Loule,10,ALFA PENDULAR
+Faro,Albufeira - Ferreiras,8,STANDARD
+Albufeira - Ferreiras,Loule,4,ALFA PENDULAR
+Faro,Boliqueime,4,STANDARD
+Boliqueime,Loule,4,STANDARD
+Tunes,Albufeira - Ferreiras,6,ALFA PENDULAR
