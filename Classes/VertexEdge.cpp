@@ -96,6 +96,22 @@ void Station::print() const {
     std::cout << std::endl;
 }
 
+int Station::getMaxBefore() const {
+    return maxTrainsBefore;
+}
+
+void Station::setMaxBefore(int n) {
+    maxTrainsBefore = n;
+}
+
+int Station::getMaxDiff() const {
+    return maxTrainsDiff;
+}
+
+void Station::setMaxDiff(int n) {
+    maxTrainsDiff = n;
+}
+
 Edge::Edge(Station *orig, Station *dest, double w, bool alfa): orig(orig), dest(dest), weight(w), alfa(alfa) {}
 
 Station * Edge::getDest() const {
