@@ -221,10 +221,8 @@ void Menu::basicMetrics1() {
 }
 
 void Menu::basicMetrics2() {
-    extern std::map<District*, int> districtFlow;
-    extern std::map<Municipality*, int> municipalityFlow;
 
-    std::list<std::pair<Station*, Station*>> mostTrains = graph.mostTrainsPair(districtFlow, municipalityFlow);
+    std::list<std::pair<Station*, Station*>> mostTrains = graph.mostTrainsPair();
 
     for (auto itr = mostTrains.begin(); itr != mostTrains.end(); itr++) {
         std::cout << "Par:" << itr->first->getName() << ", " << itr->second->getName() << std::endl;

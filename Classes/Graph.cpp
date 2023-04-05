@@ -366,15 +366,41 @@ pair<int, double> Graph::maxTrainsMinCost(Station* source, Station* target, doub
     return make_pair(flow, cost);
 }
 
-std::list<std::pair<Station*, Station*>> Graph::mostTrainsPair(std::map<District*, int>& districtflow, std::map<Municipality*, int>& municipalityflow) {
+std::list<std::pair<Station*, Station*>> Graph::mostTrainsPair() {
 
     Graph* g = this;
     int maxflow=-10;
     std::list<std::pair<Station*, Station*>> maxflowstations;
 
-    for (Station* stationPtr1 : vertexSet) {
-        for (Station* stationPtr2 : vertexSet) {
-            if (stationPtr1->getName()==stationPtr2->getName()) {
+    std::map<Station*, double> weightSumMap;
+    for (Station* stationPtr : vertexSet) {
+        double weightSum = 0;
+        for (Edge* edge : stationPtr->getAdj()) {
+            weightSum += edge->getWeight();
+        }
+        weightSumMap[stationPtr] = weightSum;
+    }
+
+    // sort the map in descending order of their weightSum
+    std::vector<std::pair<Station*, double>> sortedStations(
+            weightSumMap.begin(), weightSumMap.end());
+    std::sort(sortedStations.begin(), sortedStations.end(),
+              [](const std::pair<Station*, double>& a,
+                 const std::pair<Station*, double>& b) {
+                  return a.second > b.second;
+              });
+
+    for (auto it1 = sortedStations.begin(); it1 != sortedStations.end(); ++it1) {
+        Station* stationPtr1 = it1->first;
+        if (it1->second < maxflow) {
+            break;
+        }
+        for (auto it2 = it1; it2 != sortedStations.end(); ++it2) {
+            Station* stationPtr2 = it2->first;
+            if (it2->second < maxflow) {
+                break;
+            }
+            if (stationPtr1->getName() == stationPtr2->getName()) {
                 continue;
             }
             else {
@@ -384,25 +410,14 @@ std::list<std::pair<Station*, Station*>> Graph::mostTrainsPair(std::map<District
                     maxflowstations.clear(); //apagar tudo da lista dupla de estações
 
                     maxflowstations.push_back(std::make_pair(stationPtr1, stationPtr2)); //adicionar par de estações à lista de estações com maxflow maior;
-
-
                 }
 
                 else if(flow==maxflow) {
-
                     maxflowstations.push_back(std::make_pair(stationPtr1, stationPtr2)); //adicionar par à lista de estações com maxflow maior;
-
                 }
-
-                districtflow[stationPtr1->getDistrict()] = districtflow[stationPtr1->getDistrict()] + flow;
-                municipalityflow[stationPtr1->getMunicipality()] = municipalityflow[stationPtr1->getMunicipality()] + flow;
-                districtflow[stationPtr2->getDistrict()] = districtflow[stationPtr2->getDistrict()] + flow;
-                municipalityflow[stationPtr2->getMunicipality()] = municipalityflow[stationPtr2->getMunicipality()] + flow;//adicionar valor flow ao valor dos mapas districtflow e municipalityflow nas respetivas variáveis
             }
         }
     }
-
-
 
     return maxflowstations;
 }

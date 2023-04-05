@@ -52,7 +52,7 @@ public:
     std::pair<int, std::vector<Edge*>> minCost(Station* source, Station* target);
     Graph edmondsKarpMinCost(Station* source, Station* target, double costLimit);
     std::pair<int, double> maxTrainsMinCost(Station* source, Station* target, double costLimit);
-    std::list<std::pair<Station*, Station*>> mostTrainsPair(std::map<District*, int>& districtflow, std::map<Municipality*, int>& municipalityflow);
+    std::list<std::pair<Station*, Station*>> mostTrainsPair();
 
 private:
     std::vector<Station *> vertexSet;    // vertex set
