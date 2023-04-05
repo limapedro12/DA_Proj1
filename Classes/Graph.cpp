@@ -143,23 +143,25 @@ Graph Graph::edmondsKarp(Station* source, Station* target) {
         p = residual.path(source, target);
     }
 
-//------------------------------DELETE LATER----------------------------------
-    for(Station* v: residual.getVertexSet())
-        for(Edge* e: v->getAdj())
-            if(e->getFlow() > 0)
-                cout << e->getOrig()->getName() << " -" << e->getFlow() << "-> " << e->getDest()->getName()
-                     << (e->isAlfa() ? " (ALFA) ":" (STANDARD) ") << endl;
-    cout << endl;
-//----------------------------------------------------------------------------
-
     if(!found)
         return Graph();
 
     return residual;
 }
 
-int Graph::maxFlow(Station* source, Station* target){
+void Graph::printFlow(){
+    for(Station* v: vertexSet)
+        for(Edge* e: v->getAdj())
+            if(e->getFlow() > 0)
+                cout << e->getOrig()->getName() << " -" << e->getFlow() << "-> " << e->getDest()->getName()
+                     << (e->isAlfa() ? " (ALFA) ":" (STANDARD) ") << endl;
+    cout << endl;
+}
+
+int Graph::maxFlow(Station* source, Station* target, bool print){
     Graph residual = edmondsKarp(source, target);
+    if(print)
+        residual.printFlow();
 
     if(residual.vertexSet.empty())
         return -1;
@@ -215,11 +217,14 @@ int Graph::costBFS(Station* source){
     return cost;
 }
 
-int Graph::cost(Station* source, Station* target){
+int Graph::cost(Station* source, Station* target, bool print){
     if(target == source)
         return 0;
 
     Graph residual = edmondsKarpMinCost(source, target, numeric_limits<double>::max());
+    if(print)
+        residual.printFlow();
+
     if(residual.vertexSet.empty())
         return -1;
 
@@ -336,7 +341,7 @@ Graph Graph::edmondsKarpMinCost(Station* source, Station* target, double costLim
         }
         if(ended)
             break;
-        p = residual.path(source, target);
+        p = residual.pathDijkstra(source, target);
         pathCost = 0;
     }
 
@@ -346,8 +351,11 @@ Graph Graph::edmondsKarpMinCost(Station* source, Station* target, double costLim
     return residual;
 }
 
-pair<int, double> Graph::maxTrainsMinCost(Station* source, Station* target, double costLimit){
+pair<int, double> Graph::maxTrainsMinCost(Station* source, Station* target, double costLimit, bool print){
     Graph residual = edmondsKarpMinCost(source, target, costLimit);
+
+    if(print)
+        residual.printFlow();
 
     int cost = 0;
     for(Station* v: residual.vertexSet)

@@ -44,15 +44,17 @@ public:
     std::vector<Edge*> path(Station* source, Station* dest) const;
     double findBottleneck(std::vector<Edge*> path);
     Graph edmondsKarp(Station* source, Station* target);
-    int maxFlow(Station* source, Station* target);
+    int maxFlow(Station* source, Station* target, bool print = false);
     int maxTrainsAtStation(Station* station);
-    int cost(Station* source, Station* target);
+    int cost(Station* source, Station* target, bool print = false);
 
     std::vector<Edge*> pathDijkstra(Station* source, Station* dest) const;
     std::pair<int, std::vector<Edge*>> minCost(Station* source, Station* target);
     Graph edmondsKarpMinCost(Station* source, Station* target, double costLimit);
-    std::pair<int, double> maxTrainsMinCost(Station* source, Station* target, double costLimit);
+    std::pair<int, double> maxTrainsMinCost(Station* source, Station* target, double costLimit, bool print = false);
     std::list<std::pair<Station*, Station*>> mostTrainsPair();
+
+    void printFlow();
 
 private:
     std::vector<Station *> vertexSet;    // vertex set

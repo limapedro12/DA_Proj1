@@ -219,7 +219,7 @@ void Menu::basicMetrics1() {
     }
 
     clear();
-    int m = graph.maxFlow(source, dest);
+    int m = graph.maxFlow(source, dest, true);
     if (m != -1)
         std::cout << "Número máximo de comboios que podem viajar entre " << source->getName() << " e " << dest->getName() << " é " << m << "\n\n";
     else
@@ -322,7 +322,7 @@ void Menu::costOptimization1() {
 
     clear();
 
-    int cost = graph.cost(source, dest);
+    int cost = graph.cost(source, dest, true);
     int flow = graph.maxFlow(source, dest);
     if(cost == 0)
         std::cout << "O destino e a origem são a mesma estação.\n";
@@ -429,7 +429,7 @@ void Menu::costOptimization3() {
         std::cout << "O destino e a origem são a mesma estação.\n";
 
     else {
-        std::pair<int, double> ret = graph.maxTrainsMinCost(source, dest, cost);
+        std::pair<int, double> ret = graph.maxTrainsMinCost(source, dest, cost, true);
 
         if (ret.first == -1 || ret.second == -1)
             std::cout << "Não existe caminho entre " << source->getName() << " e " << dest->getName() << std::endl;
