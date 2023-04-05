@@ -154,7 +154,7 @@ void Menu::networkReliability() {
      while (true) {
          std::cout << "Escolha uma opção, escrevendo o número correspondente e pressionando ENTER.\n" <<
          "1 - Número máximo de comboios que podem viajar entre duas estações específicas numa rede de conectividade reduzida\n" <<
-         "2 - Top-k de estações mais afetadas por uma falha em cada segmento da rede\n" <<
+         "2 - Top-k de estações mais afetadas por uma ou mais falhas em segmentos da rede\n" <<
          "0 - Menu anterior\n\n";
 
          std::string input;
@@ -539,11 +539,12 @@ void Menu::networkReliability1() {
 }
 
 void Menu::networkReliability2() {
+    int k = -1;
+
     while (true) {
         std::cout << "Qual o tamanho k do top (top-k)?\n";
 
         std::string input;
-        int k = -1;
 
         std::getline(std::cin, input);
 
@@ -557,7 +558,103 @@ void Menu::networkReliability2() {
         std::cout << "Número inválido. Por favor introduza um inteiro positivo.\n\n";
     }
 
-    /*
-     * chamar método grafo
-     */
+    Graph reduced;
+    readStations(stationsFile, reduced);
+    readNetwork(networkFile, reduced);
+
+    std::cout << "A preparar...\n\n";
+
+    for (Station* s : reduced.getVertexSet()) s->setMaxBefore(reduced.maxTrainsAtStation(s));
+
+    std::cout << "\nVamos agora escolher os segmentos da rede a retirar.\n"
+              << "Prima ENTER sem ter escrito nada para voltar ao menu anterior.\n";
+
+    while (true) {
+        while (true) {
+            Station *a;
+            while (true) {
+                std::cout << "Introduza o nome da estação de origem do segmento.\n";
+
+                std::string(input);
+                std::getline(std::cin, input);
+
+                if (input.empty()) return;
+
+                a = reduced.findVertex(input);
+                if (a != nullptr) break;
+                std::cout << "\nEstação não encontrada. Por favor tente novamente.\n\n";
+            }
+            Station *b;
+            while (true) {
+                std::cout << "Introduza o nome da estação de destino do segmento.\n";
+
+                std::string input;
+                std::getline(std::cin, input);
+
+                if (input.empty()) return;
+
+                b = reduced.findVertex(input);
+                if (b != nullptr) break;
+                std::cout << "\nEstação não encontrada. Por favor tente novamente.\n\n";
+            }
+            bool alfa;
+            while (true) {
+                std::cout << "O segmento a remover é STANDARD(s) ou ALFA PENDULAR(a)?\n";
+
+                std::string input;
+                std::getline(std::cin, input);
+
+                if (input.empty()) return;
+
+                if (input == "s") {
+                    alfa = false;
+                    break;
+                } else if (input == "a") {
+                    alfa = true;
+                    break;
+                }
+                std::cout << "\nOpção não reconhecida. Por favor tente novamente.\n\n";
+            }
+            //a->print();
+            //b->print();
+            if (reduced.removeEdge(a, b, alfa)) {
+                //a->print();
+                //b->print();
+                break;
+            }
+            std::cout << "\nSegmento não encontrado. Por favor tente novamente.\n\n";
+        }
+        std::cout << "Deseja remover mais segmentos? (s/n)\n\n";
+
+        std::string input;
+        std::getline(std::cin, input);
+
+        if (input.empty()) return;
+
+        if (input == "s") continue;
+        else if (input == "n") break;
+        else std::cout << "\nOpção não reconhecida. Por favor tente novamente.\n\n";
+    }
+
+    std::vector<Station*> top;
+
+    std::cout << "A calcular...\n\n";
+
+    for (Station* s : reduced.getVertexSet()) {
+        int after = reduced.maxTrainsAtStation(s);
+        int before = s->getMaxBefore();
+        int diff = before-after;
+        s->setMaxDiff(diff);
+        top.push_back(s);
+    }
+
+    std::sort(top.begin(), top.end(), [](Station* a, Station* b) {
+        return a->getMaxDiff() > b->getMaxDiff();
+    });
+
+    std::cout << "O top " << k << " de estações mais afetadas pela(s) falha(s) introduzida(s) é:\n\n";
+
+    for (int i = 0; i < k && i < top.size(); i++) std::cout << top[i]->getName()
+    << ", com uma perda de capacidade para receber comboios de " << top[i]->getMaxDiff() << '\n';
+    std::cout << '\n';
 }
