@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['district_0',['District',['../class_district.html',1,'']]]
+  ['compcost_0',['compCost',['../structcomp_cost.html',1,'']]]
 ];
