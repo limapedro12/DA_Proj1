@@ -162,7 +162,7 @@ public:
 
     /**
      * Returns a vector of Edge pointers with the path from a source vertex to a destination vertex, which has the lowest cost.
-     * For this it uses the Dijkstra algorithm.
+     * For this it uses the Dijkstra algorithm, but instead of a priority queue it uses a set.
      *
      * Temporal Complexity: O((V+E)*log(V)), where V is the number of stations and E is the number of edges in the graph
      *
@@ -173,7 +173,7 @@ public:
     std::vector<Edge*> pathDijkstra(Station* source, Station* dest) const;
 
     /**
-     * Runs the Dijkstra algorithm(pathDijkstra()) to find the minimum cost from a source vertex to a destination vertex.
+     * Runs the Dijkstra algorithm to find the minimum cost from a source vertex to a destination vertex.
      * For that this method uses the pathDijkstra() method to find the path with the lowest cost.
      * Returns the minimum cost and the corresponding path.
      *

@@ -2,9 +2,6 @@
 #include <list>
 #include <map>
 
-/*
- * Auxiliary function to find a vertex with a given content.
- */
 Station* Graph::findVertex(const std::string& name) const {
     for (auto v : vertexSet)
         if (v->getName() == name)
@@ -12,19 +9,6 @@ Station* Graph::findVertex(const std::string& name) const {
     return nullptr;
 }
 
-/*
- * Finds the index of the vertex with a given content.
- */
-int Graph::findVertexIdx(const std::string& name) const {
-    for (unsigned i = 0; i < vertexSet.size(); i++)
-        if (vertexSet[i]->getName() == name)
-            return i;
-    return -1;
-}
-/*
- *  Adds a vertex with a given content or info (in) to a graph (this).
- *  Returns true if successful, and false if a vertex with that content already exists.
- */
 bool Graph::addVertex(Station* station) {
     if (findVertex(station->getName()) != nullptr)
         return false;
@@ -37,11 +21,6 @@ bool Graph::removeEdge(Station *orig, Station *dest, bool alfa) {
     return dest->removeEdge(orig, alfa);
 }
 
-/*
- * Adds an edge to a graph (this), given the contents of the source and
- * destination vertices and the edge weight (w).
- * Returns true if successful, and false if the source or destination vertex does not exist.
- */
 Edge* Graph::addEdge(Station* sourc, Station* dest, double w, bool alfa){
     auto v1 = findVertex(sourc->getName());
     auto v2 = findVertex(dest->getName());
@@ -241,7 +220,6 @@ struct compCost{
     }
 };
 
-//returns the path from source to target with the minimum cost using the Dijkstra algorithm, but instead of a priority queue, it uses a set
 vector<Edge*> Graph::pathDijkstra(Station* source, Station* dest) const {
     std::vector<Edge*> res;
     unordered_map<Station*, Edge*> before;
