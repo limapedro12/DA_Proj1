@@ -14,7 +14,7 @@ class Municipality;
 class District;
 
 /**
- * @brief Class represents a station
+ * @brief Class that represents a station
  *
  * This class represents a station and contains all the information about it,
  * such as its name, district, municipality, township and line.
@@ -126,7 +126,8 @@ public:
     void setVisited(bool visited);
 
     /**
-     * Adds an edge to the station
+     * Adds an edge to the station's vector of edges
+     *
      * @param dest
      * @param w
      * @param alfa
@@ -135,7 +136,8 @@ public:
     Edge * addEdge(Station *dest, double w, bool alfa);
 
     /**
-     * Removes an edge from the station
+     * Removes an edge from the station's vector of edges
+     *
      * @param dest
      * @param alfa
      * @return true if the edge was removed, false otherwise
@@ -179,13 +181,13 @@ private:
     bool visited = false;
 
     /**
-     * Auxiliary variable used in the Dijkstra algorithm, which indicates the current cost of the station
+     * Auxiliary variable only used in the Dijkstra algorithm, which indicates the current cost of the station
      */
     double cost;
 };
 
 /**
- * @brief Class represents an edge
+ * @brief Class that represents an edge
  *
  * This class represents an edge and contains all the information about it,
  * such as its origin, destination, weight, reverse edge.
@@ -210,8 +212,8 @@ public:
     Station * getDest() const;
 
     /**
-     * Destination setter
-     * @param dest
+     * Weight getter
+     * @return edge's weight
      */
     int getWeight() const;
 
@@ -223,13 +225,13 @@ public:
 
     /**
      * Reverse edge getter
-     * @return edge's reverse edge
+     * @return reverse edge
      */
     Edge *getReverse() const;
 
     /**
      * Method used in various algorithms to get the current flow of the edge
-     * @return
+     * @return current flow of the edge
      */
     int getFlow() const;
 
@@ -252,8 +254,8 @@ public:
     void setFlow(int flow);
 
     /**
-     * Returns true if the edge is an Alfa Pendular service, false if it is a Standard service
-     * @return
+     * Returns true if the edge' service is Alfa Pendular, false if it is a Standard
+     * @return true if the edge' service is Alfa Pendular, false if it is a Standard
      */
     bool isAlfa() const;
 
@@ -264,7 +266,7 @@ public:
     void setAlfa(bool alfa);
 
     /**
-     * Returns the cost of the edge, 4 if it is an Alfa Pendular service, 2 if it is a Standard service
+     * Returns the cost of the edge, 4 if it the service is Alfa Pendular, 2 if it is Standard
      * @return cost of the edge
      */
     int getCost() const;
