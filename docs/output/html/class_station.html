@@ -144,7 +144,8 @@ Private Attributes</h2></td></tr>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p >A class that represents a <a class="el" href="class_station.html" title="A class that represents a Station, being a node of the network graph.">Station</a>, being a node of the network graph. </p>
 <p >Given that we represent the railway network as a graph, the stations are the graph's nodes.<br  />
-A <a class="el" href="class_station.html" title="A class that represents a Station, being a node of the network graph.">Station</a> is represented by its name, pointers to its <a class="el" href="class_district.html" title="A class for a Portuguese district.">District</a> and its <a class="el" href="class_municipality.html" title="A class for a Portuguese Municipality.">Municipality</a>, its Township (Parish - Freguesia) and the line it belongs to (North Line, Minho Line...). Contains its adjacent railway segments. </p>
+A <a class="el" href="class_station.html" title="A class that represents a Station, being a node of the network graph.">Station</a> is represented by its name, pointers to its <a class="el" href="class_district.html" title="A class for a Portuguese district.">District</a> and its <a class="el" href="class_municipality.html" title="A class for a Portuguese Municipality.">Municipality</a>, its Township (Parish - Freguesia) and the line it belongs to (North Line, Minho Line...). Contains its adjacent railway segments.<br  />
+Note: all the methods time complexity is O(1), except where specified. </p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a3f452187fea0b895e004221ca0fb938d" name="a3f452187fea0b895e004221ca0fb938d"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a3f452187fea0b895e004221ca0fb938d">&#9670;&#160;</a></span>Station()</h2>
@@ -189,7 +190,7 @@ A <a class="el" href="class_station.html" title="A class that represents a Stati
         </tr>
       </table>
 </div><div class="memdoc">
-<dl class="params"><dt>Parameters</dt><dd>
+<p >Constructor. </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">name</td><td>String with the <a class="el" href="class_station.html" title="A class that represents a Station, being a node of the network graph.">Station</a>'s name </td></tr>
     <tr><td class="paramname">district</td><td>Pointer to the <a class="el" href="class_station.html" title="A class that represents a Station, being a node of the network graph.">Station</a>'s <a class="el" href="class_district.html" title="A class for a Portuguese district.">District</a> </td></tr>
@@ -415,7 +416,8 @@ A <a class="el" href="class_station.html" title="A class that represents a Stati
         </tr>
       </table>
 </div><div class="memdoc">
-<p >Tries to remove a railway segment (an edge of the network graph) adjacent to the station. </p><dl class="params"><dt>Parameters</dt><dd>
+<p >Tries to remove a railway segment (an edge of the network graph) adjacent to the station. <br  />
+ Time Complexity: O(|E|). </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">dest</td><td>Pointer to the destination <a class="el" href="class_station.html" title="A class that represents a Station, being a node of the network graph.">Station</a> of the <a class="el" href="class_edge.html" title="A class that represents a railway segment between two Stations, being an Edge of the network graph.">Edge</a> to remove </td></tr>
     <tr><td class="paramname">alfa</td><td>Whether the segment if STANDARD (false) or ALFA PENDULAR (true). </td></tr>

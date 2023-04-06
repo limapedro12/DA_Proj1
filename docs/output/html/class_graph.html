@@ -79,6 +79,9 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 
+<p>A graph class for a railway network.  
+ <a href="class_graph.html#details">More...</a></p>
+
 <p><code>#include &lt;<a class="el" href="_graph_8h_source.html">Graph.h</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
@@ -130,7 +133,10 @@ Private Attributes</h2></td></tr>
 <tr class="memitem:ae3bd6f9b25e62a99a66639d72dda499b"><td class="memItemLeft" align="right" valign="top">std::vector&lt; <a class="el" href="class_station.html">Station</a> * &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_graph.html#ae3bd6f9b25e62a99a66639d72dda499b">vertexSet</a></td></tr>
 <tr class="separator:ae3bd6f9b25e62a99a66639d72dda499b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Member Function Documentation</h2>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p >A graph class for a railway network. </p>
+<p >The <a class="el" href="class_graph.html" title="A graph class for a railway network.">Graph</a> class is the "main" class of the program, since it contains all the objects that model the railway network. It also comprehends all the algorithms necessary to perform the desired operations and calculations. As stated in other places, the graph's nodes/vertexes are objects of the <a class="el" href="class_station.html" title="A class that represents a Station, being a node of the network graph.">Station</a> class, each one containing their adjacent railway segments, represented by the <a class="el" href="class_edge.html" title="A class that represents a railway segment between two Stations, being an Edge of the network graph.">Edge</a> class. </p>
+</div><h2 class="groupheader">Member Function Documentation</h2>
 <a id="a2c774c3c9f7a80767faf07a5bda37cb1" name="a2c774c3c9f7a80767faf07a5bda37cb1"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a2c774c3c9f7a80767faf07a5bda37cb1">&#9670;&#160;</a></span>addBidirectionalEdge()</h2>
 
@@ -168,6 +174,17 @@ Private Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p >Tries to add a bidirectional edge with ends on the desired stations, with the desired wheight and type of segment. <br  />
+ Time Complexity: O(|V|). </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">sourc</td><td>Pointer to the origin <a class="el" href="class_station.html" title="A class that represents a Station, being a node of the network graph.">Station</a> (this and dest are interchangeable) </td></tr>
+    <tr><td class="paramname">dest</td><td>Pointer to the destination <a class="el" href="class_station.html" title="A class that represents a Station, being a node of the network graph.">Station</a> (this and sourc are interchangeable) </td></tr>
+    <tr><td class="paramname">w</td><td>Weight of the segment (capacity in terms of number of trains it can handle simultaneously) </td></tr>
+    <tr><td class="paramname">alfa</td><td>Whether the segment is of type STANDARD (false) or ALFA PENDULAR (true) </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>True if <a class="el" href="class_edge.html" title="A class that represents a railway segment between two Stations, being an Edge of the network graph.">Edge</a> is added, false otherwise (if one or more of the Stations is/are not found). </dd></dl>
 
 </div>
 </div>
@@ -208,6 +225,17 @@ Private Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p >Adds an edge to the sourc <a class="el" href="class_station.html" title="A class that represents a Station, being a node of the network graph.">Station</a> adjacent edges leading to the dest <a class="el" href="class_station.html" title="A class that represents a Station, being a node of the network graph.">Station</a>, with the desired weight and type of segment.<br  />
+ Time Complexity: O(|V|). </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">sourc</td><td>Pointer to the origin <a class="el" href="class_station.html" title="A class that represents a Station, being a node of the network graph.">Station</a> </td></tr>
+    <tr><td class="paramname">dest</td><td>Pointer to the destination <a class="el" href="class_station.html" title="A class that represents a Station, being a node of the network graph.">Station</a> </td></tr>
+    <tr><td class="paramname">w</td><td>Weight of the segment (capacity in terms of number of trains it can handle simultaneously) </td></tr>
+    <tr><td class="paramname">alfa</td><td>Whether the segment is of type STANDARD (false) or ALFA PENDULAR (true) </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Pointer to the added <a class="el" href="class_edge.html" title="A class that represents a railway segment between two Stations, being an Edge of the network graph.">Edge</a>, nullptr if one or more of the Stations is/are not found </dd></dl>
 
 </div>
 </div>
@@ -226,6 +254,14 @@ Private Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p >Tries to add a vertex (<a class="el" href="class_station.html" title="A class that represents a Station, being a node of the network graph.">Station</a> pointer) to the graph's vertex set, checking if it already exists.<br  />
+ Time complexity: O(|V|). </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">station</td><td>Pointer to the <a class="el" href="class_station.html" title="A class that represents a Station, being a node of the network graph.">Station</a> to be added </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>true if <a class="el" href="class_station.html" title="A class that represents a Station, being a node of the network graph.">Station</a> pointer is added, false if already is part of the vertex set </dd></dl>
 
 </div>
 </div>
@@ -378,6 +414,14 @@ Private Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p >Finds a <a class="el" href="class_station.html" title="A class that represents a Station, being a node of the network graph.">Station</a> (vertex) in the graph's vertex set.<br  />
+ Time complexity: O(|V|). </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">name</td><td>Name of the <a class="el" href="class_station.html" title="A class that represents a Station, being a node of the network graph.">Station</a> to be found </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>A pointer to the desired <a class="el" href="class_station.html" title="A class that represents a Station, being a node of the network graph.">Station</a>, nullptr if the station is not found </dd></dl>
 
 </div>
 </div>
@@ -421,6 +465,8 @@ Private Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p ><a class="el" href="class_graph.html" title="A graph class for a railway network.">Graph</a>'s vertex set getter.<br  />
+ Time Complexity: O(1). </p><dl class="section return"><dt>Returns</dt><dd>A copy of the std::vector&lt;Station*&gt; vertexSet. </dd></dl>
 
 </div>
 </div>
@@ -647,6 +693,16 @@ Private Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p >Tries to remove an <a class="el" href="class_edge.html" title="A class that represents a railway segment between two Stations, being an Edge of the network graph.">Edge</a> (railway segment) whose ends are in the desired stations and is of the desired type (STANDARD/ALFA).<br  />
+ Time Complexity: O(|E|). </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">orig</td><td>Pointer to one of the segment ends <a class="el" href="class_station.html" title="A class that represents a Station, being a node of the network graph.">Station</a> </td></tr>
+    <tr><td class="paramname">dest</td><td>Pointer to one of the segment ends <a class="el" href="class_station.html" title="A class that represents a Station, being a node of the network graph.">Station</a> </td></tr>
+    <tr><td class="paramname">alfa</td><td>Whether the segment to remove is of type STANDARD (false) or ALFA PENDULAR (true) </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Bool if removal is successful, false otherwise </dd></dl>
 
 </div>
 </div>

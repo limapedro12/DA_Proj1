@@ -48,7 +48,7 @@ void Menu::readData() {
     while (true) {
         std::cout << "\nEscolha uma opção, escrevendo o número correspondente e pressionando ENTER\n" <<
         "1 - Rede completa\n" <<
-        "2 - Rede completa (sem caracteres não-ASCII)\n" <<
+        "2 - Rede completa (sem caracteres não-ASCII) (recomendada)\n" <<
         "0 - Menu anterior\n\n";
 
         std::string input;

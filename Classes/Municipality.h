@@ -11,7 +11,8 @@ class Station;
 /**
  * @brief A class for a Portuguese Municipality.
  *
- * Represents a municipality of Portugal by its name and includes pointers to the stations on it.
+ * Represents a municipality of Portugal by its name and includes pointers to the stations on it.\n
+ * Note: all the methods time complexity is O(1), except where specified.
  */
 class Municipality {
 public:

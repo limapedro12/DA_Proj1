@@ -10,7 +10,8 @@ class Station;
 /**
  * @brief A class for a Portuguese district.
  *
- * Represents a district of Portugal by its name and includes pointers to the stations on it.
+ * Represents a district of Portugal by its name and includes pointers to the stations on it.\n
+ * Note: all the methods time complexity is O(1), except where specified.
  */
 class District {
 public:

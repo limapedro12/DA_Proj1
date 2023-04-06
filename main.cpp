@@ -16,6 +16,12 @@
  *
  * We developed a user interface consisting of a menu with 4 submenus, each one covering one set of tasks as described
  * in the project handout. The UI is entirely text-based.
+ *
+ * Note: Being the network in Portugal (with two Stations in Spain), the names of the places contain non-ASCII characters.
+ * However, due to problems with those characters when running the program, we developed a version of the network where
+ * all the names are written only with ASCII characters. For this reason, we recommend that the user chooses to load that
+ * ASCII-compatible version instead of the original version (when prompted to load a railway network into the system).
+ * The user inputs should also be ASCII-only.
  */
 
 int main() {

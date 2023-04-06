@@ -17,11 +17,13 @@ class District;
  *
  * Given that we represent the railway network as a graph, the stations are the graph's nodes.\n
  * A Station is represented by its name, pointers to its District and its Municipality, its Township (Parish - Freguesia)
- * and the line it belongs to (North Line, Minho Line...). Contains its adjacent railway segments.
+ * and the line it belongs to (North Line, Minho Line...). Contains its adjacent railway segments.\n
+ * Note: all the methods time complexity is O(1), except where specified.
  */
 class Station {
 public:
     /**
+     * Constructor.
      * @param name String with the Station's name
      * @param district Pointer to the Station's District
      * @param municipality Pointer to the Station's Municipality
@@ -116,13 +118,12 @@ public:
     Edge * addEdge(Station *dest, double w, bool alfa);
 
     /**
-     * Tries to remove a railway segment (an edge of the network graph) adjacent to the station.
+     * Tries to remove a railway segment (an edge of the network graph) adjacent to the station. \n Time Complexity: O(|E|).
      * @param dest Pointer to the destination Station of the Edge to remove
      * @param alfa Whether the segment if STANDARD (false) or ALFA PENDULAR (true).
      * @return True if desired segment was found and removed, false otherwise.
      */
     bool removeEdge(Station* dest, bool alfa);
-    // void print() const;
 private:
     std::string name;
     District* district;
@@ -141,7 +142,8 @@ private:
  *
  * Given that we represent the railway network as a graph, the edges/segments are the graph's edges.\n
  * An Edge is represented by its origin and destination Stations (note that the Edges are bidirectional) and its
- * capacity in terms of the number of trains that can travel on it simultaneously (weight).
+ * capacity in terms of the number of trains that can travel on it simultaneously (weight).\n
+ * Note: all the methods time complexity is O(1), except where specified.
  */
 class Edge {
 public:
