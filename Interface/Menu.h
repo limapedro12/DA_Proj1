@@ -62,13 +62,9 @@ private:
      */
     void basicMetrics4();
 
-<<<<<<< HEAD
-
-=======
     /**
      * Reports the minimum cost of operating all trains between two stations, being the railway network at its maximum capacity.
      */
->>>>>>> documentation2
     void costOptimization1();
 
     /**
