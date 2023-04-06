@@ -133,9 +133,9 @@ void Menu::basicMetrics() {
 void Menu::costOptimization() {
     while (true) {
         std::cout << "Escolha uma opção, escrevendo o número correspondente e pressionando ENTER.\n" <<
-                     "1 - Custo de operar todos os comboios entre duas estações, estando a rede na sua capacidade máxima.\n" <<
+                     "1 - Custo minimo de operar todos os comboios entre duas estações, estando a rede na sua capacidade máxima.\n" <<
                      "2 - Caminho com menor custo entre duas estações.\n" <<
-                     "3 - Numero maximo de comboios que posso operar entre duas estações, dando o custo.\n\n" <<
+                     "3 - Numero maximo de comboios que posso operar entre duas estações, dando um limite de custo.\n\n" <<
                      "0 - Menu anterior\n\n";
 
         std::string input;

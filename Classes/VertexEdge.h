@@ -23,7 +23,7 @@ class District;
 class Station {
 public:
     /**
-     * Constructor.
+     * Constructor for Station
      * @param name String with the Station's name
      * @param district Pointer to the Station's District
      * @param municipality Pointer to the Station's Municipality
@@ -83,33 +83,43 @@ public:
     void setName(const std::string &name);
 
     /**
-     * Station's cost (attribute used when calculating Cost Optimization information) getter.
-     * @return A double number that is the current cost.
+     * Method only used in the Dijkstra algorithm.
+     * It returns the current cost of the station
+     * @return station's cost
      */
     double getCost() const;
+
     /**
-     * Station's cost (attribute used when calculating Cost Optimization information) setter.
-     * @param cost Double with the cost to set
+     * Method only used in the Dijkstra algorithm
+     * It sets the current cost of the station
+     * @param cost station's cost
      */
     void setCost(double cost);
 
     /**
-     * Adjacent railway segments getter.
-     * @return A vector of Edge pointers (graph element that represents the railway segments).
+     * Returns the vector of edges that the station is connected to
+     *
+     * @return vector of edges
      */
     std::vector<Edge *> getAdj() const;
+
     /**
-     * Station visited (used in graph search) getter.
-     * @return Whether the Station has been visited in current graph search.
+     * Returns true if the station has been visited, false otherwise
+     *
+     * @return true if the station has been visited, false otherwise
      */
     bool isVisited() const;
+
     /**
-     * Station visited (used in graph search) setter.
-     * @param visited Boolean indicating whether the station has been visited in current search.
+     * Sets the visited status of the station
+     *
+     * @param visited
      */
     void setVisited(bool visited);
+
     /**
      * Adds a railway segment (an edge of the network graph) adjacent to the Station.
+     *
      * @param dest Pointer to the destination Station of the Edge to add
      * @param w Edge's capacity in terms of the number of trains it cand handle simultaneously
      * @param alfa Whether the segment is STANDARD (false) or ALFA PENDULAR (true).
@@ -118,22 +128,54 @@ public:
     Edge * addEdge(Station *dest, double w, bool alfa);
 
     /**
-     * Tries to remove a railway segment (an edge of the network graph) adjacent to the station. \n Time Complexity: O(|E|).
+     * Tries to remove a railway segment (an edge of the network graph) adjacent to the station.
+     *
+     * Time Complexity: O(|E|) where |E| is the number of edges of the station.
+     *
      * @param dest Pointer to the destination Station of the Edge to remove
      * @param alfa Whether the segment if STANDARD (false) or ALFA PENDULAR (true).
      * @return True if desired segment was found and removed, false otherwise.
      */
     bool removeEdge(Station* dest, bool alfa);
 private:
+    /**
+     * String with the station's name
+     */
     std::string name;
+
+    /**
+     * Pointer to the station's district
+     */
     District* district;
+
+    /**
+     * Pointer to the station's municipality
+     */
     Municipality* municipality;
+
+    /**
+     * String with the station's township
+     */
     std::string township;
+
+    /**
+     * String with the station's line
+     */
     std::string line;
-    
+
+    /**
+     * Vector of edges that the station is connected to
+     */
     std::vector<Edge *> adj;
+
+    /**
+     * Boolean that indicates if the station has been visited(used in various algorithms)
+     */
     bool visited = false;
 
+    /**
+     * Auxiliary variable only used in the Dijkstra algorithm, which indicates the current cost of the station
+     */
     double cost;
 };
 
@@ -148,6 +190,7 @@ private:
 class Edge {
 public:
     /**
+     * Constructor for Edge
      * @param orig Pointer to origin Station
      * @param dest Pointer to destination Station
      * @param w Capacity of the segment in terms of the number of trains it can handle simultaneously
@@ -208,22 +251,40 @@ public:
     void setAlfa(bool alfa);
 
     /**
-     * Cost (used in network operation cost optimization calculations) getter.
-     * @return Integer with the Edge's cost
+     * Returns the cost of the edge, 4 if it the service is Alfa Pendular, 2 if it is Standard
+     * @return cost of the edge
      */
     int getCost() const;
 private:
+    /**
+     * Pointer to the edge's destination
+     */
     Station * dest;
+
+    /**
+     * Integer with the edge's weight
+     */
     int weight;
 
-    bool selected = false;
-
+    /**
+     * Pointer to the edge's origin
+     */
     Station *orig;
+
+    /**
+     * Pointer to the edge's reverse edge, by default it is nullptr
+     */
     Edge *reverse = nullptr;
 
+    /**
+     * Auxiliary variable used in various algorithms that stores the current flow of the edge
+     */
     int flow;
 
-    bool alfa; // false if service is STANDARD, true if ALFA PENDULAR
+    /**
+     * Boolean that indicates if the type of service of the edge, it is true if it is an Alfa Pendular service, false if it is a Standard service
+     */
+    bool alfa;
 };
 
 #endif //DA_PROJ1_StationEDGE_H

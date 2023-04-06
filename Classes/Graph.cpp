@@ -9,13 +9,6 @@ Station* Graph::findVertex(const std::string& name) const {
     return nullptr;
 }
 
-int Graph::findVertexIdx(const std::string& name) const {
-    for (unsigned i = 0; i < vertexSet.size(); i++)
-        if (vertexSet[i]->getName() == name)
-            return i;
-    return -1;
-}
-
 bool Graph::addVertex(Station* station) {
     if (findVertex(station->getName()) != nullptr)
         return false;
@@ -227,7 +220,6 @@ struct compCost{
     }
 };
 
-//returns the path from source to target with the minimum cost using the Dijkstra algorithm, but instead of a priority queue, it uses a set
 vector<Edge*> Graph::pathDijkstra(Station* source, Station* dest) const {
     std::vector<Edge*> res;
     unordered_map<Station*, Edge*> before;
@@ -416,6 +408,7 @@ std::list<std::pair<Station*, Station*>> Graph::mostTrainsPair() {
     return maxflowstations;
 }
 
+
 template <typename K, typename V>
 bool cmp(const pair<K, V>& a, const pair<K, V>& b) {
     return a.second > b.second;
@@ -443,3 +436,4 @@ void sortMapsByDescendingValue(std::map<District*, int>& districtflow, std::map<
         municipalityflow[key] = value;
     }
 }
+
