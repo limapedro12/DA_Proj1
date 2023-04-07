@@ -232,7 +232,30 @@ public:
      * @return
      */
     std::pair<int, double> maxTrainsMinCost(Station* source, Station* target, double costLimit, bool print = false);
+
+    /**
+     * The function returns a list of pairs of stations with the highest maximum flow between them. It calculates the
+     * weight sum of each station's adjacent edges, sorts them in descending order, and iterates over the pairs of
+     * stations in that order to calculate their max flow using a max flow algorithm. It updates the maximum flow and
+     * the list of stations with the highest maximum flow accordingly.
+     *
+     * Time Complexity: O(V^3 * log(V)), where V is the number of vertices (or stations) in the graph.
+     *
+     * @return
+     */
     std::list<std::pair<Station*, Station*>> mostTrainsPair();
+
+    /**
+     * The function calculates the flow of each district and municipality in a graph. It iterates over each vertex,
+     * calculates the weight of its adjacent edges, and updates the flow of the corresponding district and municipality
+     * in two maps. The time complexity of the function is O(V+E), where V is the number of vertices and E is the number
+     * of edges in the graph.
+     *
+     * Time Complexity: O(V+E), where V is the number of vertices (or stations) in the graph, and E is the number of edges in the graph.
+     *
+     * @param districtFlow
+     * @param municipalityFlow
+     */
     void topK(std::map<std::string, int> &districtFlow, std::map<std::string, int> &municipalityFlow);
 
     /**
