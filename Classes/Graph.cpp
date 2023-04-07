@@ -423,4 +423,3 @@ void Graph::topK(std::map<std::string, int>& districtFlow, std::map<std::string,
         municipalityFlow[municipalityName] += weight;
     }
 }
-
