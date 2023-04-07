@@ -72,29 +72,185 @@ $(function() {
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#pri-attribs">Private Attributes</a> &#124;
 <a href="class_municipality-members.html">List of all members</a>  </div>
   <div class="headertitle"><div class="title">Municipality Class Reference</div></div>
 </div><!--header-->
 <div class="contents">
+
+<p>A class for a Portuguese <a class="el" href="class_municipality.html" title="A class for a Portuguese Municipality.">Municipality</a>.  
+ <a href="class_municipality.html#details">More...</a></p>
+
+<p><code>#include &lt;<a class="el" href="_municipality_8h_source.html">Municipality.h</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a72b3a96db90c0514bc0d17dd994ae6d2"><td class="memItemLeft" align="right" valign="top"><a id="a72b3a96db90c0514bc0d17dd994ae6d2" name="a72b3a96db90c0514bc0d17dd994ae6d2"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>Municipality</b> (const std::string &amp;name)</td></tr>
+<tr class="memitem:a72b3a96db90c0514bc0d17dd994ae6d2"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_municipality.html#a72b3a96db90c0514bc0d17dd994ae6d2">Municipality</a> (const std::string &amp;<a class="el" href="class_municipality.html#a6596e6ff82d5815e879398951105382b">name</a>)</td></tr>
 <tr class="separator:a72b3a96db90c0514bc0d17dd994ae6d2"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1a86c2308228094bc99652ba38f44bcd"><td class="memItemLeft" align="right" valign="top"><a id="a1a86c2308228094bc99652ba38f44bcd" name="a1a86c2308228094bc99652ba38f44bcd"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>addStation</b> (<a class="el" href="class_station.html">Station</a> *station)</td></tr>
+<tr class="memitem:a1a86c2308228094bc99652ba38f44bcd"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_municipality.html#a1a86c2308228094bc99652ba38f44bcd">addStation</a> (<a class="el" href="class_station.html">Station</a> *station)</td></tr>
 <tr class="separator:a1a86c2308228094bc99652ba38f44bcd"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae118fd1879589b7fb703271ebaf6b835"><td class="memItemLeft" align="right" valign="top"><a id="ae118fd1879589b7fb703271ebaf6b835" name="ae118fd1879589b7fb703271ebaf6b835"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>operator&lt;</b> (const <a class="el" href="class_municipality.html">Municipality</a> &amp;other) const</td></tr>
+<tr class="memitem:ae118fd1879589b7fb703271ebaf6b835"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_municipality.html#ae118fd1879589b7fb703271ebaf6b835">operator&lt;</a> (const <a class="el" href="class_municipality.html">Municipality</a> &amp;other) const</td></tr>
 <tr class="separator:ae118fd1879589b7fb703271ebaf6b835"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aaee94aeeca4790eab3f57058fbd78fee"><td class="memItemLeft" align="right" valign="top"><a id="aaee94aeeca4790eab3f57058fbd78fee" name="aaee94aeeca4790eab3f57058fbd78fee"></a>
-std::string&#160;</td><td class="memItemRight" valign="bottom"><b>getName</b> () const</td></tr>
+<tr class="memitem:aaee94aeeca4790eab3f57058fbd78fee"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_municipality.html#aaee94aeeca4790eab3f57058fbd78fee">getName</a> () const</td></tr>
 <tr class="separator:aaee94aeeca4790eab3f57058fbd78fee"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-attribs" name="pri-attribs"></a>
+Private Attributes</h2></td></tr>
+<tr class="memitem:a6596e6ff82d5815e879398951105382b"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_municipality.html#a6596e6ff82d5815e879398951105382b">name</a></td></tr>
+<tr class="separator:a6596e6ff82d5815e879398951105382b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aab4214e22c7a68220e5015d9c66cb8fa"><td class="memItemLeft" align="right" valign="top">std::vector&lt; <a class="el" href="class_station.html">Station</a> * &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_municipality.html#aab4214e22c7a68220e5015d9c66cb8fa">stations</a></td></tr>
+<tr class="separator:aab4214e22c7a68220e5015d9c66cb8fa"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p >A class for a Portuguese <a class="el" href="class_municipality.html" title="A class for a Portuguese Municipality.">Municipality</a>. </p>
+<p >Represents a municipality of Portugal by its name and includes pointers to the stations on it.<br  />
+Note: all the methods time complexity is O(1), except where specified. </p>
+</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a id="a72b3a96db90c0514bc0d17dd994ae6d2" name="a72b3a96db90c0514bc0d17dd994ae6d2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a72b3a96db90c0514bc0d17dd994ae6d2">&#9670;&#160;</a></span>Municipality()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">Municipality::Municipality </td>
+          <td>(</td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>name</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p >Constructor for <a class="el" href="class_municipality.html" title="A class for a Portuguese Municipality.">Municipality</a></p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">name</td><td><a class="el" href="class_municipality.html" title="A class for a Portuguese Municipality.">Municipality</a> name </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<h2 class="groupheader">Member Function Documentation</h2>
+<a id="a1a86c2308228094bc99652ba38f44bcd" name="a1a86c2308228094bc99652ba38f44bcd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1a86c2308228094bc99652ba38f44bcd">&#9670;&#160;</a></span>addStation()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Municipality::addStation </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_station.html">Station</a> *&#160;</td>
+          <td class="paramname"><em>station</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p >Adds a given station pointer to the municipality's stations.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">station</td><td><a class="el" href="class_station.html" title="A class that represents a Station, being a node of the network graph.">Station</a> pointer </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="aaee94aeeca4790eab3f57058fbd78fee" name="aaee94aeeca4790eab3f57058fbd78fee"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aaee94aeeca4790eab3f57058fbd78fee">&#9670;&#160;</a></span>getName()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::string Municipality::getName </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p ><a class="el" href="class_municipality.html" title="A class for a Portuguese Municipality.">Municipality</a>'s name getter. </p><dl class="section return"><dt>Returns</dt><dd>The string that is the <a class="el" href="class_municipality.html" title="A class for a Portuguese Municipality.">Municipality</a>'s name. </dd></dl>
+
+</div>
+</div>
+<a id="ae118fd1879589b7fb703271ebaf6b835" name="ae118fd1879589b7fb703271ebaf6b835"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae118fd1879589b7fb703271ebaf6b835">&#9670;&#160;</a></span>operator&lt;()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool Municipality::operator&lt; </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="class_municipality.html">Municipality</a> &amp;&#160;</td>
+          <td class="paramname"><em>other</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p >Less than (<a class="el" href="class_municipality.html" title="A class for a Portuguese Municipality.">Municipality</a> A &lt; <a class="el" href="class_municipality.html" title="A class for a Portuguese Municipality.">Municipality</a> B) comparison operator. Lexicographically compares the municipalities' names.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">other</td><td>Other <a class="el" href="class_municipality.html" title="A class for a Portuguese Municipality.">Municipality</a> Pointer </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>True if A's name is lexicographically lower than B's name, false otherwise. </dd></dl>
+
+</div>
+</div>
+<h2 class="groupheader">Member Data Documentation</h2>
+<a id="a6596e6ff82d5815e879398951105382b" name="a6596e6ff82d5815e879398951105382b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6596e6ff82d5815e879398951105382b">&#9670;&#160;</a></span>name</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::string Municipality::name</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p ><a class="el" href="class_municipality.html" title="A class for a Portuguese Municipality.">Municipality</a> name </p>
+
+</div>
+</div>
+<a id="aab4214e22c7a68220e5015d9c66cb8fa" name="aab4214e22c7a68220e5015d9c66cb8fa"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aab4214e22c7a68220e5015d9c66cb8fa">&#9670;&#160;</a></span>stations</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::vector&lt;<a class="el" href="class_station.html">Station</a>*&gt; Municipality::stations</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p >Vector of stations in the municipality </p>
+
+</div>
+</div>
 <hr/>The documentation for this class was generated from the following files:<ul>
 <li>C:/Users/Pedro/CLionProjects/DA_Proj1/Classes/<a class="el" href="_municipality_8h_source.html">Municipality.h</a></li>
-<li>C:/Users/Pedro/CLionProjects/DA_Proj1/Classes/Municipality.cpp</li>
+<li>C:/Users/Pedro/CLionProjects/DA_Proj1/Classes/<a class="el" href="_municipality_8cpp.html">Municipality.cpp</a></li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->

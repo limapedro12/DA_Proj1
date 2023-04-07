@@ -692,4 +692,3 @@ void Menu::networkReliability2() {
     << ", com uma perda de capacidade para receber comboios de " << top[i]->getMaxDiff() << '\n';
     std::cout << '\n';
 }
-

@@ -72,47 +72,479 @@ $(function() {
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#pri-attribs">Private Attributes</a> &#124;
 <a href="class_edge-members.html">List of all members</a>  </div>
   <div class="headertitle"><div class="title">Edge Class Reference</div></div>
 </div><!--header-->
 <div class="contents">
+
+<p>A class that represents a railway segment between two Stations, being an <a class="el" href="class_edge.html" title="A class that represents a railway segment between two Stations, being an Edge of the network graph.">Edge</a> of the network graph.  
+ <a href="class_edge.html#details">More...</a></p>
+
+<p><code>#include &lt;<a class="el" href="_vertex_edge_8h_source.html">VertexEdge.h</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:af4e817e7bcc3885ef2513b24be502087"><td class="memItemLeft" align="right" valign="top"><a id="af4e817e7bcc3885ef2513b24be502087" name="af4e817e7bcc3885ef2513b24be502087"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>Edge</b> (<a class="el" href="class_station.html">Station</a> *orig, <a class="el" href="class_station.html">Station</a> *dest, double w, bool isAlfa)</td></tr>
+<tr class="memitem:af4e817e7bcc3885ef2513b24be502087"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_edge.html#af4e817e7bcc3885ef2513b24be502087">Edge</a> (<a class="el" href="class_station.html">Station</a> *<a class="el" href="class_edge.html#af6cb74374fde549b5782e9915ab25810">orig</a>, <a class="el" href="class_station.html">Station</a> *<a class="el" href="class_edge.html#ae05e074c4b8345baaad6655c44f205ec">dest</a>, double w, bool <a class="el" href="class_edge.html#a4ebd4d82056365bd5e78abf282820158">isAlfa</a>)</td></tr>
 <tr class="separator:af4e817e7bcc3885ef2513b24be502087"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8a7c4897d99824156804442c9f06a0fa"><td class="memItemLeft" align="right" valign="top"><a id="a8a7c4897d99824156804442c9f06a0fa" name="a8a7c4897d99824156804442c9f06a0fa"></a>
-<a class="el" href="class_station.html">Station</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>getDest</b> () const</td></tr>
+<tr class="memitem:a8a7c4897d99824156804442c9f06a0fa"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_station.html">Station</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_edge.html#a8a7c4897d99824156804442c9f06a0fa">getDest</a> () const</td></tr>
 <tr class="separator:a8a7c4897d99824156804442c9f06a0fa"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aeeb5e8099e01faf1d059d6cd465596bd"><td class="memItemLeft" align="right" valign="top"><a id="aeeb5e8099e01faf1d059d6cd465596bd" name="aeeb5e8099e01faf1d059d6cd465596bd"></a>
-int&#160;</td><td class="memItemRight" valign="bottom"><b>getWeight</b> () const</td></tr>
+<tr class="memitem:aeeb5e8099e01faf1d059d6cd465596bd"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_edge.html#aeeb5e8099e01faf1d059d6cd465596bd">getWeight</a> () const</td></tr>
 <tr class="separator:aeeb5e8099e01faf1d059d6cd465596bd"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:afb048e1863c05f52c17bfde312967ed5"><td class="memItemLeft" align="right" valign="top"><a id="afb048e1863c05f52c17bfde312967ed5" name="afb048e1863c05f52c17bfde312967ed5"></a>
-<a class="el" href="class_station.html">Station</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>getOrig</b> () const</td></tr>
+<tr class="memitem:afb048e1863c05f52c17bfde312967ed5"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_station.html">Station</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_edge.html#afb048e1863c05f52c17bfde312967ed5">getOrig</a> () const</td></tr>
 <tr class="separator:afb048e1863c05f52c17bfde312967ed5"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a756d2d246aa5445d0f396626c7d4fd56"><td class="memItemLeft" align="right" valign="top"><a id="a756d2d246aa5445d0f396626c7d4fd56" name="a756d2d246aa5445d0f396626c7d4fd56"></a>
-<a class="el" href="class_edge.html">Edge</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>getReverse</b> () const</td></tr>
+<tr class="memitem:a756d2d246aa5445d0f396626c7d4fd56"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_edge.html">Edge</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_edge.html#a756d2d246aa5445d0f396626c7d4fd56">getReverse</a> () const</td></tr>
 <tr class="separator:a756d2d246aa5445d0f396626c7d4fd56"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7d4ea1360d5d2dc593f4daa772283e8f"><td class="memItemLeft" align="right" valign="top"><a id="a7d4ea1360d5d2dc593f4daa772283e8f" name="a7d4ea1360d5d2dc593f4daa772283e8f"></a>
-int&#160;</td><td class="memItemRight" valign="bottom"><b>getFlow</b> () const</td></tr>
+<tr class="memitem:a7d4ea1360d5d2dc593f4daa772283e8f"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_edge.html#a7d4ea1360d5d2dc593f4daa772283e8f">getFlow</a> () const</td></tr>
 <tr class="separator:a7d4ea1360d5d2dc593f4daa772283e8f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a64881280015bd83702fe3b2c6234b7e5"><td class="memItemLeft" align="right" valign="top"><a id="a64881280015bd83702fe3b2c6234b7e5" name="a64881280015bd83702fe3b2c6234b7e5"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>setReverse</b> (<a class="el" href="class_edge.html">Edge</a> *reverse)</td></tr>
+<tr class="memitem:af3e687e5337e2dc8616fbebf46c3b739"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_edge.html#af3e687e5337e2dc8616fbebf46c3b739">setWeight</a> (int <a class="el" href="class_edge.html#a4d58e1f4de38fa55549497175981ebab">weight</a>)</td></tr>
+<tr class="separator:af3e687e5337e2dc8616fbebf46c3b739"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a64881280015bd83702fe3b2c6234b7e5"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_edge.html#a64881280015bd83702fe3b2c6234b7e5">setReverse</a> (<a class="el" href="class_edge.html">Edge</a> *<a class="el" href="class_edge.html#abcadfaa8985d0d593a124d0fea39130a">reverse</a>)</td></tr>
 <tr class="separator:a64881280015bd83702fe3b2c6234b7e5"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4aafeb6e74cc45cec5e2ac1c354a67fe"><td class="memItemLeft" align="right" valign="top"><a id="a4aafeb6e74cc45cec5e2ac1c354a67fe" name="a4aafeb6e74cc45cec5e2ac1c354a67fe"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>setFlow</b> (int flow)</td></tr>
+<tr class="memitem:a4aafeb6e74cc45cec5e2ac1c354a67fe"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_edge.html#a4aafeb6e74cc45cec5e2ac1c354a67fe">setFlow</a> (int <a class="el" href="class_edge.html#a189258d91c07f4a0b76798cb7fe2b112">flow</a>)</td></tr>
 <tr class="separator:a4aafeb6e74cc45cec5e2ac1c354a67fe"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4ebd4d82056365bd5e78abf282820158"><td class="memItemLeft" align="right" valign="top"><a id="a4ebd4d82056365bd5e78abf282820158" name="a4ebd4d82056365bd5e78abf282820158"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>isAlfa</b> () const</td></tr>
+<tr class="memitem:a4ebd4d82056365bd5e78abf282820158"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_edge.html#a4ebd4d82056365bd5e78abf282820158">isAlfa</a> () const</td></tr>
 <tr class="separator:a4ebd4d82056365bd5e78abf282820158"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a85a6465242d253e49239b62a651e5c29"><td class="memItemLeft" align="right" valign="top"><a id="a85a6465242d253e49239b62a651e5c29" name="a85a6465242d253e49239b62a651e5c29"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>setAlfa</b> (bool alfa)</td></tr>
+<tr class="memitem:a85a6465242d253e49239b62a651e5c29"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_edge.html#a85a6465242d253e49239b62a651e5c29">setAlfa</a> (bool <a class="el" href="class_edge.html#ab63d3dcf7e7d0222fb3f61c58c2770d4">alfa</a>)</td></tr>
 <tr class="separator:a85a6465242d253e49239b62a651e5c29"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a01e0830a75a8b8767a72751f3b283aee"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_edge.html#a01e0830a75a8b8767a72751f3b283aee">getCost</a> () const</td></tr>
+<tr class="separator:a01e0830a75a8b8767a72751f3b283aee"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-attribs" name="pri-attribs"></a>
+Private Attributes</h2></td></tr>
+<tr class="memitem:ae05e074c4b8345baaad6655c44f205ec"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_station.html">Station</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_edge.html#ae05e074c4b8345baaad6655c44f205ec">dest</a></td></tr>
+<tr class="separator:ae05e074c4b8345baaad6655c44f205ec"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4d58e1f4de38fa55549497175981ebab"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_edge.html#a4d58e1f4de38fa55549497175981ebab">weight</a></td></tr>
+<tr class="separator:a4d58e1f4de38fa55549497175981ebab"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af6cb74374fde549b5782e9915ab25810"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_station.html">Station</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_edge.html#af6cb74374fde549b5782e9915ab25810">orig</a></td></tr>
+<tr class="separator:af6cb74374fde549b5782e9915ab25810"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abcadfaa8985d0d593a124d0fea39130a"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_edge.html">Edge</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_edge.html#abcadfaa8985d0d593a124d0fea39130a">reverse</a> = nullptr</td></tr>
+<tr class="separator:abcadfaa8985d0d593a124d0fea39130a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a189258d91c07f4a0b76798cb7fe2b112"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_edge.html#a189258d91c07f4a0b76798cb7fe2b112">flow</a></td></tr>
+<tr class="separator:a189258d91c07f4a0b76798cb7fe2b112"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab63d3dcf7e7d0222fb3f61c58c2770d4"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_edge.html#ab63d3dcf7e7d0222fb3f61c58c2770d4">alfa</a></td></tr>
+<tr class="separator:ab63d3dcf7e7d0222fb3f61c58c2770d4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p >A class that represents a railway segment between two Stations, being an <a class="el" href="class_edge.html" title="A class that represents a railway segment between two Stations, being an Edge of the network graph.">Edge</a> of the network graph. </p>
+<p >Given that we represent the railway network as a graph, the edges/segments are the graph's edges.<br  />
+An <a class="el" href="class_edge.html" title="A class that represents a railway segment between two Stations, being an Edge of the network graph.">Edge</a> is represented by its origin and destination Stations (note that the Edges are bidirectional) and its capacity in terms of the number of trains that can travel on it simultaneously (weight).<br  />
+Note: all the methods time complexity is O(1), except where specified. </p>
+</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a id="af4e817e7bcc3885ef2513b24be502087" name="af4e817e7bcc3885ef2513b24be502087"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af4e817e7bcc3885ef2513b24be502087">&#9670;&#160;</a></span>Edge()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">Edge::Edge </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_station.html">Station</a> *&#160;</td>
+          <td class="paramname"><em>orig</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="class_station.html">Station</a> *&#160;</td>
+          <td class="paramname"><em>dest</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>w</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>isAlfa</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p >Constructor for <a class="el" href="class_edge.html" title="A class that represents a railway segment between two Stations, being an Edge of the network graph.">Edge</a> </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">orig</td><td>Pointer to origin <a class="el" href="class_station.html" title="A class that represents a Station, being a node of the network graph.">Station</a> </td></tr>
+    <tr><td class="paramname">dest</td><td>Pointer to destination <a class="el" href="class_station.html" title="A class that represents a Station, being a node of the network graph.">Station</a> </td></tr>
+    <tr><td class="paramname">w</td><td>Capacity of the segment in terms of the number of trains it can handle simultaneously </td></tr>
+    <tr><td class="paramname">isAlfa</td><td>Whether the segment is STANDARD (false) or ALFA PENDULAR (true) </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<h2 class="groupheader">Member Function Documentation</h2>
+<a id="a01e0830a75a8b8767a72751f3b283aee" name="a01e0830a75a8b8767a72751f3b283aee"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a01e0830a75a8b8767a72751f3b283aee">&#9670;&#160;</a></span>getCost()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int Edge::getCost </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p >Returns the cost of the edge, 4 if it the service is Alfa Pendular, 2 if it is Standard </p><dl class="section return"><dt>Returns</dt><dd>cost of the edge </dd></dl>
+
+</div>
+</div>
+<a id="a8a7c4897d99824156804442c9f06a0fa" name="a8a7c4897d99824156804442c9f06a0fa"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8a7c4897d99824156804442c9f06a0fa">&#9670;&#160;</a></span>getDest()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_station.html">Station</a> * Edge::getDest </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p ><a class="el" href="class_edge.html" title="A class that represents a railway segment between two Stations, being an Edge of the network graph.">Edge</a>'s destination <a class="el" href="class_station.html" title="A class that represents a Station, being a node of the network graph.">Station</a> getter. </p><dl class="section return"><dt>Returns</dt><dd>Pointer to the destination <a class="el" href="class_station.html" title="A class that represents a Station, being a node of the network graph.">Station</a> </dd></dl>
+
+</div>
+</div>
+<a id="a7d4ea1360d5d2dc593f4daa772283e8f" name="a7d4ea1360d5d2dc593f4daa772283e8f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7d4ea1360d5d2dc593f4daa772283e8f">&#9670;&#160;</a></span>getFlow()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int Edge::getFlow </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p >Flow getter (used in Max Flow algorithms). </p><dl class="section return"><dt>Returns</dt><dd>Integer with the current flow in a Max Flow algorithm </dd></dl>
+
+</div>
+</div>
+<a id="afb048e1863c05f52c17bfde312967ed5" name="afb048e1863c05f52c17bfde312967ed5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afb048e1863c05f52c17bfde312967ed5">&#9670;&#160;</a></span>getOrig()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_station.html">Station</a> * Edge::getOrig </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p ><a class="el" href="class_edge.html" title="A class that represents a railway segment between two Stations, being an Edge of the network graph.">Edge</a>'s origin <a class="el" href="class_station.html" title="A class that represents a Station, being a node of the network graph.">Station</a> getter. </p><dl class="section return"><dt>Returns</dt><dd>Pointer to the origin <a class="el" href="class_station.html" title="A class that represents a Station, being a node of the network graph.">Station</a> </dd></dl>
+
+</div>
+</div>
+<a id="a756d2d246aa5445d0f396626c7d4fd56" name="a756d2d246aa5445d0f396626c7d4fd56"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a756d2d246aa5445d0f396626c7d4fd56">&#9670;&#160;</a></span>getReverse()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_edge.html">Edge</a> * Edge::getReverse </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p >Returns the reverse <a class="el" href="class_edge.html" title="A class that represents a railway segment between two Stations, being an Edge of the network graph.">Edge</a> (origin and destination Stations switched). </p><dl class="section return"><dt>Returns</dt><dd>Pointer to the reverse <a class="el" href="class_edge.html" title="A class that represents a railway segment between two Stations, being an Edge of the network graph.">Edge</a> </dd></dl>
+
+</div>
+</div>
+<a id="aeeb5e8099e01faf1d059d6cd465596bd" name="aeeb5e8099e01faf1d059d6cd465596bd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aeeb5e8099e01faf1d059d6cd465596bd">&#9670;&#160;</a></span>getWeight()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int Edge::getWeight </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p >Weight (capacity in terms of trains the <a class="el" href="class_edge.html" title="A class that represents a railway segment between two Stations, being an Edge of the network graph.">Edge</a> can handle simultaneously) getter. </p><dl class="section return"><dt>Returns</dt><dd>Integer with the weight </dd></dl>
+
+</div>
+</div>
+<a id="a4ebd4d82056365bd5e78abf282820158" name="a4ebd4d82056365bd5e78abf282820158"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4ebd4d82056365bd5e78abf282820158">&#9670;&#160;</a></span>isAlfa()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool Edge::isAlfa </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p >Type of segment getter. </p><dl class="section return"><dt>Returns</dt><dd>True if ALFA PENDULAR, false if STANDARD. </dd></dl>
+
+</div>
+</div>
+<a id="a85a6465242d253e49239b62a651e5c29" name="a85a6465242d253e49239b62a651e5c29"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a85a6465242d253e49239b62a651e5c29">&#9670;&#160;</a></span>setAlfa()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Edge::setAlfa </td>
+          <td>(</td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>alfa</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p >Type of segment setter. </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">alfa</td><td>Boolean true if ALFA PENDULAR, false if STANDARD </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a4aafeb6e74cc45cec5e2ac1c354a67fe" name="a4aafeb6e74cc45cec5e2ac1c354a67fe"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4aafeb6e74cc45cec5e2ac1c354a67fe">&#9670;&#160;</a></span>setFlow()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Edge::setFlow </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>flow</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p >Flow (used in Max Flow algorithms) setter. </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">flow</td><td>Integer with the current flow </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a64881280015bd83702fe3b2c6234b7e5" name="a64881280015bd83702fe3b2c6234b7e5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a64881280015bd83702fe3b2c6234b7e5">&#9670;&#160;</a></span>setReverse()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Edge::setReverse </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_edge.html">Edge</a> *&#160;</td>
+          <td class="paramname"><em>reverse</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p >Reverse <a class="el" href="class_edge.html" title="A class that represents a railway segment between two Stations, being an Edge of the network graph.">Edge</a> (origin an destination switched) setter. </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">reverse</td><td>Pointer to the reverse <a class="el" href="class_edge.html" title="A class that represents a railway segment between two Stations, being an Edge of the network graph.">Edge</a> </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="af3e687e5337e2dc8616fbebf46c3b739" name="af3e687e5337e2dc8616fbebf46c3b739"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af3e687e5337e2dc8616fbebf46c3b739">&#9670;&#160;</a></span>setWeight()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Edge::setWeight </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>weight</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p ><a class="el" href="class_edge.html" title="A class that represents a railway segment between two Stations, being an Edge of the network graph.">Edge</a> weight setter. </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">weight</td><td>Integer with the weight </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<h2 class="groupheader">Member Data Documentation</h2>
+<a id="ab63d3dcf7e7d0222fb3f61c58c2770d4" name="ab63d3dcf7e7d0222fb3f61c58c2770d4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab63d3dcf7e7d0222fb3f61c58c2770d4">&#9670;&#160;</a></span>alfa</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool Edge::alfa</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p >Boolean that indicates if the type of service of the edge, it is true if it is an Alfa Pendular service, false if it is a Standard service </p>
+
+</div>
+</div>
+<a id="ae05e074c4b8345baaad6655c44f205ec" name="ae05e074c4b8345baaad6655c44f205ec"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae05e074c4b8345baaad6655c44f205ec">&#9670;&#160;</a></span>dest</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_station.html">Station</a>* Edge::dest</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p >Pointer to the edge's destination </p>
+
+</div>
+</div>
+<a id="a189258d91c07f4a0b76798cb7fe2b112" name="a189258d91c07f4a0b76798cb7fe2b112"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a189258d91c07f4a0b76798cb7fe2b112">&#9670;&#160;</a></span>flow</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int Edge::flow</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p >Auxiliary variable used in various algorithms that stores the current flow of the edge </p>
+
+</div>
+</div>
+<a id="af6cb74374fde549b5782e9915ab25810" name="af6cb74374fde549b5782e9915ab25810"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af6cb74374fde549b5782e9915ab25810">&#9670;&#160;</a></span>orig</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_station.html">Station</a>* Edge::orig</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p >Pointer to the edge's origin </p>
+
+</div>
+</div>
+<a id="abcadfaa8985d0d593a124d0fea39130a" name="abcadfaa8985d0d593a124d0fea39130a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abcadfaa8985d0d593a124d0fea39130a">&#9670;&#160;</a></span>reverse</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_edge.html">Edge</a>* Edge::reverse = nullptr</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p >Pointer to the edge's reverse edge, by default it is nullptr </p>
+
+</div>
+</div>
+<a id="a4d58e1f4de38fa55549497175981ebab" name="a4d58e1f4de38fa55549497175981ebab"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4d58e1f4de38fa55549497175981ebab">&#9670;&#160;</a></span>weight</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int Edge::weight</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p >Integer with the edge's weight </p>
+
+</div>
+</div>
 <hr/>The documentation for this class was generated from the following files:<ul>
 <li>C:/Users/Pedro/CLionProjects/DA_Proj1/Classes/<a class="el" href="_vertex_edge_8h_source.html">VertexEdge.h</a></li>
-<li>C:/Users/Pedro/CLionProjects/DA_Proj1/Classes/VertexEdge.cpp</li>
+<li>C:/Users/Pedro/CLionProjects/DA_Proj1/Classes/<a class="el" href="_vertex_edge_8cpp.html">VertexEdge.cpp</a></li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->
