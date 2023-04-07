@@ -430,16 +430,6 @@ std::list<std::pair<Station*, Station*>> Graph::mostTrainsPair() {
     return maxflowstations;
 }
 
-
-template<typename K, typename V>
-std::map<K, V> sortMapByValueDescending(const std::map<K, V>& unsorted_map) {
-    std::vector<std::pair<K, V>> pairs(unsorted_map.begin(), unsorted_map.end());
-    std::sort(pairs.begin(), pairs.end(), [](const std::pair<K, V>& a, const std::pair<K, V>& b) {
-        return a.second > b.second;
-    });
-    return std::map<K, V>(pairs.begin(), pairs.end());
-}
-
 void Graph::topK(std::map<std::string, int>& districtFlow, std::map<std::string, int>& municipalityFlow) {
 
     for (Station* station : vertexSet) {
