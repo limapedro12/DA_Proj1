@@ -1,0 +1,14 @@
+Station_A,Station_B,Capacity,Service
+Faro,Loule,10,ALFA PENDULAR
+Faro,Albufeira - Ferreiras,8,STANDARD
+Albufeira - Ferreiras,Loule,4,ALFA PENDULAR
+Faro,Boliqueime,4,STANDARD
+Boliqueime,Loule,4,STANDARD
+Tunes,Albufeira - Ferreiras,6,ALFA PENDULAR
+Faro,Viseu,10,ALFA PENDULAR
+Viseu,Regua,8,STANDARD
+Regua,Pinhao,6,STANDARD
+Pinhao,Sao Mamede do Tua,6,STANDARD
+Viseu,Vila Real,6,ALFA PENDULAR
+Vila Real,Sao Mamede do Tua,6,ALFA PENDULAR
+Sao Mamede do Tua,Pocinho,6,STANDARD

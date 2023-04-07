@@ -38,6 +38,10 @@ public:
 //    bool operator<(const Station &rhs) const;
     bool removeEdge(Station* dest, bool alfa);
     void print() const;
+    int getMaxBefore() const;
+    void setMaxBefore(int n);
+    int getMaxDiff() const;
+    void setMaxDiff(int n);
 private:
     std::string name;
     District* district;
@@ -49,6 +53,9 @@ private:
     bool visited = false;
 
     double cost;
+
+    int maxTrainsBefore;
+    int maxTrainsDiff;
 };
 
 class Edge {
