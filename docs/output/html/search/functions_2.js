@@ -2,7 +2,7 @@ var searchData=
 [
   ['clear_0',['clear',['../_menu_8cpp.html#ac8bb3912a3ce86b15842e79d0b421204',1,'Menu.cpp']]],
   ['cmp_1',['cmp',['../_graph_8cpp.html#a4c01d2196db70dd128fb59ea8c68448a',1,'Graph.cpp']]],
-  ['cost_2',['cost',['../class_graph.html#a07b983e5e54a643cfb680673a51982b2',1,'Graph']]],
+  ['cost_2',['cost',['../class_graph.html#a59f3e9b17ff4e2993a622666ccad8a2c',1,'Graph']]],
   ['costbfs_3',['costBFS',['../class_graph.html#a53f59f1ad52b5ef4d39cca44e7d25d0c',1,'Graph']]],
   ['costoptimization_4',['costOptimization',['../class_menu.html#a75db7b3c826223573347b207774bddc9',1,'Menu']]],
   ['costoptimization1_5',['costOptimization1',['../class_menu.html#a5374a35cae7ed2c6991a6692328f215a',1,'Menu']]],

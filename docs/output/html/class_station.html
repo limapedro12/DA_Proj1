@@ -190,7 +190,7 @@ Note: all the methods time complexity is O(1), except where specified. </p>
         </tr>
       </table>
 </div><div class="memdoc">
-<p >Constructor. </p><dl class="params"><dt>Parameters</dt><dd>
+<p >Constructor for <a class="el" href="class_station.html" title="A class that represents a Station, being a node of the network graph.">Station</a> </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">name</td><td>String with the <a class="el" href="class_station.html" title="A class that represents a Station, being a node of the network graph.">Station</a>'s name </td></tr>
     <tr><td class="paramname">district</td><td>Pointer to the <a class="el" href="class_station.html" title="A class that represents a Station, being a node of the network graph.">Station</a>'s <a class="el" href="class_district.html" title="A class for a Portuguese district.">District</a> </td></tr>
@@ -235,7 +235,8 @@ Note: all the methods time complexity is O(1), except where specified. </p>
         </tr>
       </table>
 </div><div class="memdoc">
-<p >Adds a railway segment (an edge of the network graph) adjacent to the <a class="el" href="class_station.html" title="A class that represents a Station, being a node of the network graph.">Station</a>. </p><dl class="params"><dt>Parameters</dt><dd>
+<p >Adds a railway segment (an edge of the network graph) adjacent to the <a class="el" href="class_station.html" title="A class that represents a Station, being a node of the network graph.">Station</a>.</p>
+<dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">dest</td><td>Pointer to the destination <a class="el" href="class_station.html" title="A class that represents a Station, being a node of the network graph.">Station</a> of the <a class="el" href="class_edge.html" title="A class that represents a railway segment between two Stations, being an Edge of the network graph.">Edge</a> to add </td></tr>
     <tr><td class="paramname">w</td><td><a class="el" href="class_edge.html" title="A class that represents a railway segment between two Stations, being an Edge of the network graph.">Edge</a>'s capacity in terms of the number of trains it cand handle simultaneously </td></tr>
@@ -261,7 +262,8 @@ Note: all the methods time complexity is O(1), except where specified. </p>
         </tr>
       </table>
 </div><div class="memdoc">
-<p >Adjacent railway segments getter. </p><dl class="section return"><dt>Returns</dt><dd>A vector of <a class="el" href="class_edge.html" title="A class that represents a railway segment between two Stations, being an Edge of the network graph.">Edge</a> pointers (graph element that represents the railway segments). </dd></dl>
+<p >Returns the vector of edges that the station is connected to</p>
+<dl class="section return"><dt>Returns</dt><dd>vector of edges </dd></dl>
 
 </div>
 </div>
@@ -279,7 +281,7 @@ Note: all the methods time complexity is O(1), except where specified. </p>
         </tr>
       </table>
 </div><div class="memdoc">
-<p ><a class="el" href="class_station.html" title="A class that represents a Station, being a node of the network graph.">Station</a>'s cost (attribute used when calculating Cost Optimization information) getter. </p><dl class="section return"><dt>Returns</dt><dd>A double number that is the current cost. </dd></dl>
+<p >Method only used in the Dijkstra algorithm. It returns the current cost of the station </p><dl class="section return"><dt>Returns</dt><dd>station's cost </dd></dl>
 
 </div>
 </div>
@@ -387,7 +389,8 @@ Note: all the methods time complexity is O(1), except where specified. </p>
         </tr>
       </table>
 </div><div class="memdoc">
-<p ><a class="el" href="class_station.html" title="A class that represents a Station, being a node of the network graph.">Station</a> visited (used in graph search) getter. </p><dl class="section return"><dt>Returns</dt><dd>Whether the <a class="el" href="class_station.html" title="A class that represents a Station, being a node of the network graph.">Station</a> has been visited in current graph search. </dd></dl>
+<p >Returns true if the station has been visited, false otherwise</p>
+<dl class="section return"><dt>Returns</dt><dd>true if the station has been visited, false otherwise </dd></dl>
 
 </div>
 </div>
@@ -416,8 +419,9 @@ Note: all the methods time complexity is O(1), except where specified. </p>
         </tr>
       </table>
 </div><div class="memdoc">
-<p >Tries to remove a railway segment (an edge of the network graph) adjacent to the station. <br  />
- Time Complexity: O(|E|). </p><dl class="params"><dt>Parameters</dt><dd>
+<p >Tries to remove a railway segment (an edge of the network graph) adjacent to the station.</p>
+<p >Time Complexity: O(|E|) where |E| is the number of edges of the station.</p>
+<dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">dest</td><td>Pointer to the destination <a class="el" href="class_station.html" title="A class that represents a Station, being a node of the network graph.">Station</a> of the <a class="el" href="class_edge.html" title="A class that represents a railway segment between two Stations, being an Edge of the network graph.">Edge</a> to remove </td></tr>
     <tr><td class="paramname">alfa</td><td>Whether the segment if STANDARD (false) or ALFA PENDULAR (true). </td></tr>
@@ -443,9 +447,9 @@ Note: all the methods time complexity is O(1), except where specified. </p>
         </tr>
       </table>
 </div><div class="memdoc">
-<p ><a class="el" href="class_station.html" title="A class that represents a Station, being a node of the network graph.">Station</a>'s cost (attribute used when calculating Cost Optimization information) setter. </p><dl class="params"><dt>Parameters</dt><dd>
+<p >Method only used in the Dijkstra algorithm It sets the current cost of the station </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">cost</td><td>Double with the cost to set </td></tr>
+    <tr><td class="paramname">cost</td><td>station's cost </td></tr>
   </table>
   </dd>
 </dl>
@@ -587,9 +591,10 @@ Note: all the methods time complexity is O(1), except where specified. </p>
         </tr>
       </table>
 </div><div class="memdoc">
-<p ><a class="el" href="class_station.html" title="A class that represents a Station, being a node of the network graph.">Station</a> visited (used in graph search) setter. </p><dl class="params"><dt>Parameters</dt><dd>
+<p >Sets the visited status of the station</p>
+<dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">visited</td><td>Boolean indicating whether the station has been visited in current search. </td></tr>
+    <tr><td class="paramname">visited</td><td></td></tr>
   </table>
   </dd>
 </dl>
@@ -616,6 +621,7 @@ Note: all the methods time complexity is O(1), except where specified. </p>
   </tr>
 </table>
 </div><div class="memdoc">
+<p >Vector of edges that the station is connected to </p>
 
 </div>
 </div>
@@ -638,6 +644,7 @@ Note: all the methods time complexity is O(1), except where specified. </p>
   </tr>
 </table>
 </div><div class="memdoc">
+<p >Auxiliary variable only used in the Dijkstra algorithm, which indicates the current cost of the station </p>
 
 </div>
 </div>
@@ -660,6 +667,7 @@ Note: all the methods time complexity is O(1), except where specified. </p>
   </tr>
 </table>
 </div><div class="memdoc">
+<p >Pointer to the station's district </p>
 
 </div>
 </div>
@@ -682,6 +690,7 @@ Note: all the methods time complexity is O(1), except where specified. </p>
   </tr>
 </table>
 </div><div class="memdoc">
+<p >String with the station's line </p>
 
 </div>
 </div>
@@ -704,6 +713,7 @@ Note: all the methods time complexity is O(1), except where specified. </p>
   </tr>
 </table>
 </div><div class="memdoc">
+<p >Pointer to the station's municipality </p>
 
 </div>
 </div>
@@ -726,6 +736,7 @@ Note: all the methods time complexity is O(1), except where specified. </p>
   </tr>
 </table>
 </div><div class="memdoc">
+<p >String with the station's name </p>
 
 </div>
 </div>
@@ -748,6 +759,7 @@ Note: all the methods time complexity is O(1), except where specified. </p>
   </tr>
 </table>
 </div><div class="memdoc">
+<p >String with the station's township </p>
 
 </div>
 </div>
@@ -770,6 +782,7 @@ Note: all the methods time complexity is O(1), except where specified. </p>
   </tr>
 </table>
 </div><div class="memdoc">
+<p >Boolean that indicates if the station has been <a class="el" href="class_station.html#a5c1636c3bc53579499c97bf41e02a3c5">visited(used in various algorithms)</a> </p>
 
 </div>
 </div>

@@ -116,8 +116,6 @@ Private Attributes</h2></td></tr>
 <tr class="separator:ae05e074c4b8345baaad6655c44f205ec"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4d58e1f4de38fa55549497175981ebab"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_edge.html#a4d58e1f4de38fa55549497175981ebab">weight</a></td></tr>
 <tr class="separator:a4d58e1f4de38fa55549497175981ebab"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3af6d278c4ddcb2589e1aa66e52f4efb"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_edge.html#a3af6d278c4ddcb2589e1aa66e52f4efb">selected</a> = false</td></tr>
-<tr class="separator:a3af6d278c4ddcb2589e1aa66e52f4efb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af6cb74374fde549b5782e9915ab25810"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_station.html">Station</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_edge.html#af6cb74374fde549b5782e9915ab25810">orig</a></td></tr>
 <tr class="separator:af6cb74374fde549b5782e9915ab25810"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:abcadfaa8985d0d593a124d0fea39130a"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_edge.html">Edge</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_edge.html#abcadfaa8985d0d593a124d0fea39130a">reverse</a> = nullptr</td></tr>
@@ -170,7 +168,7 @@ Note: all the methods time complexity is O(1), except where specified. </p>
         </tr>
       </table>
 </div><div class="memdoc">
-<dl class="params"><dt>Parameters</dt><dd>
+<p >Constructor for <a class="el" href="class_edge.html" title="A class that represents a railway segment between two Stations, being an Edge of the network graph.">Edge</a> </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">orig</td><td>Pointer to origin <a class="el" href="class_station.html" title="A class that represents a Station, being a node of the network graph.">Station</a> </td></tr>
     <tr><td class="paramname">dest</td><td>Pointer to destination <a class="el" href="class_station.html" title="A class that represents a Station, being a node of the network graph.">Station</a> </td></tr>
@@ -197,7 +195,7 @@ Note: all the methods time complexity is O(1), except where specified. </p>
         </tr>
       </table>
 </div><div class="memdoc">
-<p >Cost (used in network operation cost optimization calculations) getter. </p><dl class="section return"><dt>Returns</dt><dd>Integer with the <a class="el" href="class_edge.html" title="A class that represents a railway segment between two Stations, being an Edge of the network graph.">Edge</a>'s cost </dd></dl>
+<p >Returns the cost of the edge, 4 if it the service is Alfa Pendular, 2 if it is Standard </p><dl class="section return"><dt>Returns</dt><dd>cost of the edge </dd></dl>
 
 </div>
 </div>
@@ -425,6 +423,7 @@ Note: all the methods time complexity is O(1), except where specified. </p>
   </tr>
 </table>
 </div><div class="memdoc">
+<p >Boolean that indicates if the type of service of the edge, it is true if it is an Alfa Pendular service, false if it is a Standard service </p>
 
 </div>
 </div>
@@ -447,6 +446,7 @@ Note: all the methods time complexity is O(1), except where specified. </p>
   </tr>
 </table>
 </div><div class="memdoc">
+<p >Pointer to the edge's destination </p>
 
 </div>
 </div>
@@ -469,6 +469,7 @@ Note: all the methods time complexity is O(1), except where specified. </p>
   </tr>
 </table>
 </div><div class="memdoc">
+<p >Auxiliary variable used in various algorithms that stores the current flow of the edge </p>
 
 </div>
 </div>
@@ -491,6 +492,7 @@ Note: all the methods time complexity is O(1), except where specified. </p>
   </tr>
 </table>
 </div><div class="memdoc">
+<p >Pointer to the edge's origin </p>
 
 </div>
 </div>
@@ -513,28 +515,7 @@ Note: all the methods time complexity is O(1), except where specified. </p>
   </tr>
 </table>
 </div><div class="memdoc">
-
-</div>
-</div>
-<a id="a3af6d278c4ddcb2589e1aa66e52f4efb" name="a3af6d278c4ddcb2589e1aa66e52f4efb"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a3af6d278c4ddcb2589e1aa66e52f4efb">&#9670;&#160;</a></span>selected</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">bool Edge::selected = false</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">private</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
+<p >Pointer to the edge's reverse edge, by default it is nullptr </p>
 
 </div>
 </div>
@@ -557,6 +538,7 @@ Note: all the methods time complexity is O(1), except where specified. </p>
   </tr>
 </table>
 </div><div class="memdoc">
+<p >Integer with the edge's weight </p>
 
 </div>
 </div>
