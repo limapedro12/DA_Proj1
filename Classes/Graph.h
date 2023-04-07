@@ -53,6 +53,7 @@ public:
     Graph edmondsKarpMinCost(Station* source, Station* target, double costLimit);
     std::pair<int, double> maxTrainsMinCost(Station* source, Station* target, double costLimit);
     std::list<std::pair<Station*, Station*>> mostTrainsPair();
+    void topK(std::map<std::string, int> &districtFlow, std::map<std::string, int> &municipalityFlow);
 
 private:
     std::vector<Station *> vertexSet;    // vertex set

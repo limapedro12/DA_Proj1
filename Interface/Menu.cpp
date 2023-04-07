@@ -235,11 +235,13 @@ void Menu::basicMetrics2() {
 }
 
 void Menu::basicMetrics3() {
+    int k = -1;
+    extern std::map<std::string, int> districtFlow;
+    extern std::map<std::string, int> municipalityFlow;
     while (true) {
         std::cout << "Qual o tamanho k do top (top-k)? (Prima ENTER sem escrever nada para voltar atrás)\n";
 
         std::string input;
-        int k = -1;
 
         std::getline(std::cin, input);
 
@@ -253,9 +255,26 @@ void Menu::basicMetrics3() {
         std::cout << "Número inválido. Por favor introduza um inteiro positivo.\n\n";
     }
 
-    /*
-     * chamar método grafo
-     */
+    // Call topK() to update the values of districtFlow and municipalityFlow
+    graph.topK(districtFlow, municipalityFlow);
+
+    // Sort the maps in descending order by value
+    auto compare = [](const auto& a, const auto& b) { return a.second > b.second; };
+    std::vector<std::pair<std::string, int>> districtPairs(districtFlow.begin(), districtFlow.end());
+    std::sort(districtPairs.begin(), districtPairs.end(), compare);
+    std::vector<std::pair<std::string, int>> municipalityPairs(municipalityFlow.begin(), municipalityFlow.end());
+    std::sort(municipalityPairs.begin(), municipalityPairs.end(), compare);
+
+    // Print the top k districts and municipalities
+    std::cout << "Top " << k << " Districts:\n";
+    for (int i = 0; i < k && i < districtPairs.size(); i++) {
+        std::cout << districtPairs[i].first << " - " << districtPairs[i].second << std::endl;
+    }
+
+    std::cout << "Top " << k << " Municipalities:\n";
+    for (int i = 0; i < k && i < municipalityPairs.size(); i++) {
+        std::cout << municipalityPairs[i].first << " - " << municipalityPairs[i].second << std::endl;
+    }
 }
 
 void Menu::basicMetrics4() {

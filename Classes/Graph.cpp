@@ -423,30 +423,27 @@ std::list<std::pair<Station*, Station*>> Graph::mostTrainsPair() {
 }
 
 
-template <typename K, typename V>
-bool cmp(const pair<K, V>& a, const pair<K, V>& b) {
-    return a.second > b.second;
+template<typename K, typename V>
+std::map<K, V> sortMapByValueDescending(const std::map<K, V>& unsorted_map) {
+    std::vector<std::pair<K, V>> pairs(unsorted_map.begin(), unsorted_map.end());
+    std::sort(pairs.begin(), pairs.end(), [](const std::pair<K, V>& a, const std::pair<K, V>& b) {
+        return a.second > b.second;
+    });
+    return std::map<K, V>(pairs.begin(), pairs.end());
 }
 
-void sortMapsByDescendingValue(std::map<District*, int>& districtflow, std::map<Municipality*, int>& municipalityflow) {
-    // Sort districtflow by descending order of values
-    vector<pair<District*, int>> districtVec(districtflow.begin(), districtflow.end());
-    sort(districtVec.begin(), districtVec.end(), cmp<District*, int>);
+void Graph::topK(std::map<std::string, int>& districtFlow, std::map<std::string, int>& municipalityFlow) {
 
-    // Sort municipalityflow by descending order of values
-    vector<pair<Municipality*, int>> municipalityVec(municipalityflow.begin(), municipalityflow.end());
-    sort(municipalityVec.begin(), municipalityVec.end(), cmp<Municipality*, int>);
+    for (Station* station : vertexSet) {
 
-    // Clear original maps
-    districtflow.clear();
-    municipalityflow.clear();
+        int weight = 0;
+        for (Edge* edge : station->getAdj()) {
+            weight += edge->getWeight();
+        }
 
-    // Re-populate maps with sorted values
-    for (const auto& [key, value] : districtVec) {
-        districtflow[key] = value;
-    }
-
-    for (const auto& [key, value] : municipalityVec) {
-        municipalityflow[key] = value;
+        std::string districtName = station->getDistrict()->getName();
+        std::string municipalityName = station->getMunicipality()->getName();
+        districtFlow[districtName] += weight;
+        municipalityFlow[municipalityName] += weight;
     }
 }
