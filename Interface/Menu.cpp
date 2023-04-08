@@ -225,7 +225,6 @@ void Menu::basicMetrics1() {
     else
         std::cout << "Não existe caminho entre " << source->getName() << " e " << dest->getName() << "\n\n";
 
-    //int i = 1;
     wait();
     clear();
 }
@@ -280,11 +279,13 @@ void Menu::basicMetrics3() {
     for (int i = 0; i < k && i < districtPairs.size(); i++) {
         std::cout << districtPairs[i].first << " - " << districtPairs[i].second << std::endl;
     }
+    std::cout << '\n';
 
     std::cout << "Top " << k << " Municipalities:\n";
     for (int i = 0; i < k && i < municipalityPairs.size(); i++) {
         std::cout << municipalityPairs[i].first << " - " << municipalityPairs[i].second << std::endl;
     }
+    std::cout << '\n';
 }
 
 void Menu::basicMetrics4() {
@@ -301,10 +302,6 @@ void Menu::basicMetrics4() {
         if (s != nullptr) break;
         std::cout << "\nEstação não encontrada. Por favor tente novamente.\n\n";
     }
-
-    /*
-     * chamar método grafo
-     */
 
     clear();
     int m = graph.maxTrainsAtStation(s);
@@ -544,13 +541,8 @@ void Menu::networkReliability1() {
                 }
                 std::cout << "\nOpção não reconhecida. Por favor tente novamente.\n\n";
             }
-            //a->print();
-            //b->print();
-            if (reduced.removeEdge(a, b, alfa)) {
-                //a->print();
-                //b->print();
-                break;
-            }
+
+            if (reduced.removeEdge(a, b, alfa)) break;
             std::cout << "\nSegmento não encontrado. Por favor tente novamente.\n\n";
         }
         std::cout << "Deseja remover mais segmentos? (s/n)\n\n";
@@ -596,7 +588,7 @@ void Menu::networkReliability2() {
     readStations(stationsFile, reduced);
     readNetwork(networkFile, reduced);
 
-    std::cout << "A preparar...\n\n";
+    std::cout << "\nA preparar...\n\n";
 
     for (Station* s : reduced.getVertexSet()) s->setMaxBefore(reduced.maxTrainsAtStation(s));
 
@@ -649,13 +641,8 @@ void Menu::networkReliability2() {
                 }
                 std::cout << "\nOpção não reconhecida. Por favor tente novamente.\n\n";
             }
-            //a->print();
-            //b->print();
-            if (reduced.removeEdge(a, b, alfa)) {
-                //a->print();
-                //b->print();
-                break;
-            }
+            if (reduced.removeEdge(a, b, alfa)) break;
+
             std::cout << "\nSegmento não encontrado. Por favor tente novamente.\n\n";
         }
         std::cout << "Deseja remover mais segmentos? (s/n)\n\n";
@@ -672,7 +659,7 @@ void Menu::networkReliability2() {
 
     std::vector<Station*> top;
 
-    std::cout << "A calcular...\n\n";
+    std::cout << "\nA calcular...\n\n";
 
     for (Station* s : reduced.getVertexSet()) {
         int after = reduced.maxTrainsAtStation(s);

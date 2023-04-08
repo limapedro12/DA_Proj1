@@ -20,7 +20,13 @@ public:
      */
     void mainMenu();
 private:
+    /**
+     * Graph that models the railway network
+     */
     Graph graph;
+    /**
+     * Whether a railroad network has already been read and the graph populated.
+     */
     bool dataReady = false;
 
     /**
@@ -88,7 +94,13 @@ private:
      */
     void networkReliability2();
 
+    /**
+     * To keep track of the file where the stations were read from
+     */
     std::string stationsFile;
+    /**
+     * To keep track of the file where the segments were read from
+     */
     std::string networkFile;
 };
 

@@ -15,7 +15,13 @@
 
 #include "VertexEdge.h"
 
-struct minCostReturn;
+/**
+ * @brief Used to compare two Station pointers in terms of cost in Dijkstra's algorithm. Combining it with a set makes
+ * the set behave the same way as a MutablePriorityQueue.
+ */
+struct compCost{
+    bool operator()(const Station *a, const Station *b) const;
+};
 
 /**
  * @brief A graph class for a railway network.
@@ -239,7 +245,7 @@ public:
      * stations in that order to calculate their max flow using a max flow algorithm. It updates the maximum flow and
      * the list of stations with the highest maximum flow accordingly.
      *
-     * Time Complexity: O(V^3 * log(V)), where V is the number of vertices (or stations) in the graph.
+     * Time Complexity: O(V^3 * E^2), where V is the number of vertices (or stations) in the graph.
      *
      * @return
      */

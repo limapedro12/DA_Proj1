@@ -86,16 +86,6 @@ void Station::setCost(double cost) {
     Station::cost = cost;
 }
 
-void Station::print() const {
-    std::cout << name << std::endl;
-    for (Edge* e : adj) {
-        std::cout << e->getDest()->name << ',';
-        if (e->isAlfa()) std::cout << "ALFA PENDULAR\n";
-        else std::cout << "STANDARD\n";
-    }
-    std::cout << std::endl;
-}
-
 int Station::getMaxBefore() const {
     return maxTrainsBefore;
 }

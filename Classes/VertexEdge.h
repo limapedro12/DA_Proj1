@@ -138,8 +138,6 @@ public:
      */
     bool removeEdge(Station* dest, bool alfa);
 
-    void print() const;
-
     /**
      * @return maximum number of simultaneous arrivals before removing segments
      */
@@ -198,7 +196,13 @@ private:
      */
     double cost;
 
+    /**
+     * Maximum number of simultaneously incoming trains before segment removal
+     */
     int maxTrainsBefore;
+    /**
+     * Difference between number of simultaneously incoming trains before and after segment removal
+     */
     int maxTrainsDiff;
 };
 

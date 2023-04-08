@@ -2,6 +2,8 @@
 #include <list>
 #include <map>
 
+using namespace std;
+
 Station* Graph::findVertex(const std::string& name) const {
     for (auto v : vertexSet)
         if (v->getName() == name)
@@ -45,8 +47,6 @@ bool Graph::addBidirectionalEdge(Station* sourc, Station* dest, double w, bool a
 std::vector<Station*> Graph::getVertexSet() const {
     return vertexSet;
 }
-
-using namespace std;
 
 vector<Edge*> Graph::path(Station* source, Station* dest) const {
     std::vector<Edge*> res;
@@ -214,11 +214,9 @@ int Graph::cost(Station* source, Station* target, bool print){
     return cost;
 }
 
-struct compCost{
-    bool operator()(const Station *a, const Station *b) const {
-        return a->getCost() < b->getCost() || (a->getCost() == b->getCost() && a->getName() < b->getName());
-    }
-};
+bool compCost::operator()(const Station *a, const Station *b) const {
+    return a->getCost() < b->getCost() || (a->getCost() == b->getCost() && a->getName() < b->getName());
+}
 
 vector<Edge*> Graph::pathDijkstra(Station* source, Station* dest) const {
     std::vector<Edge*> res;

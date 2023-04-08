@@ -120,6 +120,8 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a9f1ca8a7c2e44e4e220d7596fd6f0e3b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7096c2e6aef509ac6724ac835ba90c0b"><td class="memItemLeft" align="right" valign="top">std::list&lt; std::pair&lt; <a class="el" href="class_station.html">Station</a> *, <a class="el" href="class_station.html">Station</a> * &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_graph.html#a7096c2e6aef509ac6724ac835ba90c0b">mostTrainsPair</a> ()</td></tr>
 <tr class="separator:a7096c2e6aef509ac6724ac835ba90c0b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aff1944d9a2793ab492547342fc6d2506"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_graph.html#aff1944d9a2793ab492547342fc6d2506">topK</a> (std::map&lt; std::string, int &gt; &amp;<a class="el" href="read__data_8cpp.html#a80c4f76ccd4ac09686aa8afbd881e0d4">districtFlow</a>, std::map&lt; std::string, int &gt; &amp;<a class="el" href="read__data_8cpp.html#a20a85bda8e6d19b81e688a1da6d9bf54">municipalityFlow</a>)</td></tr>
+<tr class="separator:aff1944d9a2793ab492547342fc6d2506"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad371a5688f996b1948e847f75e73e477"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_graph.html#ad371a5688f996b1948e847f75e73e477">printFlow</a> ()</td></tr>
 <tr class="separator:ad371a5688f996b1948e847f75e73e477"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
@@ -681,6 +683,9 @@ Private Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p >The function returns a list of pairs of stations with the highest maximum flow between them. It calculates the weight sum of each station's adjacent edges, sorts them in descending order, and iterates over the pairs of stations in that order to calculate their max flow using a max flow algorithm. It updates the maximum flow and the list of stations with the highest maximum flow accordingly.</p>
+<p >Time Complexity: O(V^3 * E^2), where V is the number of vertices (or stations) in the graph.</p>
+<dl class="section return"><dt>Returns</dt><dd></dd></dl>
 
 </div>
 </div>
@@ -821,6 +826,43 @@ Private Attributes</h2></td></tr>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>Bool if removal is successful, false otherwise </dd></dl>
+
+</div>
+</div>
+<a id="aff1944d9a2793ab492547342fc6d2506" name="aff1944d9a2793ab492547342fc6d2506"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aff1944d9a2793ab492547342fc6d2506">&#9670;&#160;</a></span>topK()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Graph::topK </td>
+          <td>(</td>
+          <td class="paramtype">std::map&lt; std::string, int &gt; &amp;&#160;</td>
+          <td class="paramname"><em>districtFlow</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::map&lt; std::string, int &gt; &amp;&#160;</td>
+          <td class="paramname"><em>municipalityFlow</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p >The function calculates the flow of each district and municipality in a graph. It iterates over each vertex, calculates the weight of its adjacent edges, and updates the flow of the corresponding district and municipality in two maps. The time complexity of the function is O(V+E), where V is the number of vertices and E is the number of edges in the graph.</p>
+<p >Time Complexity: O(V+E), where V is the number of vertices (or stations) in the graph, and E is the number of edges in the graph.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">districtFlow</td><td></td></tr>
+    <tr><td class="paramname">municipalityFlow</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
